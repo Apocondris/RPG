@@ -1,8 +1,8 @@
 # RPG
 
 1. Osoby tworzace projekt:
-Marek Mysliwiec
-Hubert Radwanski
+Marek Mysliwiec,
+Hubert Radwanski,
 Filip Stuglik
 
 2. Tematyka projektu:
