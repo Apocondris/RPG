@@ -6,7 +6,7 @@ Hubert Radwanski,
 Filip Stuglik
 
 2. Tematyka projektu:
-Projekt to bedzie gra RPG. Fabula bedzie osadzona ...
+Projekt to bedzie gra RPG.
 
 3. Kompilacja
 Do kompilacji nie sa potrzebne zadne dodatkowe biblioteki.
