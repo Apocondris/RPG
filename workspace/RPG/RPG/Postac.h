@@ -15,6 +15,11 @@ public:
 	Postac();
 	Postac(string);
 	~Postac();
+
+protected:
+	int zdrowie;
+	int punktyDoWydania;
+	//TODO statystyki
 };
 
 #endif

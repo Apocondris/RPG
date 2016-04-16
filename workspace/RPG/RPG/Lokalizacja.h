@@ -4,15 +4,20 @@
 #define LOKALIZACJA_H
 
 #include "Postac.h"
+#include "Gra.h"
 
 static class Lokalizacja
 {
 
 public:
-	Postac postac;
+	Postac* postac;
+	string nazwa;
 
 	Lokalizacja();
+	Lokalizacja(Postac*);
 	virtual ~Lokalizacja();
+
+	virtual void start();
 };
 
 #endif // LOKALIZACJA_H

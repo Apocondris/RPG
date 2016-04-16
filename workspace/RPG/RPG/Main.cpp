@@ -9,7 +9,7 @@ int main()
 	Gra gra;
 	gra.ustawKonsole();
 	gra.start();
-
-	cin.get();
+	cout << endl << endl << "Koniec programu" << endl;
+	system("pause");
 	return 0;
 }

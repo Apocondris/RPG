@@ -144,13 +144,19 @@
   <ItemGroup>
     <ClCompile Include="Gra.cpp" />
     <ClCompile Include="Lokalizacja.cpp" />
+    <ClCompile Include="Lucznik.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Postac.cpp" />
+    <ClCompile Include="Wioska.cpp" />
+    <ClCompile Include="Wojownik.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Gra.h" />
     <ClInclude Include="Lokalizacja.h" />
+    <ClInclude Include="Lucznik.h" />
     <ClInclude Include="Postac.h" />
+    <ClInclude Include="Wioska.h" />
+    <ClInclude Include="Wojownik.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

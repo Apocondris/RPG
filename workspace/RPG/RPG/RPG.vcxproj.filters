@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Postac">
+      <UniqueIdentifier>{7029651b-9385-4255-9e0b-443703caee0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Postac">
+      <UniqueIdentifier>{8f7989cd-77b8-4bee-8fdf-9390367b2b66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Lokalizacja">
+      <UniqueIdentifier>{37300eb2-1c1b-4cca-ba13-e49319e05cef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Lokalizacja">
+      <UniqueIdentifier>{53205e47-e6d4-4b94-b313-75352e6cc318}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -21,22 +33,40 @@
     <ClCompile Include="Gra.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Lokalizacja.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Postac.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Postac</Filter>
+    </ClCompile>
+    <ClCompile Include="Lucznik.cpp">
+      <Filter>Source Files\Postac</Filter>
+    </ClCompile>
+    <ClCompile Include="Wojownik.cpp">
+      <Filter>Source Files\Postac</Filter>
+    </ClCompile>
+    <ClCompile Include="Lokalizacja.cpp">
+      <Filter>Source Files\Lokalizacja</Filter>
+    </ClCompile>
+    <ClCompile Include="Wioska.cpp">
+      <Filter>Source Files\Lokalizacja</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Gra.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Lokalizacja.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Postac.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Postac</Filter>
+    </ClInclude>
+    <ClInclude Include="Wojownik.h">
+      <Filter>Header Files\Postac</Filter>
+    </ClInclude>
+    <ClInclude Include="Lucznik.h">
+      <Filter>Header Files\Postac</Filter>
+    </ClInclude>
+    <ClInclude Include="Lokalizacja.h">
+      <Filter>Header Files\Lokalizacja</Filter>
+    </ClInclude>
+    <ClInclude Include="Wioska.h">
+      <Filter>Header Files\Lokalizacja</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

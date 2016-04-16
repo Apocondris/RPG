@@ -5,7 +5,6 @@ using namespace std;
 void Gra::start()
 {
 	ekranMenu();
-	wybierzAkcje();
 }
 
 void Gra::ustawKonsole(int Width, int Height)
@@ -38,17 +37,21 @@ void Gra::ekranMenu(void)
 		<< "1) Nowa gra" << endl
 		<< "2) Wyjscie" << endl << endl
 		<< "Teraz wpisz liszbe z klawiatury i wybierz co chcesz zrobic: ";
+	wybierzAkcje();
 }
 
 void Gra::wybierzAkcje()
 {
 	int wybranaAkcja;
 	cin >> wybranaAkcja;
+	cin.ignore(100000, '\n');
 	switch (wybranaAkcja)
 	{
 		case 1 : 
 		{
 			tworzeniePostaci();
+			Lokalizacja* lokalizacja = losujLokalizacje();
+			lokalizacja.start();
 			break;
 		}
 		case 2 :
@@ -76,16 +79,59 @@ void Gra::tworzeniePostaci(void)
 
 	cout << "Okno tworzenia twojej postaci." << endl << endl << endl
 		<< "Podaj imie postaci: ";
-	cin >> imie;
+	//cin >> imie;
+	getline(cin, imie);
+	//cin.ignore(100000, '\n');
 
 	cout << "Wybierz klase postaci: " << endl
 		<< "1) wojownik" << endl
 		<< "2) lucznik"<< endl << endl
 		<< "Jaka klase wybierasz? ";
 	cin >> klasa;
+	cin.ignore(100000, '\n');
 	
-	postac = new Postac(imie);
+	switch (klasa)
+	{
+		case 1 :
+		{
+			postac = new Wojownik(imie);
+			cout << endl << "Witaj " << postac->imie << endl
+				<< "Swoja przygode bedziesz toczyl jako wojownik";
+			break;
+		}
+		case 2:
+		{
+			postac = new Lucznik(imie);
+			cout << endl << "Witaj " << postac->imie << endl
+				<< "Swoja przygode bedziesz toczyl jako lucznik";
+			break;
+		}
+		default :
+		{
+			cout << "Wprowadzaone przez Ciebie dane nie sa poprawne." << endl;
+			system("pause");
+			tworzeniePostaci();
+			break;
+		}
+	}
+}
 
+Lokalizacja* Gra::losujLokalizacje(void)
+{
+	int losowaLiczba = rand()%1; //po % podaæ liczbê dostêpnych lokalizacji
+	switch (losowaLiczba)
+	{
+		case 0 :
+		{
+			return new Lokalizacja(postac);
+			break;
+		}
+		default :
+		{
+			return new Lokalizacja(postac);
+			break;
+		}
+	}
 }
 
 
