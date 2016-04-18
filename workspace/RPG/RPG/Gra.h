@@ -11,6 +11,7 @@
 #include "Wojownik.h"
 #include "Lucznik.h"
 #include "Lokalizacja.h"
+#include "Wioska.h"
 using namespace std;
 
 class Gra

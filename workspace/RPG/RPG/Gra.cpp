@@ -44,6 +44,7 @@ void Gra::wybierzAkcje()
 {
 	int wybranaAkcja;
 	cin >> wybranaAkcja;
+	if (cin.fail()) { cout << "Nie jestes zbyt rozgarniety, prawda?" << endl; cin.clear(); }
 	cin.ignore(100000, '\n');
 	switch (wybranaAkcja)
 	{
@@ -51,12 +52,12 @@ void Gra::wybierzAkcje()
 		{
 			tworzeniePostaci();
 			Lokalizacja* lokalizacja = losujLokalizacje();
-			lokalizacja.start();
+			lokalizacja->start();
 			break;
 		}
 		case 2 :
 		{
-			system("exit");
+			exit(0);
 			break;
 		}
 		default :
@@ -88,6 +89,7 @@ void Gra::tworzeniePostaci(void)
 		<< "2) lucznik"<< endl << endl
 		<< "Jaka klase wybierasz? ";
 	cin >> klasa;
+	if (cin.fail()) { cout << "Nie jestes zbyt rozgarniety, prawda?" << endl; cin.clear();}
 	cin.ignore(100000, '\n');
 	
 	switch (klasa)
@@ -114,6 +116,7 @@ void Gra::tworzeniePostaci(void)
 			break;
 		}
 	}
+	system("pause");
 }
 
 Lokalizacja* Gra::losujLokalizacje(void)
@@ -123,7 +126,7 @@ Lokalizacja* Gra::losujLokalizacje(void)
 	{
 		case 0 :
 		{
-			return new Lokalizacja(postac);
+			return new Wioska(postac);
 			break;
 		}
 		default :

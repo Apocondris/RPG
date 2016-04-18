@@ -1,31 +1,3 @@
-﻿  Postac.cpp
-f:\uml\rpg\workspace\rpg\rpg\postac.h(12): error C3646: 'imie': unknown override specifier
-f:\uml\rpg\workspace\rpg\rpg\postac.h(12): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-f:\uml\rpg\workspace\rpg\rpg\postac.h(15): error C2460: 'Postac::string': uses 'Postac', which is being defined
-  f:\uml\rpg\workspace\rpg\rpg\postac.h(10): note: see declaration of 'Postac'
-f:\uml\rpg\workspace\rpg\rpg\postac.cpp(9): error C2039: 'imie': is not a member of 'Postac'
-  f:\uml\rpg\workspace\rpg\rpg\postac.h(10): note: see declaration of 'Postac'
-f:\uml\rpg\workspace\rpg\rpg\postac.cpp(12): error C2597: illegal reference to non-static member 'Postac::string'
-f:\uml\rpg\workspace\rpg\rpg\postac.cpp(12): error C2146: syntax error: missing ')' before identifier 'imie'
-f:\uml\rpg\workspace\rpg\rpg\postac.cpp(13): error C2143: syntax error: missing ';' before '{'
-f:\uml\rpg\workspace\rpg\rpg\postac.cpp(13): error C2447: '{': missing function header (old-style formal list?)
-  Main.cpp
-f:\uml\rpg\workspace\rpg\rpg\postac.h(12): error C3646: 'imie': unknown override specifier
-f:\uml\rpg\workspace\rpg\rpg\postac.h(12): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-f:\uml\rpg\workspace\rpg\rpg\postac.h(15): error C2460: 'Postac::string': uses 'Postac', which is being defined
-  f:\uml\rpg\workspace\rpg\rpg\postac.h(10): note: see declaration of 'Postac'
-  Lokalizacja.cpp
-f:\uml\rpg\workspace\rpg\rpg\postac.h(12): error C3646: 'imie': unknown override specifier
-f:\uml\rpg\workspace\rpg\rpg\postac.h(12): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-f:\uml\rpg\workspace\rpg\rpg\postac.h(15): error C2460: 'Postac::string': uses 'Postac', which is being defined
-  f:\uml\rpg\workspace\rpg\rpg\postac.h(10): note: see declaration of 'Postac'
-f:\uml\rpg\workspace\rpg\rpg\lokalizacja.h(16): warning C4091: 'static ': ignored on left of 'Lokalizacja' when no variable is declared
-  Gra.cpp
-f:\uml\rpg\workspace\rpg\rpg\postac.h(12): error C3646: 'imie': unknown override specifier
-f:\uml\rpg\workspace\rpg\rpg\postac.h(12): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-f:\uml\rpg\workspace\rpg\rpg\postac.h(15): error C2460: 'Postac::string': uses 'Postac', which is being defined
-  f:\uml\rpg\workspace\rpg\rpg\postac.h(10): note: see declaration of 'Postac'
-f:\uml\rpg\workspace\rpg\rpg\gra.cpp(92): error C2664: 'Postac::Postac(const Postac &)': cannot convert argument 1 from 'std::string' to 'const Postac &'
-  f:\uml\rpg\workspace\rpg\rpg\gra.cpp(92): note: Reason: cannot convert from 'std::string' to 'const Postac'
-  f:\uml\rpg\workspace\rpg\rpg\gra.cpp(92): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-  Generating Code...
+﻿  Wioska.cpp
+f:\uml\rpg\workspace\rpg\rpg\wioska.h(27): warning C4091: 'static ': ignored on left of 'Wioska' when no variable is declared
+  RPG.vcxproj -> F:\UML\RPG\workspace\RPG\Debug\RPG.exe

@@ -25,6 +25,15 @@
     <Filter Include="Source Files\Lokalizacja">
       <UniqueIdentifier>{53205e47-e6d4-4b94-b313-75352e6cc318}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\NPC">
+      <UniqueIdentifier>{7c69f0d6-9584-4e48-89f4-fa6cd94d94f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\NPC">
+      <UniqueIdentifier>{dcde2a8c-b81b-418b-b1ea-7c465bc9fbd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Lokalizacja">
+      <UniqueIdentifier>{3c2b90e6-d05f-4f19-b3a1-69956fa26897}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -42,10 +51,16 @@
     <ClCompile Include="Wojownik.cpp">
       <Filter>Source Files\Postac</Filter>
     </ClCompile>
+    <ClCompile Include="Npc.cpp">
+      <Filter>Source Files\NPC</Filter>
+    </ClCompile>
     <ClCompile Include="Lokalizacja.cpp">
       <Filter>Source Files\Lokalizacja</Filter>
     </ClCompile>
     <ClCompile Include="Wioska.cpp">
+      <Filter>Source Files\Lokalizacja</Filter>
+    </ClCompile>
+    <ClCompile Include="Szlak.cpp">
       <Filter>Source Files\Lokalizacja</Filter>
     </ClCompile>
   </ItemGroup>
@@ -62,10 +77,16 @@
     <ClInclude Include="Lucznik.h">
       <Filter>Header Files\Postac</Filter>
     </ClInclude>
+    <ClInclude Include="Npc.h">
+      <Filter>Header Files\NPC</Filter>
+    </ClInclude>
     <ClInclude Include="Lokalizacja.h">
       <Filter>Header Files\Lokalizacja</Filter>
     </ClInclude>
     <ClInclude Include="Wioska.h">
+      <Filter>Header Files\Lokalizacja</Filter>
+    </ClInclude>
+    <ClInclude Include="Szlak.h">
       <Filter>Header Files\Lokalizacja</Filter>
     </ClInclude>
   </ItemGroup>
