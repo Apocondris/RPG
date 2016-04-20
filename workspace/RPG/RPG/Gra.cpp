@@ -98,14 +98,14 @@ void Gra::tworzeniePostaci(void)
 		{
 			postac = new Wojownik(imie);
 			cout << endl << "Witaj " << postac->imie << endl
-				<< "Swoja przygode bedziesz toczyl jako wojownik";
+				<< "Swoja przygode bedziesz toczyl jako wojownik" << endl;
 			break;
 		}
 		case 2:
 		{
 			postac = new Lucznik(imie);
 			cout << endl << "Witaj " << postac->imie << endl
-				<< "Swoja przygode bedziesz toczyl jako lucznik";
+				<< "Swoja przygode bedziesz toczyl jako lucznik" << endl;
 			break;
 		}
 		default :

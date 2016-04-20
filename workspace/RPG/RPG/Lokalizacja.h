@@ -4,6 +4,12 @@
 #define LOKALIZACJA_H
 
 #include "Postac.h"
+#include <string>
+#include <cstdlib>
+#include <iostream>
+#include <fstream>
+
+const int iloscNazw = 5;
 
 class Lokalizacja
 {
@@ -25,6 +31,10 @@ protected:
 	void czyscEkran(void);
 	void karczma(void);
 	void menuKarczmy(bool&);
+
+	bool czyNazwyLokalizacjiSaPuste();
+	void ladujNazwyWiosek();
+	string pobierzNazwe();
 };
 
 #endif

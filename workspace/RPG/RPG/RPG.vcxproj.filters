@@ -90,4 +90,9 @@
       <Filter>Header Files\Lokalizacja</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="NazwyWiosek.txt">
+      <Filter>Resource Files\Lokalizacja</Filter>
+    </Text>
+  </ItemGroup>
 </Project>

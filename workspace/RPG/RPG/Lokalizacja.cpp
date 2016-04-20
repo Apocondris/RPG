@@ -1,7 +1,5 @@
 #include "Lokalizacja.h"
 
-
-
 Lokalizacja::Lokalizacja()
 {
 	postac = new Postac;
@@ -52,7 +50,7 @@ void Lokalizacja::karczma(void)
 void Lokalizacja::menuKarczmy(bool &czyWKarczmie)
 {
 	short wybor;
-	cout << "Znajdujesz siê w karczmie" << endl
+	cout << "Znajdujesz sie w karczmie" << endl
 		<< "Co chcesz zrobic?" << endl
 		<< "1) Idz do karczmarza" << endl
 		<< "2) Wyjdz z karczmy" << endl
@@ -78,6 +76,19 @@ void Lokalizacja::menuKarczmy(bool &czyWKarczmie)
 			break;
 		}
 	}
+}
+
+bool Lokalizacja::czyNazwyLokalizacjiSaPuste()
+{
+	return false;
+}
+
+void Lokalizacja::ladujNazwyWiosek()
+{
+}
+
+string Lokalizacja::pobierzNazwe()
+{
 }
 
 
