@@ -14,8 +14,6 @@ const int iloscNazw = 5;
 class Lokalizacja
 {
 public:
-	Postac* postac;
-	string nazwa;
 
 	Lokalizacja();
 	Lokalizacja(Postac*);
@@ -25,16 +23,19 @@ public:
 	virtual void start(void);
 
 protected:
+	Postac* postac;
+	string nazwa;
 	Lokalizacja * przybytoZ;
 	Lokalizacja * idzDo;
+	static string nazwyLokalizacji[iloscNazw];
 
 	void czyscEkran(void);
-	void karczma(void);
-	void menuKarczmy(bool&);
+	virtual void karczma(void);
+	virtual void menuKarczmy(bool&);
 
-	bool czyNazwyLokalizacjiSaPuste();
-	void ladujNazwyWiosek();
-	string pobierzNazwe();
+	virtual bool czyNazwyLokalizacjiSaPuste();
+	virtual void ladujNazwyLokalizacji(string);
+	virtual string pobierzNazwe();
 };
 
 #endif

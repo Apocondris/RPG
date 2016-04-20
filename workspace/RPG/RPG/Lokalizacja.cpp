@@ -1,5 +1,7 @@
 #include "Lokalizacja.h"
 
+string Lokalizacja::nazwyLokalizacji[iloscNazw];
+
 Lokalizacja::Lokalizacja()
 {
 	postac = new Postac;
@@ -29,7 +31,7 @@ Lokalizacja::~Lokalizacja()
 void Lokalizacja::start(void)
 {
 	czyscEkran();
-	cout << "Lokalizacja testowa";
+	cout << "Szablon lokalizacji";
 }
 
 void Lokalizacja::czyscEkran(void)
@@ -80,15 +82,53 @@ void Lokalizacja::menuKarczmy(bool &czyWKarczmie)
 
 bool Lokalizacja::czyNazwyLokalizacjiSaPuste()
 {
-	return false;
+	for (int i = 0; i < iloscNazw; i++)
+	{
+		if (nazwyLokalizacji[i] != "")
+		{
+			return false;
+		}
+	}
+	return true;
 }
 
-void Lokalizacja::ladujNazwyWiosek()
+void Lokalizacja::ladujNazwyLokalizacji(string sciezka)
 {
+	ifstream strumienWejsciowy;
+	strumienWejsciowy.open(sciezka);
+	if (strumienWejsciowy.good())
+	{
+		//cout << endl << "Pobrane nazwy:" << endl;
+		for (int i = 0; i < iloscNazw; i++)
+		{
+			string odczytZPliku;
+			getline(strumienWejsciowy, odczytZPliku);
+			this->nazwyLokalizacji[i] = odczytZPliku;
+			//cout << odczytZPliku << endl;
+		}
+	}
+	else
+	{
+		czyscEkran();
+		cout << "Nie udalo sie utworzyc pliku z nazwami wiosek." << endl
+			<< "Nastepuje zamkniecie gry." << endl;
+		system("pause");
+		exit(-1);
+	}
+	//system("pause");
 }
 
 string Lokalizacja::pobierzNazwe()
 {
+	int losowaLiczba = rand() % iloscNazw;
+	string temp;
+	while (nazwyLokalizacji[losowaLiczba] == "")
+	{
+		losowaLiczba = rand() % iloscNazw;
+	}
+	temp = nazwyLokalizacji[losowaLiczba];
+	nazwyLokalizacji[losowaLiczba] = "";
+	return temp;
 }
 
 

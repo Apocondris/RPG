@@ -8,7 +8,7 @@ Wioska::Wioska()
 {
 	if (czyNazwyLokalizacjiSaPuste())
 	{
-		ladujNazwyWiosek();
+		ladujNazwyLokalizacji("NazwyWiosek.txt");
 	}
 	this->nazwa = pobierzNazwe();
 }
@@ -17,7 +17,7 @@ Wioska::Wioska(Postac * postac) : Lokalizacja(postac)
 {
 	if (czyNazwyLokalizacjiSaPuste())
 	{
-		ladujNazwyWiosek();
+		ladujNazwyLokalizacji("NazwyWiosek.txt");
 	}
 	this->nazwa = pobierzNazwe();
 }
@@ -26,7 +26,7 @@ Wioska::Wioska(Postac * postac, Lokalizacja * lokalizacja) : Lokalizacja(postac,
 {
 	if (czyNazwyLokalizacjiSaPuste())
 	{
-		ladujNazwyWiosek();
+		ladujNazwyLokalizacji("NazwyWiosek.txt");
 	}
 	this->nazwa = pobierzNazwe();
 }
@@ -47,6 +47,7 @@ void Wioska::start(void)
 	while (przebywaszWWiosce)
 	{
 		czyscEkran();
+		cout << logo();
 		menuGlowne(przebywaszWWiosce);
 	}
 }
@@ -106,55 +107,21 @@ Lokalizacja * Wioska::losujLokalizacje(Postac *)
 	}
 }
 
-void Wioska::ladujNazwyWiosek()
+string Wioska::logo()
 {
-	ifstream strumienWejsciowy;
-	strumienWejsciowy.open("NazwyWiosek.txt");
-	if (strumienWejsciowy.good())
-	{
-		//cout << endl << "Pobrane nazwy:" << endl;
-		for (int i = 0; i < iloscNazw; i++)
-		{
-			string odczytZPliku;
-			getline(strumienWejsciowy, odczytZPliku);
-			this->nazwyWiosek[i] = odczytZPliku;
-			//cout << odczytZPliku << endl;
-		}
-	}
-	else
-	{
-		czyscEkran();
-		cout << "Nie udalo sie utworzyc pliku z nazwami wiosek." << endl
-			<< "Nastepuje zamkniecie gry." << endl;
-		system("pause");
-		exit(-1);
-	}
-	//system("pause");
+	//100 x 12
+	string wynik = "";
+	wynik += "     ############   ###############################      ############### #############        ######";
+	wynik += " #  ##########   ##  #       #################                 ######     #########                 ";
+	wynik += "   ############            ##################         ####  ## ###################   #####         #";
+	wynik += "################## ###################################### ##########################################";
+	wynik += "####################################################################################################";
+	wynik += "####################################################################################################";
+	wynik += "####################################################################################################";
+	wynik += "####################################################################################################";
+	wynik += "##################^^^^^###############################^^^^^^^###############^^^^^^^#################";
+	wynik += "#################^_____^#############################^KARCZMA^#############^_______^################";
+	wynik += "#################%% %% %#############################% %%^^% %#############%  %  % %################";
+	wynik += "#################%%%%%%%#############################%%%%  %%%#############%  %  % %################\n";
+	return wynik;
 }
-
-bool Wioska::czyNazwyLokalizacjiSaPuste()
-{
-	for (int i = 0; i < iloscNazw; i++)
-	{
-		if (nazwyWiosek[i] != "")
-		{
-			return false;
-		}
-	}
-	return true;
-}
-
-string Wioska::pobierzNazwe()
-{
-	int losowaLiczba = rand() % iloscNazw;
-	string temp;
-	while (nazwyWiosek[losowaLiczba] == "")
-	{
-		losowaLiczba = rand() % iloscNazw;
-	}
-	temp = nazwyWiosek[losowaLiczba];
-	nazwyWiosek[losowaLiczba] = "";
-	return temp;
-}
-
-

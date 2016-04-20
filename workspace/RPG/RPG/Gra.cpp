@@ -31,40 +31,39 @@ void Gra::czyscEkran()
 
 void Gra::ekranMenu(void)
 {
-	//ustawKonsole();
+	int wybranaAkcja;
+	//ustawKonsole
+	czyscEkran();
 	cout << logo() << endl;
 	cout << "Znajdujesz sie na ekranie glownym. Masz do wyboru jedna z ponizszych opcji:" << endl
 		<< "1) Nowa gra" << endl
 		<< "2) Wyjscie" << endl << endl
 		<< "Teraz wpisz liszbe z klawiatury i wybierz co chcesz zrobic: ";
-	wybierzAkcje();
-}
-
-void Gra::wybierzAkcje()
-{
-	int wybranaAkcja;
+	
 	cin >> wybranaAkcja;
 	if (cin.fail()) { cout << "Nie jestes zbyt rozgarniety, prawda?" << endl; cin.clear(); }
 	cin.ignore(100000, '\n');
 	switch (wybranaAkcja)
 	{
-		case 1 : 
+		case 1:
 		{
 			tworzeniePostaci();
 			Lokalizacja* lokalizacja = losujLokalizacje();
 			lokalizacja->start();
 			break;
 		}
-		case 2 :
+		case 2:
 		{
 			exit(0);
 			break;
 		}
-		default :
+		default:
 		{
-			cout << "Niepoprawny wybor." << endl 
-				<< "Wybierz jeszcze raz: ";
-			wybierzAkcje();
+			cout << "Niepoprawny wybor." << endl;
+			system("pause");
+			ekranMenu();
+
+			//wybierzAkcje();
 			break;
 		}
 	}

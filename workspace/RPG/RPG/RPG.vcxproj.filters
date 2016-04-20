@@ -63,6 +63,9 @@
     <ClCompile Include="Szlak.cpp">
       <Filter>Source Files\Lokalizacja</Filter>
     </ClCompile>
+    <ClCompile Include="Karczmarz.cpp">
+      <Filter>Source Files\NPC</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Gra.h">
@@ -88,6 +91,9 @@
     </ClInclude>
     <ClInclude Include="Szlak.h">
       <Filter>Header Files\Lokalizacja</Filter>
+    </ClInclude>
+    <ClInclude Include="Karczmarz.h">
+      <Filter>Header Files\NPC</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

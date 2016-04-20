@@ -14,18 +14,12 @@ public:
 	~Wioska();
 	void start(void);
 
-protected:
-	Postac * karczmarz;
-
-	void menuGlowne(bool &);
-
 private:
+	void menuGlowne(bool &);
 	static string nazwyWiosek[iloscNazw];
 
 	Lokalizacja * losujLokalizacje(Postac *);
-	void ladujNazwyWiosek();
-	bool czyNazwyLokalizacjiSaPuste();
-	string pobierzNazwe();
+	string logo();
 };
 
 #endif
