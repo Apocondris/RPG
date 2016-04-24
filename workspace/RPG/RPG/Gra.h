@@ -30,6 +30,6 @@ public:
 	Lokalizacja* losujLokalizacje(void);
 
 private:
-	void wybierzAkcje(void);
+
 };
 

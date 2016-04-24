@@ -40,9 +40,9 @@ void Wioska::start(void)
 {
 	bool przebywaszWWiosce = true;
 
-	czyscEkran();
-	cout << "Przybyles do wioski "<< this->nazwa << ".." << endl;
-	system("pause");
+	//czyscEkran();
+	//cout << "Przybyles do wioski "<< this->nazwa << ".." << endl;
+	//system("pause");
 
 	while (przebywaszWWiosce)
 	{
@@ -61,6 +61,7 @@ void Wioska::menuGlowne(bool & przebywaszWWiosce)
 		<< "2) Podrozuj dalej" << endl;
 	if (przybytoZ != 0) cout << "3) Wroc do poprzedniej lokalizacji" << endl;
 	cin >> wybor;
+	if (cin.fail()) { cout << "Nie jestes zbyt rozgarniety, prawda?" << endl; cin.clear(); }
 	cin.ignore(100000, '\n');
 
 	switch (wybor)

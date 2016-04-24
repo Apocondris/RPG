@@ -4,6 +4,7 @@
 #define LOKALIZACJA_H
 
 #include "Postac.h"
+#include "Karczmarz.h"
 #include <string>
 #include <cstdlib>
 #include <iostream>
@@ -24,6 +25,8 @@ public:
 
 protected:
 	Postac* postac;
+	Karczmarz* karczmarz = 0;
+
 	string nazwa;
 	Lokalizacja * przybytoZ;
 	Lokalizacja * idzDo;
@@ -36,6 +39,7 @@ protected:
 	virtual bool czyNazwyLokalizacjiSaPuste();
 	virtual void ladujNazwyLokalizacji(string);
 	virtual string pobierzNazwe();
+	string logoKarczmy();
 };
 
 #endif

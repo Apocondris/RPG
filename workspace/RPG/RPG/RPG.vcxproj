@@ -166,6 +166,8 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="NazwyWiosek.txt" />
+    <Text Include="imionaKarczmarzy.txt" />
+    <Text Include="powitaniaKarczmarzy.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

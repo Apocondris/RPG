@@ -1,8 +1,5 @@
 #include "Npc.h"
 
-string Npc::listaImion[iloscImion];
-string Npc::listaPowitan[iloscPowitan];
-
 Npc::Npc()
 {
 	this->postac = new Postac();
@@ -18,7 +15,7 @@ Npc::~Npc()
 {
 }
 
-void Npc::start(Postac *)
+void Npc::start()
 {
 	czyscEkran();
 	cout << "Szblon NPC";
@@ -29,27 +26,16 @@ void Npc::czyscEkran()
 	system("CLS");
 }
 
-bool Npc::czyListaImionJestPusta()
+bool Npc::czyListaJestPusta(int iloscElementow, string * lista)
 {
-	for (int i = 0; i < iloscImion; i++)
+	for (int i = 0; i < iloscElementow; i++)
 	{
-		if (listaImion[i] != "")
+		if (lista[i] != "")
 		{
 			return false;
 		}
 	}
 	return true;
-}
-
-bool Npc::czyListaPowitanJestPusta()
-{
-	for (int i = 0; i < iloscPowitan; i++)
-	{
-		if (listaPowitan[i] != "")
-		{
-			return false;
-		}
-	}
 }
 
 void Npc::ladujDaneNpc(string sciezka, string * tablica, const int iloscDanych)
@@ -66,11 +52,12 @@ void Npc::ladujDaneNpc(string sciezka, string * tablica, const int iloscDanych)
 			tablica[i] = odczytZPliku;
 			//cout << odczytZPliku << endl;
 		}
+		//system("pause");
 	}
 	else
 	{
 		czyscEkran();
-		cout << "Nie udalo sie utworzyc pliku z nazwami wiosek." << endl
+		cout << "Nie udalo sie utworzyc pliku " << sciezka << endl
 			<< "Nastepuje zamkniecie gry." << endl;
 		system("pause");
 		exit(-1);
@@ -78,28 +65,15 @@ void Npc::ladujDaneNpc(string sciezka, string * tablica, const int iloscDanych)
 	//system("pause");
 }
 
-string Npc::pobierzImie()
+string Npc::pobierzInformacje(const int liczbaDostepnych, string * listaDanych)
 {
-	int losowaLiczba = rand() % iloscImion;
+	int losowaLiczba = rand() % liczbaDostepnych;
 	string temp;
-	while (listaImion[losowaLiczba] == "")
+	while (listaDanych[losowaLiczba] == "")
 	{
-		losowaLiczba = rand() % iloscImion;
+		losowaLiczba = rand() % liczbaDostepnych;
 	}
-	temp = listaImion[losowaLiczba];
-	listaImion[losowaLiczba] = "";
-	return temp;
-}
-
-string Npc::pobierzPowitanie()
-{
-	int losowaLiczba = rand() % iloscPowitan;
-	string temp;
-	while (listaPowitan[losowaLiczba] == "")
-	{
-		losowaLiczba = rand() % iloscPowitan;
-	}
-	temp = listaPowitan[losowaLiczba];
-	listaPowitan[losowaLiczba] = "";
+	temp = listaDanych[losowaLiczba];
+	listaDanych[losowaLiczba] = "";
 	return temp;
 }

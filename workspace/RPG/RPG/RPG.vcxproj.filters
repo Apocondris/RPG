@@ -34,6 +34,9 @@
     <Filter Include="Resource Files\Lokalizacja">
       <UniqueIdentifier>{3c2b90e6-d05f-4f19-b3a1-69956fa26897}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\NPC">
+      <UniqueIdentifier>{e69c786e-289c-4ecb-ae1f-10b2758ca4ee}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -99,6 +102,12 @@
   <ItemGroup>
     <Text Include="NazwyWiosek.txt">
       <Filter>Resource Files\Lokalizacja</Filter>
+    </Text>
+    <Text Include="powitaniaKarczmarzy.txt">
+      <Filter>Resource Files\NPC</Filter>
+    </Text>
+    <Text Include="imionaKarczmarzy.txt">
+      <Filter>Resource Files\NPC</Filter>
     </Text>
   </ItemGroup>
 </Project>

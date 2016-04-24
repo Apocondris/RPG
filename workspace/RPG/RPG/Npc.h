@@ -3,9 +3,6 @@
 #include "Postac.h"
 #include <fstream>
 
-const int iloscImion = 5;
-const int iloscPowitan = 5;
-
 class Npc
 {
 public:
@@ -14,21 +11,18 @@ public:
 	Npc(Postac*);
 	~Npc();
 
-	virtual void start(Postac*);
+	virtual void start();
 
 protected:
 	Postac * postac;
 	string imie;
 	string powitanie;
-	static string listaImion[];
-	static string listaPowitan[];
+	bool zapotanoOImie = false;
 
 	void czyscEkran();
 
-	bool czyListaImionJestPusta();
-	bool czyListaPowitanJestPusta();
-	void ladujDaneNpc(string, string*, const int);
-	string pobierzImie();
-	string pobierzPowitanie();
+	bool czyListaJestPusta(int liczba, string * lista);
+	void ladujDaneNpc(string sciezka, string * tablica, const int iloscDanych);
+	string pobierzInformacje(const int liczbaDostepnych, string * listaDanych);
 };
 
