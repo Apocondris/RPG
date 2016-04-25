@@ -1,6 +1,5 @@
 #include "Lokalizacja.h"
 
-string Lokalizacja::nazwyLokalizacji[iloscNazw];
 
 Lokalizacja::Lokalizacja()
 {
@@ -84,7 +83,7 @@ void Lokalizacja::menuKarczmy(bool &czyWKarczmie)
 	}
 }
 
-bool Lokalizacja::czyNazwyLokalizacjiSaPuste()
+bool Lokalizacja::czyNazwyLokalizacjiSaPuste(string * nazwyLokalizacji, int iloscNazw)
 {
 	for (int i = 0; i < iloscNazw; i++)
 	{
@@ -96,7 +95,7 @@ bool Lokalizacja::czyNazwyLokalizacjiSaPuste()
 	return true;
 }
 
-void Lokalizacja::ladujNazwyLokalizacji(string sciezka)
+void Lokalizacja::ladujNazwyLokalizacji(string sciezka, string * nazwyLokalizacji, int iloscNazw)
 {
 	ifstream strumienWejsciowy;
 	strumienWejsciowy.open(sciezka);
@@ -107,7 +106,7 @@ void Lokalizacja::ladujNazwyLokalizacji(string sciezka)
 		{
 			string odczytZPliku;
 			getline(strumienWejsciowy, odczytZPliku);
-			this->nazwyLokalizacji[i] = odczytZPliku;
+			nazwyLokalizacji[i] = odczytZPliku;
 			//cout << odczytZPliku << endl;
 		}
 	}
@@ -122,7 +121,7 @@ void Lokalizacja::ladujNazwyLokalizacji(string sciezka)
 	//system("pause");
 }
 
-string Lokalizacja::pobierzNazwe()
+string Lokalizacja::pobierzNazwe(string * nazwyLokalizacji, int iloscNazw)
 {
 	int losowaLiczba = rand() % iloscNazw;
 	string temp;

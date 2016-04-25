@@ -1,34 +1,31 @@
 #include "Wioska.h"
 
 
-
-string Wioska::nazwyWiosek[iloscNazw];
-
 Wioska::Wioska()
 {
-	if (czyNazwyLokalizacjiSaPuste())
+	if (czyNazwyLokalizacjiSaPuste(nazwyWiosek, iloscNazwWiosek))
 	{
-		ladujNazwyLokalizacji("NazwyWiosek.txt");
+		ladujNazwyLokalizacji("NazwyWiosek.txt", nazwyWiosek, iloscNazwWiosek);
 	}
-	this->nazwa = pobierzNazwe();
+	this->nazwa = pobierzNazwe(nazwyWiosek, iloscNazwWiosek);
 }
 
 Wioska::Wioska(Postac * postac) : Lokalizacja(postac)
 {
-	if (czyNazwyLokalizacjiSaPuste())
+	if (czyNazwyLokalizacjiSaPuste(nazwyWiosek, iloscNazwWiosek))
 	{
-		ladujNazwyLokalizacji("NazwyWiosek.txt");
+		ladujNazwyLokalizacji("NazwyWiosek.txt", nazwyWiosek, iloscNazwWiosek);
 	}
-	this->nazwa = pobierzNazwe();
+	this->nazwa = pobierzNazwe(nazwyWiosek, iloscNazwWiosek);
 }
 
 Wioska::Wioska(Postac * postac, Lokalizacja * lokalizacja) : Lokalizacja(postac, lokalizacja)
 {
-	if (czyNazwyLokalizacjiSaPuste())
+	if (czyNazwyLokalizacjiSaPuste(nazwyWiosek, iloscNazwWiosek))
 	{
-		ladujNazwyLokalizacji("NazwyWiosek.txt");
+		ladujNazwyLokalizacji("NazwyWiosek.txt", nazwyWiosek, iloscNazwWiosek);
 	}
-	this->nazwa = pobierzNazwe();
+	this->nazwa = pobierzNazwe(nazwyWiosek, iloscNazwWiosek);
 }
 
 
@@ -75,7 +72,7 @@ void Wioska::menuGlowne(bool & przebywaszWWiosce)
 		{
 			if (idzDo == 0)
 			{
-				idzDo = losujLokalizacje(postac);
+				idzDo = new Szlak(postac, this);
 			}
 			idzDo->start();
 			break;
@@ -90,23 +87,7 @@ void Wioska::menuGlowne(bool & przebywaszWWiosce)
 	}
 }
 
-Lokalizacja * Wioska::losujLokalizacje(Postac *)
-{
-	int losowaLiczba = rand() % 1; //po % podaæ liczbê dostêpnych lokalizacji
-	switch (losowaLiczba)
-	{
-		case 0:
-		{
-			return new Wioska(postac, this);
-			break;
-		}
-		default:
-		{
-			return new Lokalizacja(postac, this);
-			break;
-		}
-	}
-}
+
 
 string Wioska::logo()
 {

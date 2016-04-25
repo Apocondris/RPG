@@ -4,6 +4,9 @@
 #define WIOSKA_H
 
 #include "Lokalizacja.h"
+#include "Szlak.h"
+
+const int iloscNazwWiosek = 5;
 
 class Wioska : public Lokalizacja
 {
@@ -15,10 +18,10 @@ public:
 	void start(void);
 
 private:
-	void menuGlowne(bool &);
-	static string nazwyWiosek[iloscNazw];
+	static string nazwyWiosek[iloscNazwWiosek];
 
-	Lokalizacja * losujLokalizacje(Postac *);
+	void menuGlowne(bool &);
+
 	string logo();
 };
 

@@ -10,7 +10,6 @@
 #include <iostream>
 #include <fstream>
 
-const int iloscNazw = 5;
 
 class Lokalizacja
 {
@@ -28,17 +27,16 @@ protected:
 	Karczmarz* karczmarz = 0;
 
 	string nazwa;
-	Lokalizacja * przybytoZ;
-	Lokalizacja * idzDo;
-	static string nazwyLokalizacji[iloscNazw];
+	Lokalizacja * przybytoZ = 0;
+	Lokalizacja * idzDo = 0;
 
 	void czyscEkran(void);
 	virtual void karczma(void);
 	virtual void menuKarczmy(bool&);
 
-	virtual bool czyNazwyLokalizacjiSaPuste();
-	virtual void ladujNazwyLokalizacji(string);
-	virtual string pobierzNazwe();
+	virtual bool czyNazwyLokalizacjiSaPuste(string * nazwyLokalizacji, int iloscNazw);
+	virtual void ladujNazwyLokalizacji(string sciezka, string * nazwyLokalizacji, int iloscNazw);
+	virtual string pobierzNazwe(string * nazwyLokalizacji, int iloscNazw);
 	string logoKarczmy();
 };
 

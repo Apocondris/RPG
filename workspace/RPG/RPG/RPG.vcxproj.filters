@@ -109,5 +109,8 @@
     <Text Include="imionaKarczmarzy.txt">
       <Filter>Resource Files\NPC</Filter>
     </Text>
+    <Text Include="NazwySzlakow.txt">
+      <Filter>Resource Files\Lokalizacja</Filter>
+    </Text>
   </ItemGroup>
 </Project>
