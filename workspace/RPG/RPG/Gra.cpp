@@ -1,6 +1,9 @@
 #include "Gra.h"
-
-using namespace std;
+#include "Postac.h"
+#include "Wojownik.h"
+#include "Lucznik.h"
+#include "Lokalizacja.h"
+#include "Wioska.h"
 
 void Gra::start()
 {
@@ -34,7 +37,7 @@ void Gra::ekranMenu(void)
 	int wybranaAkcja;
 	//ustawKonsole
 	czyscEkran();
-	cout << logo() << endl;
+	logo();
 	cout << "Znajdujesz sie na ekranie glownym. Masz do wyboru jedna z ponizszych opcji:" << endl
 		<< "1) Nowa gra" << endl
 		<< "2) Wyjscie" << endl << endl
@@ -75,7 +78,7 @@ void Gra::tworzeniePostaci(void)
 	int klasa;
 
 	czyscEkran();
-	cout << logo() << endl;
+	logo();
 
 	cout << "Okno tworzenia twojej postaci." << endl << endl << endl
 		<< "Podaj imie postaci: ";
@@ -137,8 +140,11 @@ Lokalizacja* Gra::losujLokalizacje(void)
 }
 
 
-string Gra::logo(void)
+void Gra::logo(void)
 {
+	HANDLE hOut;
+	hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hOut, 15);
 	//100 x 10
 	string wynik = "";
 	wynik += "####################################################################################################";
@@ -150,6 +156,6 @@ string Gra::logo(void)
 	wynik += "###############  ##   ####################  #########################  ######  #####################";
 	wynik += "###############  ###   ###################  #########################  ######  #####################";
 	wynik += "###############  ####   ##################  ###########################      #######################";
-	wynik += "####################################################################################################\n";
-	return wynik;
+	wynik += "####################################################################################################";
+	cout << wynik << endl;
 }

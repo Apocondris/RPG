@@ -1,0 +1,6 @@
+plotka 1
+plotka 2
+plotka 3
+plotka 4
+plotka 5
+plotka 6

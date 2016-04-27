@@ -1,13 +1,20 @@
 #include "Npc.h"
+#include "Postac.h"
 
 Npc::Npc()
 {
 	this->postac = new Postac();
+	imie = "Anonim";
+	powitanie = "Witaj";
+	zapytanoOImie = false;
 }
 
 Npc::Npc(Postac * postac) 
 {
 	this->postac = postac;
+	imie = "Anonim";
+	powitanie = "Witaj";
+	zapytanoOImie = false;
 }
 
 

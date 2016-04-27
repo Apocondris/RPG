@@ -1,14 +1,9 @@
 #include "Wioska.h"
+#include "Szlak.h"
+#include "Postac.h"
+#include <windows.h>
 
-
-Wioska::Wioska()
-{
-	if (czyNazwyLokalizacjiSaPuste(nazwyWiosek, iloscNazwWiosek))
-	{
-		ladujNazwyLokalizacji("NazwyWiosek.txt", nazwyWiosek, iloscNazwWiosek);
-	}
-	this->nazwa = pobierzNazwe(nazwyWiosek, iloscNazwWiosek);
-}
+string Wioska::nazwyWiosek[iloscNazwWiosek];
 
 Wioska::Wioska(Postac * postac) : Lokalizacja(postac)
 {
@@ -28,11 +23,6 @@ Wioska::Wioska(Postac * postac, Lokalizacja * lokalizacja) : Lokalizacja(postac,
 	this->nazwa = pobierzNazwe(nazwyWiosek, iloscNazwWiosek);
 }
 
-
-Wioska::~Wioska()
-{
-}
-
 void Wioska::start(void)
 {
 	bool przebywaszWWiosce = true;
@@ -44,7 +34,7 @@ void Wioska::start(void)
 	while (przebywaszWWiosce)
 	{
 		czyscEkran();
-		cout << logo();
+		logo();
 		menuGlowne(przebywaszWWiosce);
 	}
 }
@@ -89,21 +79,26 @@ void Wioska::menuGlowne(bool & przebywaszWWiosce)
 
 
 
-string Wioska::logo()
+void Wioska::logo()
 {
+	HANDLE hOut;
+	hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hOut, 240);
 	//100 x 12
 	string wynik = "";
-	wynik += "     ############   ###############################      ############### #############        ######";
-	wynik += " #  ##########   ##  #       #################                 ######     #########                 ";
-	wynik += "   ############            ##################         ####  ## ###################   #####         #";
-	wynik += "################## ###################################### ##########################################";
-	wynik += "####################################################################################################";
-	wynik += "####################################################################################################";
-	wynik += "####################################################################################################";
-	wynik += "####################################################################################################";
-	wynik += "##################^^^^^###############################^^^^^^^###############^^^^^^^#################";
-	wynik += "#################^_____^#############################^KARCZMA^#############^_______^################";
-	wynik += "#################%% %% %#############################% %%^^% %#############%  %  % %################";
-	wynik += "#################%%%%%%%#############################%%%%  %%%#############%  %  % %################\n";
-	return wynik;
+	wynik += "@@@@@            @@@                               @@@@@@               @             @@@@@@@       ";
+	wynik += "@ @@          @@@  @@ @@@@@@@                 @@@@@@@@@@@@@@@@@      @@@@@         @@@@@@@@@@@@@@@@@";
+	wynik += "@@@            @@@@@@@@@@@@                  @@@@@@@@@    @@  @                   @@@     @@@@@@@@@ ";
+	wynik += "                  @                                      @                                          ";
+	wynik += "                                                                                                    ";
+	wynik += "                                                                                                    ";
+	wynik += "                                   %%%%                                                             ";
+	wynik += "                                 %%%%%%%%                                                           ";
+	wynik += "                  ^^^^^           %%%%%%              ^^^^^^^               ^^^^^^^                 ";
+	wynik += "                 ^_____^            ##               ^KARCZMA^             ^_______^                ";
+	wynik += "                 ## ## #            ##               # ##^^# #             #  #  # #                ";
+	wynik += "                 #######            ##               ####  ###             #  #  # #                ";
+	wynik += "----------------------------------------------------------------------------------------------------";
+	cout << wynik << endl;
+	SetConsoleTextAttribute(hOut, 15);
 }

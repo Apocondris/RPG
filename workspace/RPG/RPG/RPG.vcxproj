@@ -142,33 +142,52 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BandytaLucznik.cpp" />
+    <ClCompile Include="BandytaWojownik.cpp" />
+    <ClCompile Include="Dzik.cpp" />
     <ClCompile Include="Gra.cpp" />
     <ClCompile Include="Karczmarz.cpp" />
     <ClCompile Include="Lokalizacja.cpp" />
     <ClCompile Include="Lucznik.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Niedzwiedz.cpp" />
     <ClCompile Include="Npc.cpp" />
     <ClCompile Include="Postac.cpp" />
+    <ClCompile Include="Przeciwnik.cpp" />
+    <ClCompile Include="Przedmiot.cpp" />
     <ClCompile Include="Szlak.cpp" />
+    <ClCompile Include="Utopiec.cpp" />
+    <ClCompile Include="Wilk.cpp" />
     <ClCompile Include="Wioska.cpp" />
     <ClCompile Include="Wojownik.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BandytaLucznik.h" />
+    <ClInclude Include="BandytaWojownik.h" />
+    <ClInclude Include="Dzik.h" />
     <ClInclude Include="Gra.h" />
+    <ClInclude Include="Niedzwiedz.h" />
+    <ClInclude Include="Przedmiot.h" />
+    <ClInclude Include="Utopiec.h" />
+    <ClInclude Include="Wilk.h" />
+    <ClInclude Include="WszystkieKlasy.h" />
     <ClInclude Include="Karczmarz.h" />
     <ClInclude Include="Lokalizacja.h" />
     <ClInclude Include="Lucznik.h" />
     <ClInclude Include="Npc.h" />
     <ClInclude Include="Postac.h" />
+    <ClInclude Include="Przeciwnik.h" />
     <ClInclude Include="Szlak.h" />
     <ClInclude Include="Wioska.h" />
     <ClInclude Include="Wojownik.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="lokalnePlotkiKarczmarz.txt" />
     <Text Include="NazwyWiosek.txt" />
     <Text Include="imionaKarczmarzy.txt" />
     <Text Include="powitaniaKarczmarzy.txt" />
     <Text Include="NazwySzlakow.txt" />
+    <Text Include="radyKarczmarz.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

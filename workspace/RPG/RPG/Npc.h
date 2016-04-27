@@ -1,7 +1,10 @@
 #pragma once
 
-#include "Postac.h"
+#include "WszystkieKlasy.h"
 #include <fstream>
+#include <string>
+#include <iostream>
+using namespace std;
 
 class Npc
 {
@@ -17,7 +20,7 @@ protected:
 	Postac * postac;
 	string imie;
 	string powitanie;
-	bool zapotanoOImie = false;
+	bool zapytanoOImie;
 
 	void czyscEkran();
 

@@ -1,30 +1,23 @@
 #include "Lokalizacja.h"
+#include "Karczmarz.h"
+#include "Postac.h"
+#include <Windows.h>
 
-
-Lokalizacja::Lokalizacja()
-{
-	postac = new Postac;
-	this->przybytoZ = 0;
-	this->idzDo = 0;
-}
 
 Lokalizacja::Lokalizacja(Postac * postac)
 {
 	this->postac = postac;
 	this->przybytoZ = 0;
 	this->idzDo = 0;
+	this->karczmarz = 0;
 }
 
-Lokalizacja::Lokalizacja(Postac *, Lokalizacja * lokalizacja)
+Lokalizacja::Lokalizacja(Postac * postac, Lokalizacja * lokalizacja)
 {
 	this->postac = postac;
 	this->przybytoZ = lokalizacja;
 	this->idzDo = 0;
-}
-
-
-Lokalizacja::~Lokalizacja()
-{
+	this->karczmarz = 0;
 }
 
 void Lokalizacja::start(void)
@@ -44,7 +37,7 @@ void Lokalizacja::karczma(void)
 	while (czyWKarczmie)
 	{
 		czyscEkran();
-		cout << logoKarczmy() << endl;
+		logoKarczmy();
 		menuKarczmy(czyWKarczmie);
 	}
 }
@@ -67,7 +60,6 @@ void Lokalizacja::menuKarczmy(bool &czyWKarczmie)
 		{
 			if (karczmarz == 0)	karczmarz = new Karczmarz(postac);
 			karczmarz -> start();
-			//akcja dla karczmarza
 			break;
 		}
 		case 2:
@@ -136,22 +128,27 @@ string Lokalizacja::pobierzNazwe(string * nazwyLokalizacji, int iloscNazw)
 
 
 
-string Lokalizacja::logoKarczmy()
+void Lokalizacja::logoKarczmy()
 {
+	HANDLE hOut;
+	hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hOut, 240);
 	//100 x 12
 	string wynik = "";
-	wynik += "####################################################################################################";
-	wynik += "####################################################################################################";
-	wynik += "####################################################################################################";
-	wynik += "####################################################################################################";
-	wynik += "####################################################################################################";
-	wynik += "####################################################################################################";
-	wynik += "####################################################################################################";
-	wynik += "####################################################################################################";
-	wynik += "####################################################################################################";
-	wynik += "####################################################################################################";
-	wynik += "####################################################################################################";
-	wynik += "####################################################################################################\n";
-	return wynik;
+	wynik += "                                                                                                    ";
+	wynik += "                                                                                                    ";
+	wynik += "                                                                                                    ";
+	wynik += "                                                                                                    ";
+	wynik += "                                                                                                    ";
+	wynik += "                            cos tu trzeba zrobic                                                    ";
+	wynik += "                                                                                                    ";
+	wynik += "                                                                                                    ";
+	wynik += "                                                                                                    ";
+	wynik += "                                                                                                    ";
+	wynik += "                                                                                                    ";
+	wynik += "                                                                                                    ";
+	wynik += "----------------------------------------------------------------------------------------------------";
+	cout << wynik << endl;
+	SetConsoleTextAttribute(hOut, 15);
 }
 

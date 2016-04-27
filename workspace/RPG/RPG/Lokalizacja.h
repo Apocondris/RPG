@@ -3,32 +3,29 @@
 #ifndef LOKALIZACJA_H
 #define LOKALIZACJA_H
 
-#include "Postac.h"
-#include "Karczmarz.h"
-#include <string>
+#include "WszystkieKlasy.h"
 #include <cstdlib>
-#include <iostream>
 #include <fstream>
+#include <iostream>
+#include <string>
+using namespace std;
 
 
 class Lokalizacja
 {
 public:
-
-	Lokalizacja();
 	Lokalizacja(Postac*);
 	Lokalizacja(Postac*,Lokalizacja*);
-	virtual ~Lokalizacja();
 
 	virtual void start(void);
 
 protected:
-	Postac* postac;
-	Karczmarz* karczmarz = 0;
+	Postac * postac;
+	Karczmarz * karczmarz;
 
 	string nazwa;
-	Lokalizacja * przybytoZ = 0;
-	Lokalizacja * idzDo = 0;
+	Lokalizacja * przybytoZ;
+	Lokalizacja * idzDo;
 
 	void czyscEkran(void);
 	virtual void karczma(void);
@@ -37,7 +34,7 @@ protected:
 	virtual bool czyNazwyLokalizacjiSaPuste(string * nazwyLokalizacji, int iloscNazw);
 	virtual void ladujNazwyLokalizacji(string sciezka, string * nazwyLokalizacji, int iloscNazw);
 	virtual string pobierzNazwe(string * nazwyLokalizacji, int iloscNazw);
-	string logoKarczmy();
+	void logoKarczmy();
 };
 
 #endif

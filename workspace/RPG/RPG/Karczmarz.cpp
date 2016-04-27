@@ -1,11 +1,14 @@
 #include "Karczmarz.h"
-
-
+#include "Postac.h"
+#include <Windows.h>
 
 string Karczmarz::listaImion[iloscImion];
 string Karczmarz::listaPowitan[iloscPowitan];
+string Karczmarz::listaLokalnychPlotek[iloscLokalnychPlotek];
+string Karczmarz::listaRad[iloscRad];
 
-Karczmarz::Karczmarz():Npc()
+
+Karczmarz::Karczmarz(Postac * postac) : Npc(postac)
 {
 	if (czyListaJestPusta(iloscImion, listaImion))
 	{
@@ -18,40 +21,27 @@ Karczmarz::Karczmarz():Npc()
 		ladujDaneNpc("powitaniaKarczmarzy.txt", listaPowitan, iloscPowitan);
 	}
 	this->powitanie = pobierzInformacje(iloscPowitan, listaPowitan);
-}
 
-Karczmarz::Karczmarz(Postac * postac):Npc(postac)
-{
-	if (czyListaJestPusta(iloscImion, listaImion))
+	if (czyListaJestPusta(iloscLokalnychPlotek, listaLokalnychPlotek))
 	{
-		ladujDaneNpc("imionaKarczmarzy.txt", listaImion, iloscImion);
+		ladujDaneNpc("lokalnePlotkiKarczmarz.txt", listaLokalnychPlotek, iloscLokalnychPlotek);
 	}
-	this->imie = pobierzInformacje(iloscImion, listaImion);
+	this->lokalnaPlotka = pobierzInformacje(iloscLokalnychPlotek, listaLokalnychPlotek);
 
-	if (czyListaJestPusta(iloscPowitan, listaPowitan))
+	if (czyListaJestPusta(iloscRad, listaRad))
 	{
-		ladujDaneNpc("powitaniaKarczmarzy.txt", listaPowitan, iloscPowitan);
+		ladujDaneNpc("radyKarczmarz.txt", listaRad, iloscRad);
 	}
-	this->powitanie = pobierzInformacje(iloscPowitan, listaPowitan);
-}
-
-
-Karczmarz::~Karczmarz()
-{
 }
 
 void Karczmarz::start(void)
 {
 	bool przebywaszUKarczmarza = true;
 
-	//czyscEkran();
-	//cout << "Przybyles do wioski "<< this->nazwa << ".." << endl;
-	//system("pause");
-
 	while (przebywaszUKarczmarza)
 	{
 		czyscEkran();
-		cout << logo();
+		logo();
 		menuGlowne(przebywaszUKarczmarza);
 	}
 }
@@ -63,10 +53,12 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 		<< this->powitanie << endl
 		<< "Co chcesz zrobic?" << endl
 		<< "1) Zapytaj o imie." << endl
-		<< "2) Zapytaj o imie." << endl
-		<< "3) Zapytaj o imie." << endl
-		<< "4) Zapytaj o imie." << endl
-		<< "5) Odejdz od lady" << endl;
+		<< "2) Zapytaj o plotki." << endl
+		<< "3) Zapytaj o rade." << endl
+		<< "4) Zapytaj o cechy." << endl
+		<< "5) Zapytaj o posil sie(cena: -)." << endl
+		<< "6) Zapytaj o wypocznik(cena: -)." << endl
+		<< "7) Odejdz od lady" << endl;
 	//if (warunek) cout << "6) cos" << endl;
 	cin >> wybor;
 	if (cin.fail()) { cout << "Nie jestes zbyt rozgarniety, prawda?" << endl; cin.clear(); }
@@ -76,7 +68,7 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 	{
 	case 1:
 	{
-		if (zapotanoOImie)
+		if (zapytanoOImie)
 		{
 			cout << postac->imie << ": Jak masz na imie?" << endl
 				<< imie <<" : Juz nie pamietasz? Mam na imie " << imie << endl;
@@ -85,7 +77,7 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 		{
 			cout << postac->imie << ": Jak masz na imie?" << endl
 				<< "Karczmarz: Mam na imie " << imie << endl;
-			zapotanoOImie = true;
+			zapytanoOImie = true;
 		}
 
 		getchar();
@@ -93,16 +85,15 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 	}
 	case 2:
 	{
-		if (zapotanoOImie)
+		if (zapytanoOImie)
 		{
-			cout << postac->imie << ": Jak masz na imie?" << endl
-				<< imie << " : Juz nie pamietasz? Mam na imie " << imie << endl;
+			cout << postac->imie << ": Cos sie ostatnio dzialo ciekawego?" << endl
+				<< imie << ": " << lokalnaPlotka << endl;
 		}
 		else
 		{
-			cout << postac->imie << ": Jak masz na imie?" << endl
-				<< "Karczmarz: Mam na imie " << imie << endl;
-			zapotanoOImie = true;
+			cout << postac->imie << ": Cos sie ostatnio dzialo ciekawego?" << endl
+				<< "Karczmarz: " << lokalnaPlotka << endl;
 		}
 
 		getchar();
@@ -110,16 +101,16 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 	}
 	case 3:
 	{
-		if (zapotanoOImie)
+		int losowaLiczba = rand() % iloscRad;
+		if (zapytanoOImie)
 		{
-			cout << postac->imie << ": Jak masz na imie?" << endl
-				<< imie << " : Juz nie pamietasz? Mam na imie " << imie << endl;
+			cout << postac->imie << ": Masz dla mnie jakies rady?" << endl
+				<< imie << ": " << listaRad[losowaLiczba] << endl;
 		}
 		else
 		{
-			cout << postac->imie << ": Jak masz na imie?" << endl
-				<< "Karczmarz: Mam na imie " << imie << endl;
-			zapotanoOImie = true;
+			cout << postac->imie << ": Masz dla mnie jakies rady?" << endl
+				<< "Karczmarz: " << listaRad[losowaLiczba] << endl;
 		}
 
 		getchar();
@@ -127,16 +118,18 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 	}
 	case 4:
 	{
-		if (zapotanoOImie)
+		//do skoñczenia
+		if (zapytanoOImie)
 		{
-			cout << postac->imie << ": Jak masz na imie?" << endl
-				<< imie << " : Juz nie pamietasz? Mam na imie " << imie << endl;
+			cout << postac->imie << ": Powiedz mi cos o cechach." << endl
+				<< imie << ": Cecha A odpowiada za cos." << endl
+				<< "Cecha B odpowiada za cos innego" << endl;
 		}
 		else
 		{
-			cout << postac->imie << ": Jak masz na imie?" << endl
-				<< "Karczmarz: Mam na imie " << imie << endl;
-			zapotanoOImie = true;
+			cout << postac->imie << ": Powiedz mi cos o cechach." << endl
+				<< "Karczmarz: Cecha A odpowiada za cos." << endl
+				<< "Cecha B odpowiada za cos innego" << endl;
 		}
 
 		getchar();
@@ -144,7 +137,41 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 	}
 	case 5:
 	{
-		if (zapotanoOImie)
+		//do skoñczenia
+		if (zapytanoOImie)
+		{
+			cout << postac->imie << ": Chcialbym cos zjesc." << endl
+				<< imie << ": Prosze.. " << endl;
+		}
+		else
+		{
+			cout << postac->imie << ": Chcialbym cos zjesc." << endl
+				<< "Karczmarz: Prosze.. " << endl;
+		}
+
+		getchar();
+		break;
+	}
+	case 6:
+	{
+		//do skoñczenia
+		if (zapytanoOImie)
+		{
+			cout << postac->imie << ": Chcialbym odpoczac." << endl
+				<< imie << ": Tu masz klucz, twoj pokoj jest na gorze." << endl;
+		}
+		else
+		{
+			cout << postac->imie << ": Chcialbym odpoczac." << endl
+				<< "Karczmarz: Tu masz klucz, twoj pokoj jest na gorze." << endl;
+		}
+
+		getchar();
+		break;
+	}
+	case 7:
+	{
+		if (zapytanoOImie)
 		{
 			cout << postac->imie << ": Do zobaczenia " << imie << endl
 				<< imie << " : Do zobaczenia " << endl;
@@ -164,21 +191,26 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 
 
 
-string Karczmarz::logo()
+void Karczmarz::logo()
 {
+	HANDLE hOut;
+	hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hOut, 240);
 	//100 x 12
 	string wynik = "";
-	wynik += "####################################################################################################";
-	wynik += "####################################################################################################";
-	wynik += "####################################################################################################";
-	wynik += "####################################################################################################";
-	wynik += "####################################################################################################";
-	wynik += "####################################################################################################";
-	wynik += "####################################################################################################";
-	wynik += "####################################################################################################";
-	wynik += "####################################################################################################";
-	wynik += "####################################################################################################";
-	wynik += "####################################################################################################";
-	wynik += "####################################################################################################\n";
-	return wynik;
+	wynik += "                                                                                                    ";
+	wynik += "                                                                                                    ";
+	wynik += "                                                                                                    ";
+	wynik += "                                                                                                    ";
+	wynik += "                                                                                                    ";
+	wynik += "                            cos tu trzeba zrobic                                                    ";
+	wynik += "                                                                                                    ";
+	wynik += "                                                                                                    ";
+	wynik += "                                                                                                    ";
+	wynik += "                                                                                                    ";
+	wynik += "                                                                                                    ";
+	wynik += "                                                                                                    ";
+	wynik += "----------------------------------------------------------------------------------------------------";
+	cout << wynik << endl;
+	SetConsoleTextAttribute(hOut, 15);
 }

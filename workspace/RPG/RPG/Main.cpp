@@ -6,7 +6,7 @@ using namespace std;
 
 int main() 
 {
-	srand(time(0));
+	srand(time(nullptr));
 	Gra gra;
 	gra.ustawKonsole(100,30);
 	gra.start();

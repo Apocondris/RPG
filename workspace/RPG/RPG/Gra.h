@@ -7,11 +7,7 @@
 #include <cstdlib>
 #include <stdlib.h>
 
-#include "Postac.h"
-#include "Wojownik.h"
-#include "Lucznik.h"
-#include "Lokalizacja.h"
-#include "Wioska.h"
+#include "WszystkieKlasy.h"
 using namespace std;
 
 class Gra
@@ -26,7 +22,7 @@ public:
 
 private:
 	static void czyscEkran(void);
-	static string logo(void);
+	void logo(void);
 	void ekranMenu(void);
 	void tworzeniePostaci(void);
 	Lokalizacja* losujLokalizacje(void);
