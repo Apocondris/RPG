@@ -66,126 +66,126 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 
 	switch (wybor)
 	{
-	case 1:
-	{
-		if (zapytanoOImie)
+		case 1:
 		{
-			cout << postac->imie << ": Jak masz na imie?" << endl
-				<< imie <<" : Juz nie pamietasz? Mam na imie " << imie << endl;
-		}
-		else 
-		{
-			cout << postac->imie << ": Jak masz na imie?" << endl
-				<< "Karczmarz: Mam na imie " << imie << endl;
-			zapytanoOImie = true;
-		}
+			if (zapytanoOImie)
+			{
+				cout << postac->imie << ": Jak masz na imie?" << endl
+					<< imie <<": Juz nie pamietasz? Mam na imie " << imie << endl;
+			}
+			else 
+			{
+				cout << postac->imie << ": Jak masz na imie?" << endl
+					<< "Karczmarz: Mam na imie " << imie << endl;
+				zapytanoOImie = true;
+			}
 
-		getchar();
-		break;
-	}
-	case 2:
-	{
-		if (zapytanoOImie)
-		{
-			cout << postac->imie << ": Cos sie ostatnio dzialo ciekawego?" << endl
-				<< imie << ": " << lokalnaPlotka << endl;
+			getchar();
+			break;
 		}
-		else
+		case 2:
 		{
-			cout << postac->imie << ": Cos sie ostatnio dzialo ciekawego?" << endl
-				<< "Karczmarz: " << lokalnaPlotka << endl;
-		}
+			if (zapytanoOImie)
+			{
+				cout << postac->imie << ": Cos sie ostatnio dzialo ciekawego?" << endl
+					<< imie << ": " << lokalnaPlotka << endl;
+			}
+			else
+			{
+				cout << postac->imie << ": Cos sie ostatnio dzialo ciekawego?" << endl
+					<< "Karczmarz: " << lokalnaPlotka << endl;
+			}
 
-		getchar();
-		break;
-	}
-	case 3:
-	{
-		int losowaLiczba = rand() % iloscRad;
-		if (zapytanoOImie)
-		{
-			cout << postac->imie << ": Masz dla mnie jakies rady?" << endl
-				<< imie << ": " << listaRad[losowaLiczba] << endl;
+			getchar();
+			break;
 		}
-		else
+		case 3:
 		{
-			cout << postac->imie << ": Masz dla mnie jakies rady?" << endl
-				<< "Karczmarz: " << listaRad[losowaLiczba] << endl;
-		}
+			int losowaLiczba = rand() % iloscRad;
+			if (zapytanoOImie)
+			{
+				cout << postac->imie << ": Masz dla mnie jakies rady?" << endl
+					<< imie << ": " << listaRad[losowaLiczba] << endl;
+			}
+			else
+			{
+				cout << postac->imie << ": Masz dla mnie jakies rady?" << endl
+					<< "Karczmarz: " << listaRad[losowaLiczba] << endl;
+			}
 
-		getchar();
-		break;
-	}
-	case 4:
-	{
-		//do skoñczenia
-		if (zapytanoOImie)
-		{
-			cout << postac->imie << ": Powiedz mi cos o cechach." << endl
-				<< imie << ": Cecha A odpowiada za cos." << endl
-				<< "Cecha B odpowiada za cos innego" << endl;
+			getchar();
+			break;
 		}
-		else
+		case 4:
 		{
-			cout << postac->imie << ": Powiedz mi cos o cechach." << endl
-				<< "Karczmarz: Cecha A odpowiada za cos." << endl
-				<< "Cecha B odpowiada za cos innego" << endl;
-		}
+			//do skoñczenia
+			if (zapytanoOImie)
+			{
+				cout << postac->imie << ": Powiedz mi cos o cechach." << endl
+					<< imie << ": Cecha A odpowiada za cos." << endl
+					<< "Cecha B odpowiada za cos innego" << endl;
+			}
+			else
+			{
+				cout << postac->imie << ": Powiedz mi cos o cechach." << endl
+					<< "Karczmarz: Cecha A odpowiada za cos." << endl
+					<< "Cecha B odpowiada za cos innego" << endl;
+			}
 
-		getchar();
-		break;
-	}
-	case 5:
-	{
-		//do skoñczenia
-		if (zapytanoOImie)
-		{
-			cout << postac->imie << ": Chcialbym cos zjesc." << endl
-				<< imie << ": Prosze.. " << endl;
+			getchar();
+			break;
 		}
-		else
+		case 5:
 		{
-			cout << postac->imie << ": Chcialbym cos zjesc." << endl
-				<< "Karczmarz: Prosze.. " << endl;
-		}
+			//do skoñczenia
+			if (zapytanoOImie)
+			{
+				cout << postac->imie << ": Chcialbym cos zjesc." << endl
+					<< imie << ": Prosze.. " << endl;
+			}
+			else
+			{
+				cout << postac->imie << ": Chcialbym cos zjesc." << endl
+					<< "Karczmarz: Prosze.. " << endl;
+			}
 
-		getchar();
-		break;
-	}
-	case 6:
-	{
-		//do skoñczenia
-		if (zapytanoOImie)
-		{
-			cout << postac->imie << ": Chcialbym odpoczac." << endl
-				<< imie << ": Tu masz klucz, twoj pokoj jest na gorze." << endl;
+			getchar();
+			break;
 		}
-		else
+		case 6:
 		{
-			cout << postac->imie << ": Chcialbym odpoczac." << endl
-				<< "Karczmarz: Tu masz klucz, twoj pokoj jest na gorze." << endl;
-		}
+			//do skoñczenia
+			if (zapytanoOImie)
+			{
+				cout << postac->imie << ": Chcialbym odpoczac." << endl
+					<< imie << ": Tu masz klucz, twoj pokoj jest na gorze." << endl;
+			}
+			else
+			{
+				cout << postac->imie << ": Chcialbym odpoczac." << endl
+					<< "Karczmarz: Tu masz klucz, twoj pokoj jest na gorze." << endl;
+			}
 
-		getchar();
-		break;
-	}
-	case 7:
-	{
-		if (zapytanoOImie)
-		{
-			cout << postac->imie << ": Do zobaczenia " << imie << endl
-				<< imie << " : Do zobaczenia " << endl;
+			getchar();
+			break;
 		}
-		else
+		case 7:
 		{
-			cout << postac->imie << ": Do zobaczenia" << endl
-				<< "Karczmarz: Do zobaczenia " << endl;
-		}
+			if (zapytanoOImie)
+			{
+				cout << postac->imie << ": Do zobaczenia " << imie << endl
+					<< imie << " : Do zobaczenia " << endl;
+			}
+			else
+			{
+				cout << postac->imie << ": Do zobaczenia" << endl
+					<< "Karczmarz: Do zobaczenia " << endl;
+			}
 
-		getchar();
-		przebywaszUKarczmarza = false;
-		break;
-	}
+			getchar();
+			przebywaszUKarczmarza = false;
+			break;
+		}
 	}
 }
 

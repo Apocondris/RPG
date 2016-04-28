@@ -4,6 +4,7 @@
 #include "Lucznik.h"
 #include "Lokalizacja.h"
 #include "Wioska.h"
+#include "Miasto.h"
 
 void Gra::start()
 {
@@ -123,12 +124,17 @@ void Gra::tworzeniePostaci(void)
 
 Lokalizacja* Gra::losujLokalizacje(void)
 {
-	int losowaLiczba = rand()%1; //po % podaæ liczbê dostêpnych lokalizacji
+	int losowaLiczba = rand()%2; //po % podaæ liczbê dostêpnych lokalizacji
 	switch (losowaLiczba)
 	{
 		case 0 :
 		{
 			return new Wioska(postac);
+			break;
+		}
+		case 1:
+		{
+			return new Miasto(postac);
 			break;
 		}
 		default :

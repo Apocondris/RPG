@@ -1,5 +1,7 @@
 #include "Szlak.h"
 #include "Wioska.h"
+#include "Bagna.h"
+#include "Miasto.h"
 #include "Postac.h"
 #include <Windows.h>
 #include "BandytaLucznik.h"
@@ -49,7 +51,7 @@ void Szlak::menuGlowne(bool &przebywaszNaSzlaku)
 	{
 	case 1:
 	{
-		poluj(postac);
+		poluj();
 		break;
 	}
 	case 2:
@@ -71,7 +73,7 @@ void Szlak::menuGlowne(bool &przebywaszNaSzlaku)
 	}
 }
 
-void Szlak::poluj(Postac *)
+void Szlak::poluj()
 {
 	czyscEkran();
 	int losowaLiczba = rand() % iloscPrzeciwnikow;
@@ -82,12 +84,22 @@ void Szlak::poluj(Postac *)
 
 Lokalizacja * Szlak::losujLokalizacje(Postac *)
 {
-	int losowaLiczba = rand() % 1; //po % podaæ liczbê dostêpnych lokalizacji
+	int losowaLiczba = rand() % 3; //po % podaæ liczbê dostêpnych lokalizacji
 	switch (losowaLiczba)
 	{
 		case 0:
 		{
 			return new Wioska(postac, this);
+			break;
+		}
+		case 1:
+		{
+			return new Bagna(postac, this);
+			break;
+		}
+		case 2:
+		{
+			return new Miasto(postac, this);
 			break;
 		}
 		default:
@@ -100,35 +112,40 @@ Lokalizacja * Szlak::losujLokalizacje(Postac *)
 
 void Szlak::losujPrzeciwnikow(Przeciwnik * tablica[iloscPrzeciwnikow])
 {
-
-	int losowaLiczba = rand() % 5; //po % podaæ liczbê dostêpnych przeciwnikow
+	//cout << "Losowanie przeciwnikow:" << endl;
 	for (int i = 0; i < iloscPrzeciwnikow; i++)
 	{
+		int losowaLiczba = rand() % 5; //po % podaæ liczbê dostêpnych przeciwnikow
 		switch (losowaLiczba)
 		{
 			case 0:
 			{
 				tablica[i] = new BandytaLucznik();
+				//cout << "wylosowano bandyte lucznika" << endl;
 				break;
 			}
 			case 1:
 			{
 				tablica[i] = new BandytaWojownik();
+				//cout << "wylosowano bandyte wojownika" << endl;
 				break;
 			}
 			case 2:
 			{
 				tablica[i] = new Wilk();
+				//cout << "wylosowano wilka" << endl;
 				break;
 			}
 			case 3:
 			{
 				tablica[i] = new Dzik();
+				//cout << "wylosowano dzika" << endl;
 				break;
 			}
 			case 4:
 			{
 				tablica[i] = new Niedzwiedz();
+				//cout << "wylosowano niedzwiedzia" << endl;
 				break;
 			}
 			default:
@@ -138,6 +155,7 @@ void Szlak::losujPrzeciwnikow(Przeciwnik * tablica[iloscPrzeciwnikow])
 			}
 		}
 	}
+	//system("pause");
 }
 
 void Szlak::logo(void)

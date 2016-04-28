@@ -1,0 +1,5 @@
+Powitanie kupca 1
+Powitanie kupca 2
+Powitanie kupca 3
+Powitanie kupca 4
+Powitanie kupca 5

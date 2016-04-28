@@ -105,6 +105,15 @@
     <ClCompile Include="Utopiec.cpp">
       <Filter>Source Files\Przeciwnik</Filter>
     </ClCompile>
+    <ClCompile Include="Bagna.cpp">
+      <Filter>Source Files\Lokalizacja</Filter>
+    </ClCompile>
+    <ClCompile Include="Miasto.cpp">
+      <Filter>Source Files\Lokalizacja</Filter>
+    </ClCompile>
+    <ClCompile Include="Kupiec.cpp">
+      <Filter>Source Files\NPC</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Gra.h">
@@ -161,6 +170,15 @@
     <ClInclude Include="Utopiec.h">
       <Filter>Header Files\Przeciwnik</Filter>
     </ClInclude>
+    <ClInclude Include="Miasto.h">
+      <Filter>Header Files\Lokalizacja</Filter>
+    </ClInclude>
+    <ClInclude Include="Bagna.h">
+      <Filter>Header Files\Lokalizacja</Filter>
+    </ClInclude>
+    <ClInclude Include="Kupiec.h">
+      <Filter>Header Files\NPC</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="NazwyWiosek.txt">
@@ -179,6 +197,18 @@
       <Filter>Resource Files\NPC</Filter>
     </Text>
     <Text Include="radyKarczmarz.txt">
+      <Filter>Resource Files\NPC</Filter>
+    </Text>
+    <Text Include="NazwyBagien.txt">
+      <Filter>Resource Files\Lokalizacja</Filter>
+    </Text>
+    <Text Include="NazwyMiast.txt">
+      <Filter>Resource Files\Lokalizacja</Filter>
+    </Text>
+    <Text Include="imionaKupcow.txt">
+      <Filter>Resource Files\NPC</Filter>
+    </Text>
+    <Text Include="powitaniaKupcow.txt">
       <Filter>Resource Files\NPC</Filter>
     </Text>
   </ItemGroup>

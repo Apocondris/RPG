@@ -142,14 +142,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bagna.cpp" />
     <ClCompile Include="BandytaLucznik.cpp" />
     <ClCompile Include="BandytaWojownik.cpp" />
     <ClCompile Include="Dzik.cpp" />
     <ClCompile Include="Gra.cpp" />
     <ClCompile Include="Karczmarz.cpp" />
+    <ClCompile Include="Kupiec.cpp" />
     <ClCompile Include="Lokalizacja.cpp" />
     <ClCompile Include="Lucznik.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Miasto.cpp" />
     <ClCompile Include="Niedzwiedz.cpp" />
     <ClCompile Include="Npc.cpp" />
     <ClCompile Include="Postac.cpp" />
@@ -162,10 +165,13 @@
     <ClCompile Include="Wojownik.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bagna.h" />
     <ClInclude Include="BandytaLucznik.h" />
     <ClInclude Include="BandytaWojownik.h" />
     <ClInclude Include="Dzik.h" />
     <ClInclude Include="Gra.h" />
+    <ClInclude Include="Kupiec.h" />
+    <ClInclude Include="Miasto.h" />
     <ClInclude Include="Niedzwiedz.h" />
     <ClInclude Include="Przedmiot.h" />
     <ClInclude Include="Utopiec.h" />
@@ -182,12 +188,16 @@
     <ClInclude Include="Wojownik.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="imionaKupcow.txt" />
     <Text Include="lokalnePlotkiKarczmarz.txt" />
+    <Text Include="NazwyBagien.txt" />
     <Text Include="NazwyWiosek.txt" />
     <Text Include="imionaKarczmarzy.txt" />
     <Text Include="powitaniaKarczmarzy.txt" />
     <Text Include="NazwySzlakow.txt" />
+    <Text Include="powitaniaKupcow.txt" />
     <Text Include="radyKarczmarz.txt" />
+    <Text Include="NazwyMiast.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

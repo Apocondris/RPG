@@ -4,6 +4,8 @@
 class Lokalizacja;
 class Szlak;
 class Wioska;
+class Bagna;
+class Miasto;
 
 //klasy postaci
 class Postac;

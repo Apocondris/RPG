@@ -13,15 +13,15 @@ public:
 	Szlak(Postac*, Lokalizacja*);
 
 	void start();
-private:
 
+private:
 	static const int iloscNazwSzlakow = 15;
 	static const int iloscPrzeciwnikow = 3;
 	static string nazwySzlakow[iloscNazwSzlakow];
 	Przeciwnik * tablicaPrzeciwnikow[iloscPrzeciwnikow]; 
 
 	void menuGlowne(bool &);
-	void poluj(Postac*);
+	void poluj();
 	//do zrobienia walka i losowanie potworów na danym szlaku
 	Lokalizacja * losujLokalizacje(Postac *);
 	void losujPrzeciwnikow(Przeciwnik * tablica[iloscPrzeciwnikow]);
