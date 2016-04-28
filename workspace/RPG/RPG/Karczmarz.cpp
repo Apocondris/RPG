@@ -80,7 +80,8 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 				zapytanoOImie = true;
 			}
 
-			getchar();
+			system("pause");
+			//getchar();
 			break;
 		}
 		case 2:
@@ -96,7 +97,8 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 					<< "Karczmarz: " << lokalnaPlotka << endl;
 			}
 
-			getchar();
+			system("pause");
+			//getchar();
 			break;
 		}
 		case 3:
@@ -113,7 +115,8 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 					<< "Karczmarz: " << listaRad[losowaLiczba] << endl;
 			}
 
-			getchar();
+			system("pause");
+			//getchar();
 			break;
 		}
 		case 4:
@@ -132,7 +135,8 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 					<< "Cecha B odpowiada za cos innego" << endl;
 			}
 
-			getchar();
+			system("pause");
+			//getchar();
 			break;
 		}
 		case 5:
@@ -149,7 +153,8 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 					<< "Karczmarz: Prosze.. " << endl;
 			}
 
-			getchar();
+			system("pause");
+			//getchar();
 			break;
 		}
 		case 6:
@@ -166,7 +171,8 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 					<< "Karczmarz: Tu masz klucz, twoj pokoj jest na gorze." << endl;
 			}
 
-			getchar();
+			system("pause");
+			//getchar();
 			break;
 		}
 		case 7:
@@ -182,7 +188,8 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 					<< "Karczmarz: Do zobaczenia " << endl;
 			}
 
-			getchar();
+			system("pause");
+			//getchar();
 			przebywaszUKarczmarza = false;
 			break;
 		}

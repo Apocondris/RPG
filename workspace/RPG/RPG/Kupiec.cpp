@@ -63,7 +63,8 @@ void Kupiec::menuGlowne(bool & przebywaszUKupca)
 				zapytanoOImie = true;
 			}
 
-			getchar();
+			system("pause");
+			//getchar();
 			break;
 		}
 		case 2:
@@ -81,14 +82,16 @@ void Kupiec::menuGlowne(bool & przebywaszUKupca)
 				// TODO lista przedmiotow do kupienia
 			}
 
-			getchar();
+			system("pause");
+			//getchar();
 			break;
 		}
 		case 3:
 		{
 			cout << postac->imie << ": Chcialbym sprzedac pare rzeczy.." << endl;
 			// TODO lista przedmiotow na sprzedaz
-			getchar();
+			system("pause");
+			//getchar();
 			break;
 		}
 		case 4:
@@ -105,7 +108,8 @@ void Kupiec::menuGlowne(bool & przebywaszUKupca)
 			}
 
 			przebywaszUKupca = false;
-			getchar();
+			system("pause");
+			//getchar();
 			break;
 		}
 	}
