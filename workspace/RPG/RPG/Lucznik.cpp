@@ -6,7 +6,7 @@ Lucznik::Lucznik()
 {
 }
 
-Lucznik::Lucznik(string imie) : Postac(imie)
+Lucznik::Lucznik(string imie) : Postac(imie,"lucznik")
 {
 	zdrowie = 100;
 }

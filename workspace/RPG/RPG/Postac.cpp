@@ -7,9 +7,10 @@ Postac::Postac()
 	this->imie = "Bezimienny";
 }
 
-Postac::Postac(string imie)
+Postac::Postac(string imie,string klasa)
 {
 	this->imie = imie;
+	this->klasa_postaci = klasa;
 
 }
 

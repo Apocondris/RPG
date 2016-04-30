@@ -1,0 +1,21 @@
+System walki RPG na UML:
+
+Statystyki:
+Atak - szansa na trafienie atakiem
+Obrona - szansa na unikniêcie ataku
+Pancerz - szansa na sparowanie czêœci obra¿eñ, jeœli 3 to od 0 do 3 obra¿eñ mo¿e byæ sparowane.
+Obra¿enia  - obra¿enia zadawane przez postaæ (losowe na przyk³ad 8-12)
+Szybkoœæ - szybkoœæ poruszania siê
+Zasiêg - odpowiada za zasiêg ataku
+Szczêœcie - odpowiada za szansê na podwójne obra¿enia i unikniêcie obra¿eñ
+Wytrzyma³oœæ
+Punkty ¿ycia
+Mo¿liwe manewry:
+-ruch = szybkoœæ poruszania siê
+-atak = obrona celu - (atak + rzut na trafienie k10)
+
+Specjalne manewry:
+Wojownik: szar¿a - musi byæ w zasiêgu, ruch + atak - 3 wytrzyma³oœci
+£ucznik: strza³ i odskok - musi trafiæ aby odskoczyæ na po³owê ruchu - 2 wytrzyma³oœci
+
+Rzut na szczêœcie przed wpisaniem obra¿eñ z obu stron.

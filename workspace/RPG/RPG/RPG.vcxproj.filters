@@ -114,6 +114,9 @@
     <ClCompile Include="Kupiec.cpp">
       <Filter>Source Files\NPC</Filter>
     </ClCompile>
+    <ClCompile Include="Walka.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Gra.h">
@@ -179,6 +182,9 @@
     <ClInclude Include="Kupiec.h">
       <Filter>Header Files\NPC</Filter>
     </ClInclude>
+    <ClInclude Include="Walka.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="NazwyWiosek.txt">
@@ -209,6 +215,9 @@
       <Filter>Resource Files\NPC</Filter>
     </Text>
     <Text Include="powitaniaKupcow.txt">
+      <Filter>Resource Files\NPC</Filter>
+    </Text>
+    <Text Include="..\..\..\..\..\..\Desktop\System RPG UML.txt">
       <Filter>Resource Files\NPC</Filter>
     </Text>
   </ItemGroup>

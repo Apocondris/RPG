@@ -1,5 +1,5 @@
 #pragma once
-
+#include "WszystkieKlasy.h"
 #ifndef POSTAC_H
 #define POSTAC_H
 
@@ -13,12 +13,21 @@ public:
 	string imie;
 
 	Postac();
-	Postac(string);
+	Postac(string, string);
 	~Postac();
-
-protected:
 	int zdrowie;
 	int punktyDoWydania;
+	int klasa_pancerza;
+	int szybkosc;
+	int szczescie;
+	int atak;
+	int obrona;
+	int wytrzymalosc;
+	int zasieg;
+	int obrazenia;
+	string klasa_postaci;
+protected:
+
 	//TODO statystyki
 };
 

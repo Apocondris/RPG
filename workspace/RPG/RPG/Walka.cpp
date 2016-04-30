@@ -1,0 +1,345 @@
+#include "Walka.h"
+#include "Postac.h"
+#include "Przeciwnik.h"
+using namespace std;
+Walka::Walka(Postac* postac, Przeciwnik* przeciwnik,int odleglosc)//:Walka(postac,przeciwnik)
+{
+	this->postac = postac;
+	this->przeciwnik = przeciwnik;
+	this->odleglosc = odleglosc;
+}
+
+Walka::~Walka()
+{
+}
+int Walka :: start()
+{
+	int flaga = 0;//odpowiedzialna za wynik walki 1-jeœli wygra potwór, 2 jeœli wygra bohater, 3 jeœli bohater ucieknie
+	cout << "Naprzeciw siebie staja " + postac->imie + " i " + przeciwnik->nazwa << endl;
+	cout << "Ktory z nich zwyciezy w tym boju?" << endl;
+	cout << "Rozpoczyna siê runda pierwsza. Rundê rozpoczyna " << postac->imie+"!"<<endl;
+	while ((przeciwnik->zdrowie > 0) && (postac->zdrowie > 0) && flaga ==0)
+	{
+		int opcja = 0;
+		cout << "Odleglosc miedzy wami wynosi " + odleglosc<<endl;
+		cout << "Bohaterowi pozostalo " <<  postac->wytrzymalosc<<" puntkow wytrzymalosci"<<endl;
+		cout << "Wybierz jedna z opcji:" << endl;
+
+		if (sprawdz_zasieg(postac->zasieg))
+		{
+			cout << "1. Atak" << endl;
+			cout << "2. Ruch" << endl;
+			cout << "3. Ucieczka" << endl;
+			if ((postac->klasa_postaci) == "lucznik" && postac->wytrzymalosc>2 && (odleglosc <= postac->zasieg))
+			{
+				cout << "4. Strzal i odskok" << endl;
+			}
+			while (opcja == 0)
+			{
+				cin >> opcja;
+				if (cin.fail()) { cout << "Nie jestes zbyt rozgarniety, prawda?" << endl; cin.clear(); }
+				cin.ignore(100000, '\n');
+				switch (opcja)
+				{
+				case 1:
+				{
+						  cout << postac->imie+" wykonuje bohaterski atak na przeciwnika!" << endl;
+						  atak_postaci();
+						  opcja = 1;
+						  break;
+				}
+				case 2:
+				{
+						  int opcja2=0;
+						  while (opcja2 == 0)
+						  {
+							cout << "Wybierz czy podbiec czy odbiec" << endl;
+							cout << "1. Podbiegnij" << endl;
+							cout << "2. Odbiegnij" << endl;
+							switch (opcja2)
+							{
+								case 1:
+								{
+										  cout << postac->imie + " podbiega do przeciwnika" << endl;
+										  opcja2 = 1;
+										  podejdz(postac->szybkosc);
+										  break;
+								}
+								case 2:
+								{
+										  cout << postac->imie + " odbiega od przeciwnika" << endl;
+										  opcja2 = 2;
+										  odejdz(postac->szybkosc);
+										  break;
+								}
+								default:
+								{
+										   opcja2 = 0;
+										   break;
+								}
+							}
+						  }
+						  opcja = 2;
+						  break;
+				}
+
+				case 3:
+				{
+						  flaga = 3;
+						  opcja = 3;
+						  break;
+				}
+				
+				case 4:
+				{
+					if ((postac->klasa_postaci) == "lucznik" && postac->wytrzymalosc>2 && (odleglosc <= postac->zasieg))
+					 {
+						  cout << postac->imie + " wykonuje strzal i odskakuje do ty³u!" << endl;
+						  odejdz((postac->szybkosc) / 2);
+						  atak_postaci();
+						  opcja = 4;
+					}
+					else
+					{
+						opcja = 0;
+					}
+					break;
+				}
+				default:
+				{
+						   opcja = 0;
+						   break;
+				}
+
+				}
+			}
+			if (flaga == 3)break;
+		}
+		else
+		{
+			cout << "1. Ruch" << endl;
+			cout << "2. Ucieczka" << endl;
+			if (((postac->klasa_postaci) == "wojownik") && postac->wytrzymalosc>3 && (odleglosc<=(postac->szybkosc+postac->zasieg)))
+			{
+				cout << "3. Szarza" << endl;
+			}
+			if ((postac->klasa_postaci) == "lucznik" && postac->wytrzymalosc>2 && (odleglosc <= postac->zasieg))
+			{
+				cout << "3. Strzal i odskok" << endl;
+			}
+
+
+			while (opcja == 0)
+			{
+				cin >> opcja;
+				if (cin.fail()) { cout << "Nie jestes zbyt rozgarniety, prawda?" << endl; cin.clear(); }
+				cin.ignore(100000, '\n');
+				switch (opcja)
+				{
+				case 1:
+				{
+						  int opcja2 = 0;
+						  while (opcja2 == 0)
+						  {
+							  cout << "Wybierz czy podbiec czy odbiec" << endl;
+							  cout << "1. Podbiegnij" << endl;
+							  cout << "2. Odbiegnij" << endl;
+							  switch (opcja2)
+							  {
+							  case 1:
+							  {
+										opcja2 = 1;
+										podejdz(postac->szybkosc);
+										cout << postac->imie+" podbiega do przeciwnika" << endl;
+										break;
+							  }
+							  case 2:
+							  {
+										opcja2 = 2;
+										odejdz(postac->szybkosc);
+										cout << postac->imie+" odbiega od przeciwnika" << endl;
+										break;
+							  }
+							  default:
+							  {
+										 opcja2 = 0;
+										 break;
+							  }
+							  }
+						  }
+						  opcja = 2;
+						  break;
+				}
+				case 2:
+				{
+						  flaga = 3;
+						  opcja = 3;
+						  break;
+				}
+				case 3:
+				{
+						  if (((postac->klasa_postaci) == "wojownik") && postac->wytrzymalosc>3 && (odleglosc <= (postac->szybkosc + postac->zasieg)))
+						  {
+							  cout << postac->imie + " wykonuje bohaterska szarze na przeciwnika" << endl;
+							  podejdz(postac->szybkosc);
+							  atak_postaci();
+							  opcja = 4;
+						  }
+						  else if ((postac->klasa_postaci) == "lucznik" && postac->wytrzymalosc>2 && (odleglosc <= postac->zasieg))
+						  {
+							  cout << postac->imie + " wykonuje strzal i odskakuje do ty³u!" << endl;
+							  odejdz((postac->szybkosc) / 2);
+							  atak_postaci();
+							  opcja = 4;
+						  }
+						  else
+						  {
+							  opcja = 0; 
+						  }
+						  break;
+				}
+				default:
+				{
+						   opcja = 0;
+						   break;
+				}
+				if (flaga == 3)break;
+				}
+			}
+		}
+		if (przeciwnik->zdrowie <= 0)
+		{
+			flaga = 2;
+			break;
+		}
+
+	/////////przeciwnik
+		if (sprawdz_zasieg(przeciwnik->zasieg))
+		{
+			cout << przeciwnik->nazwa + " atakuje w szale bohatera!" << endl;
+			atak_przeciwnika();
+		}
+		else
+		{
+			cout << przeciwnik->nazwa + " podbiega!" << endl;
+			podejdz(przeciwnik->szybkosc);
+		}
+		if (postac->zdrowie <= 0)
+		{
+			flaga = 1;
+			break;
+		}
+	}
+	switch (flaga)
+	{
+	case 1:
+	{
+			  cout << "Walka zakoñczy³a siê zwyciêstwem przeciwnika!" << endl;
+	}
+	case 2:
+	{
+			  cout << "Walka zakoñczy³a siê zwyciêstwem bohatera!" << endl;
+	}
+	case 3:
+	{
+			  cout << "Walka zakoñczy³a siê rozpaczliwa ucieczka bohatera" << endl;
+	}
+	}
+	return flaga;
+};
+
+void Walka :: atak_postaci()
+{
+	int trafienie=((postac->atak)-(przeciwnik->obrona))+(rand()%10);
+	if (trafienie > 0)
+	{
+		int obrazenia;
+		if (szczescie(postac->szczescie))
+		{
+			obrazenia = (postac->obrazenia) * 2;
+			obrazenia = obrazenia - losuj_pancerz(przeciwnik->klasa_pancerza);
+			cout << "Dziêki odrobinie szczêœci bohater zadaje podwójne obra¿enia!" << endl;
+		}
+		else
+		{
+			obrazenia = (postac->obrazenia) - losuj_pancerz(przeciwnik->klasa_pancerza);
+		}
+
+		if (szczescie(przeciwnik->szczescie))
+		{
+			obrazenia = 0;
+			cout << "Przeciwnik cudem unikn¹³ ciosu!" << endl;
+		}
+		cout << "Bohater zada³ "<< obrazenia << " punktow obrazen"<<endl;
+		przeciwnik->zdrowie = przeciwnik->zdrowie - obrazenia;
+		cout << "Przeciwnikowi pozosta³o " << przeciwnik->zdrowie << " punktow zycia" << endl;
+	}
+	else
+	{
+		cout << "Nie uda³o siê trafiæ!" << endl;
+	}
+	
+
+};
+
+void Walka::atak_przeciwnika()
+{
+
+	int trafienie = ((przeciwnik->atak) - (postac->obrona)) + (rand() % 10);
+	if (trafienie > 0)
+	{
+		int obrazenia;
+		if (szczescie(przeciwnik->szczescie))
+		{
+			obrazenia = (przeciwnik->obrazenia) * 2;
+			obrazenia = obrazenia - losuj_pancerz(postac->klasa_pancerza);
+			cout << "Do przeciwnika uœmiechnê³o siê szczêœcie! Zadaje podwójne obra¿enia" << endl;
+		}
+		else
+		{
+			obrazenia = (przeciwnik->obrazenia) - losuj_pancerz(postac->klasa_pancerza);
+		}
+
+		if (szczescie(postac->szczescie))
+		{
+			obrazenia = 0;
+			cout << "Bohater cudem unikn¹³ ciosu!" << endl;
+		}
+		cout << "Przeciwnik zada³ " << obrazenia << " punktow obrazen" << endl;
+		postac->zdrowie = postac->zdrowie - obrazenia;
+		cout << "Bohaterowi pozosta³o " << postac->zdrowie << " punktow zycia" << endl;
+	}
+	else
+	{
+		cout << "Nie uda³o siê trafiæ!" << endl;
+	}
+};
+
+void Walka::podejdz(int szybkosc)
+{
+	odleglosc=odleglosc - szybkosc;
+	if (odleglosc <= 0)odleglosc = 1;
+};
+void Walka::odejdz(int szybkosc)
+{
+	odleglosc = odleglosc + szybkosc;
+};
+
+bool Walka::szczescie(int szczescie)
+{
+	int wynik = rand() % 100;
+	wynik = wynik + szczescie;
+	if (wynik > 90) return true;
+	else return false;
+};
+
+int Walka::losuj_pancerz(int pancerz)
+{
+	return rand() % pancerz;
+};
+bool Walka::sprawdz_zasieg(int zasieg)
+{
+	if ((odleglosc - zasieg) <= 0)return true;
+	else return false;
+};
+

@@ -12,8 +12,14 @@ public:
 	~Przeciwnik();
 
 	string nazwa;
-
-	void atakuj(Postac *);
-	void ruch(Postac *);
+	int zdrowie;
+	int klasa_pancerza;
+	int szybkosc;
+	int szczescie;
+	int atak;
+	int obrona;
+	int wytrzymalosc;
+	int zasieg;
+	int obrazenia;
 };
 

@@ -6,7 +6,7 @@ Wojownik::Wojownik()
 {
 }
 
-Wojownik::Wojownik(string imie) : Postac(imie)
+Wojownik::Wojownik(string imie) : Postac(imie,"wojownik")
 {
 	zdrowie = 120;
 }
