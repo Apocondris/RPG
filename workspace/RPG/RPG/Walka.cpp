@@ -1,6 +1,9 @@
 #include "Walka.h"
 #include "Postac.h"
 #include "Przeciwnik.h"
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 Walka::Walka(Postac* postac, Przeciwnik* przeciwnik,int odleglosc)//:Walka(postac,przeciwnik)
 {
@@ -20,8 +23,9 @@ int Walka :: start()
 	cout << "Rozpoczyna siê runda pierwsza. Rundê rozpoczyna " << postac->imie+"!"<<endl;
 	while ((przeciwnik->zdrowie > 0) && (postac->zdrowie > 0) && flaga ==0)
 	{
+		int opcja2 = 0;
 		int opcja = 0;
-		cout << "Odleglosc miedzy wami wynosi " + odleglosc<<endl;
+		cout << "Odleglosc miedzy wami wynosi " << odleglosc<<endl;
 		cout << "Bohaterowi pozostalo " <<  postac->wytrzymalosc<<" puntkow wytrzymalosci"<<endl;
 		cout << "Wybierz jedna z opcji:" << endl;
 
@@ -50,12 +54,13 @@ int Walka :: start()
 				}
 				case 2:
 				{
-						  int opcja2=0;
+						  opcja2=0;
 						  while (opcja2 == 0)
 						  {
 							cout << "Wybierz czy podbiec czy odbiec" << endl;
 							cout << "1. Podbiegnij" << endl;
 							cout << "2. Odbiegnij" << endl;
+							cin >> opcja2;
 							switch (opcja2)
 							{
 								case 1:
@@ -95,7 +100,7 @@ int Walka :: start()
 					if ((postac->klasa_postaci) == "lucznik" && postac->wytrzymalosc>2 && (odleglosc <= postac->zasieg))
 					 {
 						  cout << postac->imie + " wykonuje strzal i odskakuje do ty³u!" << endl;
-						  odejdz((postac->szybkosc) / 2);
+						  odejdz((postac->szybkosc));
 						  atak_postaci();
 						  opcja = 4;
 					}
@@ -144,6 +149,7 @@ int Walka :: start()
 							  cout << "Wybierz czy podbiec czy odbiec" << endl;
 							  cout << "1. Podbiegnij" << endl;
 							  cout << "2. Odbiegnij" << endl;
+							  cin >> opcja2;
 							  switch (opcja2)
 							  {
 							  case 1:
@@ -178,7 +184,7 @@ int Walka :: start()
 				}
 				case 3:
 				{
-						  if (((postac->klasa_postaci) == "wojownik") && postac->wytrzymalosc>3 && (odleglosc <= (postac->szybkosc + postac->zasieg)))
+						  if (((postac->klasa_postaci) == "wojownik") && (postac->wytrzymalosc)>3 && (odleglosc <= (postac->szybkosc + postac->zasieg)))
 						  {
 							  cout << postac->imie + " wykonuje bohaterska szarze na przeciwnika" << endl;
 							  podejdz(postac->szybkosc);
@@ -317,7 +323,8 @@ void Walka::atak_przeciwnika()
 
 void Walka::podejdz(int szybkosc)
 {
-	odleglosc=odleglosc - szybkosc;
+	if(odleglosc>szybkosc)odleglosc=odleglosc - szybkosc;
+	else odleglosc = 1;
 	if (odleglosc <= 0)odleglosc = 1;
 };
 void Walka::odejdz(int szybkosc)
@@ -335,7 +342,8 @@ bool Walka::szczescie(int szczescie)
 
 int Walka::losuj_pancerz(int pancerz)
 {
-	return rand() % pancerz;
+	if (pancerz == 0)return 0;
+	else return rand() % pancerz;
 };
 bool Walka::sprawdz_zasieg(int zasieg)
 {

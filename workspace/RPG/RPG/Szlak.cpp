@@ -8,6 +8,7 @@
 #include "BandytaWojownik.h"
 #include "Dzik.h"
 #include "Wilk.h"
+#include "Walka.h"
 #include "Niedzwiedz.h"
 
 
@@ -75,10 +76,31 @@ void Szlak::menuGlowne(bool &przebywaszNaSzlaku)
 
 void Szlak::poluj()
 {
+	
 	czyscEkran();
 	int losowaLiczba = rand() % iloscPrzeciwnikow;
 	cout << "Walczysz z " << tablicaPrzeciwnikow[losowaLiczba]->nazwa << endl;
 	system("pause");
+	Walka walka(postac,tablicaPrzeciwnikow[losowaLiczba],20);
+	int wynik=walka.start();
+	switch (wynik)
+	{
+	case 1:
+	{
+			  cout << "Walke wygral " << tablicaPrzeciwnikow[losowaLiczba]<<endl;
+			  break;
+	}
+	case 2:
+	{
+			  cout << "Walke wygral " << postac->imie<<endl;
+			  break;
+	}
+	case 3:
+	{
+			  cout << "Bohater uciekl z pola bitwy!" << endl;
+			  break;
+	}
+	}
 	//walka z przeciwnikiem
 }
 
