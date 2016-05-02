@@ -8,5 +8,6 @@ class BandytaLucznik : public Przeciwnik
 public:
 	BandytaLucznik();
 	~BandytaLucznik();
+	string losuj_lup();
 };
 

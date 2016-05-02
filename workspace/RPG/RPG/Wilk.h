@@ -8,5 +8,6 @@ class Wilk : public Przeciwnik
 public:
 	Wilk();
 	~Wilk();
+	string losuj_lup();
 };
 

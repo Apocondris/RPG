@@ -25,6 +25,8 @@ public:
 	int wytrzymalosc;
 	int zasieg;
 	int obrazenia;
+	int max_zdrowie;
+	int max_wytrzymalosc;
 	string klasa_postaci;
 protected:
 

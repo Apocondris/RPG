@@ -8,5 +8,6 @@ class Niedzwiedz : public Przeciwnik
 public:
 	Niedzwiedz();
 	~Niedzwiedz();
+	string losuj_lup();
 };
 

@@ -18,8 +18,10 @@ public:
 	int szczescie;
 	int atak;
 	int obrona;
-	int wytrzymalosc;
 	int zasieg;
 	int obrazenia;
+	int max_zdrowie;
+
+	string losuj_lup();
 };
 

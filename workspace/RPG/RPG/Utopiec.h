@@ -8,5 +8,6 @@ class Utopiec : public Przeciwnik
 public:
 	Utopiec();
 	~Utopiec();
+	string losuj_lup();
 };
 

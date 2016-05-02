@@ -8,5 +8,6 @@ class Dzik : public Przeciwnik
 public:
 	Dzik();
 	~Dzik();
+	string losuj_lup();
 };
 
