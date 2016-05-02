@@ -28,6 +28,7 @@ public:
 	int max_zdrowie;
 	int max_wytrzymalosc;
 	string klasa_postaci;
+	int strzaly;
 protected:
 
 	//TODO statystyki

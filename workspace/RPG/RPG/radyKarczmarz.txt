@@ -1,25 +1,25 @@
-Rada1
-Rada2
-Rada3
-Rada4
-Rada5
-Rada6
-Rada7
-Rada8
-Rada9
-Rada10
-Rada11
-Rada12
-Rada13
-Rada14
-Rada15
-Rada16
-Rada17
-Rada18
-Rada19
-Rada20
-Rada21
-Rada22
-Rada23
-Rada24
-Rada25
+NiedŸwiedzie i Dziki to twardzi przeciwnicy - upewnij siê, ¿e jesteœ wystarczaj¹co doœwiadczonym wojownikiem zanim udasz siê z nimi walczyæ.
+Walcz¹c z Utopcem warto wykorzystaæ jego nisk¹ szybkoœæ.
+Szansa na trafienie zale¿y od Twojego parametru ataku. Pamiêtaj, aby rozwijaæ go równomiernie.
+Podczas ka¿dej walki masz opcjê ucieczki. Nie wahaj siê jej u¿yæ!
+Wykonywanie misji da Ci z³oto oraz doœwiadczenie na rozwój umiejêtnoœci.
+Id¹c na szlak nie zawsze natkniesz siê na te same bestie.
+Maj¹c szczêœcie przy ataku zadasz podwójne obra¿enia!
+Maj¹c szczêœcie przy obronie unikniesz ca³ego ataku!
+Klasa pancerza zwiêksza Twoj¹ szansê na unikniêcie czêœci obra¿eñ.
+Nie zdziw siê jeœli Bandyta zaszar¿uje na Ciebie lub skoczy i strzeli.
+Nie wahaj siê korzystaæ z szar¿y i strza³u i odskoku.
+Jako ³ucznik powinieneœ uwa¿aæ walcz¹c z wilkami. S¹ one bardzo szybkie oraz zadaj¹ du¿e obra¿enia.
+Sprzedaj¹c przedmiot w sklepie uzyskasz tylko po³owê jego wartoœci. Zachowaj przydatne przedmioty.
+Wracaj¹c ze szlaku do poprzedniej lokalizacji nie natkniesz siê na walkê - szed³eœ ju¿ t¹ tras¹.
+Uwa¿aj podczas podró¿y, mo¿esz zostaæ zaatakowany!
+Jeœli brakuje Ci ¿ycia lub wytrzyma³oœci przeœpij siê w karczmie.
+Piwo w karczmie zwiêkszy Twoje szczêœcie podczas nastêpnej walki.
+Jako ³ucznik pamiêtaj o strza³ach!
+Najwa¿niejsze dla wojownika s¹ obrona i pancerz.
+£ucznik powinien pamiêtaæ o rozwijaniu szybkoœci i celnoœci!
+Wytrzyma³oœæ pozwala na szar¿owanie oraz skoki ze strza³em.
+Szar¿a kosztuje 3 punkty zmêczenia.
+Strza³ i odskok kosztuje 2 punkty zmêczenia.
+Wchodz¹c do karczmy zapytaj karczmarza o imie. Kultura jest wazna.
+Ka¿dy przeciwnik ma jak¹œ s³ab¹ stronê. Skorzystaj z niej.

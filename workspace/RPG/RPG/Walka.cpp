@@ -27,6 +27,7 @@ int Walka :: start()
 		int opcja = 0;
 		cout << "Odleglosc miedzy wami wynosi " << odleglosc<<endl;
 		cout << "Bohaterowi pozostalo " <<  postac->wytrzymalosc<<" puntkow wytrzymalosci"<<endl;
+		if ((postac->klasa_postaci) == "lucznik") cout << "Bohaterowi pozostalo " << postac->strzaly << " strzal" << endl;
 		cout << "Wybierz jedna z opcji:" << endl;
 
 		if (sprawdz_zasieg(postac->zasieg))
@@ -279,6 +280,7 @@ void Walka :: atak_postaci()
 		cout << "Bohater zada³ "<< obrazenia << " punktow obrazen"<<endl;
 		przeciwnik->zdrowie = przeciwnik->zdrowie - obrazenia;
 		cout << "Przeciwnikowi pozosta³o " << przeciwnik->zdrowie << " punktow zycia" << endl;
+		if ((postac->klasa_postaci) == "lucznik")postac->strzaly = postac->strzaly - 1;
 	}
 	else
 	{
