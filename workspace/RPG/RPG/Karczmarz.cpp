@@ -1,6 +1,8 @@
 #include "Karczmarz.h"
 #include "Postac.h"
 #include <Windows.h>
+#include "Quest.h"
+#include "QuestPolowania.h"
 
 string Karczmarz::listaImion[iloscImion];
 string Karczmarz::listaPowitan[iloscPowitan];
@@ -59,7 +61,7 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 		<< "5) Zapytaj o posil sie(cena: -)." << endl
 		<< "6) Zapytaj o wypocznik(cena: -)." << endl
 		<< "7) Odejdz od lady" << endl;
-	//if (warunek) cout << "6) cos" << endl;
+	if (postac->quest != 0) cout << "8) Oddaj quest" << endl;
 	cin >> wybor;
 	if (cin.fail()) { cout << "Nie jestes zbyt rozgarniety, prawda?" << endl; cin.clear(); }
 	cin.ignore(100000, '\n');
@@ -191,6 +193,43 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 			system("pause");
 			//getchar();
 			przebywaszUKarczmarza = false;
+			break;
+		}case 8:
+		{
+			if (postac->quest != 0)
+			{
+				if (zapytanoOImie)
+				{
+					if (postac->quest->aktualnaIlosc < postac->quest->ilosc)
+					{
+						cout << postac->imie << ": Chcialbym odebrac nagrode za zlecenie " << postac->quest->nazwaQuesta << endl
+							<< imie << " : Jeszcze nie ukonczyles zlecenia. Musisz jeszcze upolowac " << postac->quest->aktualnaIlosc - postac->quest->ilosc << " " << postac->quest->nazwaKlucza << endl;
+					}
+					else
+					{
+						cout << postac->imie << ": Chcialbym odebrac nagrode za zlecenie " << postac->quest->nazwaQuesta << endl
+							<< imie << " : Oto zaplata.." << endl;
+						postac->quest = 0;
+					}
+				}
+				else
+				{
+					if (postac->quest->aktualnaIlosc < postac->quest->ilosc)
+					{
+						cout << postac->imie << ": Chcialbym odebrac nagrode za zlecenie " << postac->quest->nazwaQuesta << endl
+							<< "Karczmarz: Jeszcze nie ukonczyles zlecenia. Musisz jeszcze upolowac " << postac->quest->aktualnaIlosc - postac->quest->ilosc << " " << postac->quest->nazwaKlucza << endl;
+					}
+					else
+					{
+						cout << postac->imie << ": Chcialbym odebrac nagrode za zlecenie " << postac->quest->nazwaQuesta << endl
+							<< "Karczmarz: Oto zaplata.." << endl;
+						postac->quest = 0;
+					}
+				}
+
+				system("pause");
+				//getchar();
+			}
 			break;
 		}
 	}

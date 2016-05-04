@@ -29,4 +29,5 @@ private:
 	bool szczescie(int szczescie);
 	int losuj_pancerz(int pancerz);
 	bool sprawdz_zasieg(int zasieg);
+	void czyscEkran(void);
 };

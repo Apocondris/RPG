@@ -23,8 +23,3 @@ Lucznik::Lucznik(string imie) : Postac(imie,"lucznik")
 	max_wytrzymalosc=10;
 	strzaly = 10;
 }
-
-
-Lucznik::~Lucznik()
-{
-}

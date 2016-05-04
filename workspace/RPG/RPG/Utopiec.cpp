@@ -32,7 +32,6 @@ string Utopiec::losuj_lup()
 	case 3: return "Pazury topielca";
 	case 4: return "Trofeum z topielca";
 	case 5: return "Miecz krawêdzi œwiata";
-
 	}
 
 }

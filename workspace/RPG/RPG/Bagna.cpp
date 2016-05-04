@@ -3,6 +3,9 @@
 #include "Postac.h"
 #include "Utopiec.h"
 #include <Windows.h>
+#include "Walka.h"
+#include "Postac.h"
+#include "Quest.h"
 
 
 string Bagna::nazwyBagien[iloscNazwBagien];
@@ -70,9 +73,34 @@ void Bagna::menuGlowne(bool & przebywaszNaBagnach)
 void Bagna::poluj()
 {
 	czyscEkran();
-	cout << "Walczysz z " << przeciwnik->nazwa << endl;
-	system("pause");
 	//walka z utopcem
+	Walka walka(postac, przeciwnik, 20);
+	int wynik = walka.start();
+	switch (wynik)
+	{
+	case 1:
+	{
+		cout << "Walke wygral " << przeciwnik->nazwa << endl;
+		break;
+	}
+	case 2:
+	{
+		cout << "Walke wygral " << postac->imie << endl;
+		if (postac->quest->nazwaKlucza == przeciwnik->nazwa)
+		{
+			if (postac->quest->aktualnaIlosc < postac->quest->ilosc) postac->quest->aktualnaIlosc++;
+			cout << "Pokonales przeciwnika na ktorego masz zlecenie. Do wykonania zlecenia pozostalo: " << postac->quest->ilosc - postac->quest->aktualnaIlosc << endl;
+		}
+		break;
+	}
+	case 3:
+	{
+		cout << "Bohater uciekl z pola bitwy!" << endl;
+		break;
+	}
+	}
+	//walka z przeciwnikiem
+	system("pause");
 }
 
 void Bagna::logo()

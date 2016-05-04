@@ -49,6 +49,12 @@
     <Filter Include="Resource Files\Przedmiot">
       <UniqueIdentifier>{d6883974-8da4-459a-8c2f-eb7e8b001776}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Quest">
+      <UniqueIdentifier>{8292851a-3b50-44ec-af04-093816b3a0a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Quest">
+      <UniqueIdentifier>{9ad8c92d-db1e-4f7a-ba97-eca85a238514}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -117,6 +123,15 @@
     <ClCompile Include="Walka.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Quest.cpp">
+      <Filter>Source Files\Quest</Filter>
+    </ClCompile>
+    <ClCompile Include="QuestZabojstwa.cpp">
+      <Filter>Source Files\Quest</Filter>
+    </ClCompile>
+    <ClCompile Include="QuestPolowania.cpp">
+      <Filter>Source Files\Quest</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Gra.h">
@@ -184,6 +199,15 @@
     </ClInclude>
     <ClInclude Include="Walka.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Quest.h">
+      <Filter>Header Files\Quest</Filter>
+    </ClInclude>
+    <ClInclude Include="QuestZabojstwa.h">
+      <Filter>Header Files\Quest</Filter>
+    </ClInclude>
+    <ClInclude Include="QuestPolowania.h">
+      <Filter>Header Files\Quest</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

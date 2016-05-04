@@ -11,7 +11,7 @@ Postac::Postac(string imie,string klasa)
 {
 	this->imie = imie;
 	this->klasa_postaci = klasa;
-
+	quest = 0;
 }
 
 

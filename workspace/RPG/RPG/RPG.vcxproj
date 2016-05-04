@@ -158,6 +158,9 @@
     <ClCompile Include="Postac.cpp" />
     <ClCompile Include="Przeciwnik.cpp" />
     <ClCompile Include="Przedmiot.cpp" />
+    <ClCompile Include="Quest.cpp" />
+    <ClCompile Include="QuestPolowania.cpp" />
+    <ClCompile Include="QuestZabojstwa.cpp" />
     <ClCompile Include="Walka.cpp" />
     <ClCompile Include="Szlak.cpp" />
     <ClCompile Include="Utopiec.cpp" />
@@ -175,6 +178,9 @@
     <ClInclude Include="Miasto.h" />
     <ClInclude Include="Niedzwiedz.h" />
     <ClInclude Include="Przedmiot.h" />
+    <ClInclude Include="Quest.h" />
+    <ClInclude Include="QuestPolowania.h" />
+    <ClInclude Include="QuestZabojstwa.h" />
     <ClInclude Include="Utopiec.h" />
     <ClInclude Include="Walka.h" />
     <ClInclude Include="Wilk.h" />

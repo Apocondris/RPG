@@ -7,6 +7,5 @@ class Wojownik:public Postac
 public:
 	Wojownik();
 	Wojownik(string);
-	~Wojownik();
 };
 

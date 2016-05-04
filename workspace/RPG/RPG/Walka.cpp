@@ -20,13 +20,13 @@ int Walka :: start()
 	int flaga = 0;//odpowiedzialna za wynik walki 1-jeœli wygra potwór, 2 jeœli wygra bohater, 3 jeœli bohater ucieknie
 	cout << "Naprzeciw siebie staja " + postac->imie + " i " + przeciwnik->nazwa << endl;
 	cout << "Ktory z nich zwyciezy w tym boju?" << endl;
-	cout << "Rozpoczyna siê runda pierwsza. Rundê rozpoczyna " << postac->imie+"!"<<endl;
+	cout << "Rozpoczyna sie runda pierwsza. Runde rozpoczyna " << postac->imie+"!"<<endl;
 	while ((przeciwnik->zdrowie > 0) && (postac->zdrowie > 0) && flaga ==0)
 	{
 		int opcja2 = 0;
 		int opcja = 0;
 		cout << "Odleglosc miedzy wami wynosi " << odleglosc<<endl;
-		cout << "Bohaterowi pozostalo " <<  postac->wytrzymalosc<<" puntkow wytrzymalosci"<<endl;
+		cout << "Bohaterowi pozostalo " << postac->wytrzymalosc <<" puntkow wytrzymalosci" <<  " i " << postac->zdrowie << " zdrowia" << endl;
 		if ((postac->klasa_postaci) == "lucznik") cout << "Bohaterowi pozostalo " << postac->strzaly << " strzal" << endl;
 		cout << "Wybierz jedna z opcji:" << endl;
 
@@ -236,20 +236,22 @@ int Walka :: start()
 			flaga = 1;
 			break;
 		}
+		system("pause");
+		czyscEkran();
 	}
 	switch (flaga)
 	{
 	case 1:
 	{
-			  cout << "Walka zakoñczy³a siê zwyciêstwem przeciwnika!" << endl;
+			  cout << "Walka zakonczyla sie zwyciêstwem przeciwnika!" << endl;
 	}
 	case 2:
 	{
-			  cout << "Walka zakoñczy³a siê zwyciêstwem bohatera!" << endl;
+			  cout << "Walka zakonczyla sie zwyciêstwem bohatera!" << endl;
 	}
 	case 3:
 	{
-			  cout << "Walka zakoñczy³a siê rozpaczliwa ucieczka bohatera" << endl;
+			  cout << "Walka zakonczyla sie rozpaczliwa ucieczka bohatera" << endl;
 	}
 	}
 	return flaga;
@@ -257,6 +259,8 @@ int Walka :: start()
 
 void Walka :: atak_postaci()
 {
+
+	srand(time(NULL));
 	int trafienie=((postac->atak)-(przeciwnik->obrona))+(rand()%10);
 	if (trafienie > 0)
 	{
@@ -265,7 +269,7 @@ void Walka :: atak_postaci()
 		{
 			obrazenia = (postac->obrazenia) * 2;
 			obrazenia = obrazenia - losuj_pancerz(przeciwnik->klasa_pancerza);
-			cout << "Dziêki odrobinie szczêœci bohater zadaje podwójne obra¿enia!" << endl;
+			cout << "Dzieki odrobinie szczesci bohater zadaje podwojne obrazenia!" << endl;
 		}
 		else
 		{
@@ -275,16 +279,16 @@ void Walka :: atak_postaci()
 		if (szczescie(przeciwnik->szczescie))
 		{
 			obrazenia = 0;
-			cout << "Przeciwnik cudem unikn¹³ ciosu!" << endl;
+			cout << "Przeciwnik cudem uniknal ciosu!" << endl;
 		}
-		cout << "Bohater zada³ "<< obrazenia << " punktow obrazen"<<endl;
+		cout << "Bohater zadal " << obrazenia << " punktow obrazen" << endl;
 		przeciwnik->zdrowie = przeciwnik->zdrowie - obrazenia;
-		cout << "Przeciwnikowi pozosta³o " << przeciwnik->zdrowie << " punktow zycia" << endl;
+		cout << "Przeciwnikowi pozostalo " << przeciwnik->zdrowie << " punktow zycia" << endl;
 		if ((postac->klasa_postaci) == "lucznik")postac->strzaly = postac->strzaly - 1;
 	}
 	else
 	{
-		cout << "Nie uda³o siê trafiæ!" << endl;
+		cout << "Nie udalo sie trafic!" << endl;
 	}
 	
 
@@ -293,6 +297,7 @@ void Walka :: atak_postaci()
 void Walka::atak_przeciwnika()
 {
 
+	srand(time(NULL));
 	int trafienie = ((przeciwnik->atak) - (postac->obrona)) + (rand() % 10);
 	if (trafienie > 0)
 	{
@@ -301,7 +306,7 @@ void Walka::atak_przeciwnika()
 		{
 			obrazenia = (przeciwnik->obrazenia) * 2;
 			obrazenia = obrazenia - losuj_pancerz(postac->klasa_pancerza);
-			cout << "Do przeciwnika uœmiechnê³o siê szczêœcie! Zadaje podwójne obra¿enia" << endl;
+			cout << "Do przeciwnika usmiechnelo sie szczescie! Zadaje podwojne obrazenia" << endl;
 		}
 		else
 		{
@@ -311,15 +316,15 @@ void Walka::atak_przeciwnika()
 		if (szczescie(postac->szczescie))
 		{
 			obrazenia = 0;
-			cout << "Bohater cudem unikn¹³ ciosu!" << endl;
+			cout << "Bohater cudem uniknal ciosu!" << endl;
 		}
-		cout << "Przeciwnik zada³ " << obrazenia << " punktow obrazen" << endl;
+		cout << "Przeciwnik zadal " << obrazenia << " punktow obrazen" << endl;
 		postac->zdrowie = postac->zdrowie - obrazenia;
-		cout << "Bohaterowi pozosta³o " << postac->zdrowie << " punktow zycia" << endl;
+		cout << "Bohaterowi pozostalo " << postac->zdrowie << " punktow zycia" << endl;
 	}
 	else
 	{
-		cout << "Nie uda³o siê trafiæ!" << endl;
+		cout << "Nie udalo sie trafic!" << endl;
 	}
 };
 
@@ -336,6 +341,7 @@ void Walka::odejdz(int szybkosc)
 
 bool Walka::szczescie(int szczescie)
 {
+	srand(time(NULL));
 	int wynik = rand() % 100;
 	wynik = wynik + szczescie;
 	if (wynik > 90) return true;
@@ -344,6 +350,7 @@ bool Walka::szczescie(int szczescie)
 
 int Walka::losuj_pancerz(int pancerz)
 {
+	srand(time(NULL));
 	if (pancerz == 0)return 0;
 	else return rand() % pancerz;
 };
@@ -352,4 +359,9 @@ bool Walka::sprawdz_zasieg(int zasieg)
 	if ((odleglosc - zasieg) <= 0)return true;
 	else return false;
 };
+
+void Walka::czyscEkran(void)
+{
+	system("CLS");
+}
 

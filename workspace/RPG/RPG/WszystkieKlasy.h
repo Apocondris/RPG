@@ -29,3 +29,7 @@ class Utopiec;
 
 //klasy przedmiotow
 class Przedmiot;
+
+//klasy questow
+class Quest;
+class QuestPolowania;

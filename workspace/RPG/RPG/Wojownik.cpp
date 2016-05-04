@@ -23,8 +23,3 @@ Wojownik::Wojownik(string imie) : Postac(imie,"wojownik")
 	 max_wytrzymalosc=100;
 
 }
-
-
-Wojownik::~Wojownik()
-{
-}

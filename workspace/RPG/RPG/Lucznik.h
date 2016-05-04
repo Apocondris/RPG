@@ -8,6 +8,5 @@ public:
 	Lucznik();
 	Lucznik(string);
 	int strzaly;
-	~Lucznik();
 };
 

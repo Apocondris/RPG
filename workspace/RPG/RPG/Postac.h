@@ -29,9 +29,8 @@ public:
 	int max_wytrzymalosc;
 	string klasa_postaci;
 	int strzaly;
-protected:
 
-	//TODO statystyki
+	Quest * quest;
 };
 
 #endif

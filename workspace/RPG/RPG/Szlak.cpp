@@ -10,6 +10,8 @@
 #include "Wilk.h"
 #include "Walka.h"
 #include "Niedzwiedz.h"
+#include "Quest.h"
+#include <time.h>
 
 
 string Szlak::nazwySzlakow[iloscNazwSzlakow];
@@ -39,7 +41,7 @@ void Szlak::start()
 void Szlak::menuGlowne(bool &przebywaszNaSzlaku)
 {
 	short wybor;
-	cout << "Znajdujesz sie w wiosce " << this->nazwa << ".." << endl
+	cout << "Znajdujesz sie na szlaku " << this->nazwa << ".." << endl
 		<< "Co chcesz zrobic?" << endl
 		<< "1) Poluj" << endl
 		<< "2) Podrozuj dalej" << endl
@@ -76,23 +78,28 @@ void Szlak::menuGlowne(bool &przebywaszNaSzlaku)
 
 void Szlak::poluj()
 {
-	
+	srand(time(NULL));
 	czyscEkran();
 	int losowaLiczba = rand() % iloscPrzeciwnikow;
-	cout << "Walczysz z " << tablicaPrzeciwnikow[losowaLiczba]->nazwa << endl;
-	system("pause");
+	//cout << "Walczysz z " << tablicaPrzeciwnikow[losowaLiczba]->nazwa << endl;
+	//system("pause");
 	Walka walka(postac,tablicaPrzeciwnikow[losowaLiczba],20);
 	int wynik=walka.start();
 	switch (wynik)
 	{
 	case 1:
 	{
-			  cout << "Walke wygral " << tablicaPrzeciwnikow[losowaLiczba]<<endl;
+			  cout << "Walke wygral " << tablicaPrzeciwnikow[losowaLiczba]->nazwa<<endl;
 			  break;
 	}
 	case 2:
 	{
 			  cout << "Walke wygral " << postac->imie<<endl;
+			  if (postac->quest->nazwaKlucza == tablicaPrzeciwnikow[losowaLiczba]->nazwa)
+			  {
+				  if (postac->quest->aktualnaIlosc < postac->quest->ilosc) postac->quest->aktualnaIlosc++;
+				  cout << "Pokonales przeciwnika na ktorego masz zlecenie. Do wykonania zlecenia pozostalo: " << postac->quest->ilosc - postac->quest->aktualnaIlosc << endl;
+			  }
 			  break;
 	}
 	case 3:
@@ -102,10 +109,12 @@ void Szlak::poluj()
 	}
 	}
 	//walka z przeciwnikiem
+	system("pause");
 }
 
 Lokalizacja * Szlak::losujLokalizacje(Postac *)
 {
+	srand(time(NULL));
 	int losowaLiczba = rand() % 3; //po % podaæ liczbê dostêpnych lokalizacji
 	switch (losowaLiczba)
 	{
@@ -134,6 +143,7 @@ Lokalizacja * Szlak::losujLokalizacje(Postac *)
 
 void Szlak::losujPrzeciwnikow(Przeciwnik * tablica[iloscPrzeciwnikow])
 {
+	srand(time(NULL));
 	//cout << "Losowanie przeciwnikow:" << endl;
 	for (int i = 0; i < iloscPrzeciwnikow; i++)
 	{
