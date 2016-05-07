@@ -36,7 +36,7 @@ protected:
 	virtual bool czyNazwyLokalizacjiSaPuste(string * nazwyLokalizacji, int iloscNazw);
 	virtual void ladujNazwyLokalizacji(string sciezka, string * nazwyLokalizacji, int iloscNazw);
 	virtual string pobierzNazwe(string * nazwyLokalizacji, int iloscNazw);
-	virtual string losujCelePolowania(void);
+	virtual Przeciwnik * losujCelePolowania(void);
 	void logoKarczmy();
 	void logoTablicyOgloszen();
 };

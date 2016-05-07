@@ -18,6 +18,7 @@ Wilk::Wilk()
 	zasieg = 1;
 	obrazenia = 20;
 	max_zdrowie = 60;
+	wartosc = (max_zdrowie + obrazenia + obrona + atak) / 10;
 }
 
 

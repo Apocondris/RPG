@@ -24,6 +24,7 @@ private:
 	void poluj();
 	//do zrobienia walka i losowanie potworów na danym szlaku
 	Lokalizacja * losujLokalizacje(Postac *);
+	Przeciwnik * losujPrzeciwnika(void);
 	void losujPrzeciwnikow(Przeciwnik * tablica[iloscPrzeciwnikow]);
 	void logo(void);
 };

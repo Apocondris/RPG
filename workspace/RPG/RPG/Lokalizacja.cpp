@@ -117,15 +117,27 @@ void Lokalizacja::menuTablicyOgloszen(bool & czyPrzyTablicy)
 		{
 			if (postac->quest == 0) 
 			{
-				int losowaLiczba = rand() % 10 + 5; //ilosc dostepnych przeciwników
-				postac->quest = new QuestPolowania(losujCelePolowania(), losowaLiczba);
-				cout << "Przyjales zlecenie: " << postac->quest->nazwaQuesta << endl
-					<< "opis: " << postac->quest->opis << endl;
+				bool poszukiwania = true;
+				while (poszukiwania)
+				{
+					short opcja;
+					int losowaLiczba = rand() % 10 + 5; //ilosc dostepnych przeciwników
+					postac->quest = new QuestPolowania(losujCelePolowania(), losowaLiczba);
+					cout << "Znalazles zlecenie: " << postac->quest->nazwaQuesta << endl
+						<< "opis: " << postac->quest->opis << endl
+						<< "nagroda: " << postac->quest->nagroda << endl
+						<< "Czy przyjmujesz zlecenie?	1) tak	2)nie	" << endl;
+					cin >> opcja;
+					if (cin.fail()) { cout << "Nie jestes zbyt rozgarniety, prawda?" << endl; cin.clear(); }
+					cin.ignore(100000, '\n');
+					if (opcja == 1) poszukiwania = false;
+				}
 			}
 			else
 			{
 				cout << "Juz przyjales zlecenie: " << postac->quest->nazwaQuesta << endl
-					<< "opis: " << postac->quest->opis << endl;
+					<< "opis: " << postac->quest->opis << endl
+					<< "nagroda: " << postac->quest->nagroda << endl;
 			}
 			system("pause");
 			break;
@@ -189,7 +201,7 @@ string Lokalizacja::pobierzNazwe(string * nazwyLokalizacji, int iloscNazw)
 	return temp;
 }
 
-string Lokalizacja::losujCelePolowania(void)
+Przeciwnik * Lokalizacja::losujCelePolowania(void)
 {//cout << "Losowanie przeciwnikow:" << endl;
 	for (int i = 0; i < 6; i++)
 	{
@@ -198,32 +210,32 @@ string Lokalizacja::losujCelePolowania(void)
 		{
 			case 0:
 			{
-				return "Bandyta Lucznik";
+				return new BandytaLucznik();
 				break;
 			}
 			case 1:
 			{
-				return "Bandyta Wojownik";
+				return new BandytaWojownik();
 				break;
 			}
 			case 2:
 			{
-				return "Dzik";
+				return new Dzik();
 				break;
 			}
 			case 3:
 			{
-				return "Niedzwiedz";
+				return new Niedzwiedz();
 				break;
 			}
 			case 4:
 			{
-				return "Utopiec";
+				return new Utopiec();
 				break;
 			}
 			case 5:
 			{
-				return "Wilk";
+				return new Wilk();
 				break;
 			}
 		}

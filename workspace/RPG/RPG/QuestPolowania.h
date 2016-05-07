@@ -6,5 +6,5 @@
 class QuestPolowania : public Quest
 {
 public:
-	QuestPolowania(string nazwaCelu, int iloscCelow);
+	QuestPolowania(Przeciwnik * nazwaCelu, int iloscCelow);
 };

@@ -31,6 +31,7 @@ public:
 	int strzaly;
 
 	Quest * quest;
+	unsigned int posiadaneZloto;
 };
 
 #endif

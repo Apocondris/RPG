@@ -80,16 +80,24 @@ void Bagna::poluj()
 	{
 	case 1:
 	{
-		cout << "Walke wygral " << przeciwnik->nazwa << endl;
+		cout << "Walke wygral " << przeciwnik->nazwa << endl
+			<< "W taki oto sposob twoja postac dokonala zywota...";
+		system("pause");
+		exit(0);
 		break;
 	}
 	case 2:
 	{
 		cout << "Walke wygral " << postac->imie << endl;
-		if (postac->quest->nazwaKlucza == przeciwnik->nazwa)
+		if (postac->quest != 0)
 		{
-			if (postac->quest->aktualnaIlosc < postac->quest->ilosc) postac->quest->aktualnaIlosc++;
-			cout << "Pokonales przeciwnika na ktorego masz zlecenie. Do wykonania zlecenia pozostalo: " << postac->quest->ilosc - postac->quest->aktualnaIlosc << endl;
+			if (postac->quest->nazwaKlucza == przeciwnik->nazwa)
+			{
+				if (postac->quest->aktualnaIlosc < postac->quest->ilosc) postac->quest->aktualnaIlosc++;
+				cout << "Pokonales przeciwnika na ktorego masz zlecenie. Do wykonania zlecenia pozostalo: " << postac->quest->ilosc - postac->quest->aktualnaIlosc << endl;
+			}
+			delete this->przeciwnik;
+			this->przeciwnik = new Utopiec();
 		}
 		break;
 	}

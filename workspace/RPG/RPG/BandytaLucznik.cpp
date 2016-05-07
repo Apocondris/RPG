@@ -15,6 +15,7 @@ BandytaLucznik::BandytaLucznik()
 	zasieg = 10;
 	obrazenia = 10;
 	max_zdrowie = 80;
+	wartosc = (max_zdrowie + obrazenia + obrona + atak) / 10;
 }
 
 

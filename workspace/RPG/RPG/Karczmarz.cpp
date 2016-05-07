@@ -58,8 +58,8 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 		<< "2) Zapytaj o plotki." << endl
 		<< "3) Zapytaj o rade." << endl
 		<< "4) Zapytaj o cechy." << endl
-		<< "5) Zapytaj o posil sie(cena: -)." << endl
-		<< "6) Zapytaj o wypocznik(cena: -)." << endl
+		<< "5) Zapytaj o posil sie(cena: 3)." << endl
+		<< "6) Zapytaj o wypocznik(cena: 15)." << endl
 		<< "7) Odejdz od lady" << endl;
 	if (postac->quest != 0) cout << "8) Oddaj quest" << endl;
 	cin >> wybor;
@@ -143,17 +143,39 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 		}
 		case 5:
 		{
-			//do skoñczenia
-			if (zapytanoOImie)
+			if (postac->posiadaneZloto >= 3)
 			{
-				cout << postac->imie << ": Chcialbym cos zjesc." << endl
-					<< imie << ": Prosze.. " << endl;
+				if (zapytanoOImie)
+				{
+					cout << postac->imie << ": Chcialbym cos zjesc." << endl
+						<< imie << ": Prosze.. " << endl;
+					postac->zdrowie += 20;
+					if (postac->zdrowie > postac->max_zdrowie) postac->zdrowie = postac->max_zdrowie;
+					postac->posiadaneZloto -= 3;
+				}
+				else
+				{
+					cout << postac->imie << ": Chcialbym cos zjesc." << endl
+						<< "Karczmarz: Prosze.. " << endl;
+					postac->zdrowie += 20;
+					if (postac->zdrowie > postac->max_zdrowie) postac->zdrowie = postac->max_zdrowie;
+					postac->posiadaneZloto -= 3;
+				}
 			}
 			else
 			{
-				cout << postac->imie << ": Chcialbym cos zjesc." << endl
-					<< "Karczmarz: Prosze.. " << endl;
+				if (zapytanoOImie)
+				{
+					cout << postac->imie << ": Chcialbym cos zjesc." << endl
+						<< imie << ": Nie masz czym za to zaplacic. " << endl;
+				}
+				else
+				{
+					cout << postac->imie << ": Chcialbym cos zjesc." << endl
+						<< "Karczmarz: Nie masz czym za to zaplacic. " << endl;
+				}
 			}
+			
 
 			system("pause");
 			//getchar();
@@ -161,16 +183,35 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 		}
 		case 6:
 		{
-			//do skoñczenia
-			if (zapytanoOImie)
+			if (postac->posiadaneZloto >= 15)
 			{
-				cout << postac->imie << ": Chcialbym odpoczac." << endl
-					<< imie << ": Tu masz klucz, twoj pokoj jest na gorze." << endl;
+				if (zapytanoOImie)
+				{
+					cout << postac->imie << ": Chcialbym odpoczac." << endl
+						<< imie << ": Tu masz klucz, twoj pokoj jest na gorze." << endl;
+					postac->zdrowie = postac->max_zdrowie;
+					postac->posiadaneZloto -= 15;
+				}
+				else
+				{
+					cout << postac->imie << ": Chcialbym odpoczac." << endl
+						<< "Karczmarz: Tu masz klucz, twoj pokoj jest na gorze." << endl;
+					postac->zdrowie = postac->max_zdrowie;
+					postac->posiadaneZloto -= 15;
+				}
 			}
 			else
 			{
-				cout << postac->imie << ": Chcialbym odpoczac." << endl
-					<< "Karczmarz: Tu masz klucz, twoj pokoj jest na gorze." << endl;
+				if (zapytanoOImie)
+				{
+					cout << postac->imie << ": Chcialbym odpoczac." << endl
+						<< imie << ": Nie masz czym za to zaplacic. " << endl;
+				}
+				else
+				{
+					cout << postac->imie << ": Chcialbym odpoczac." << endl
+						<< "Karczmarz: Nie masz czym za to zaplacic. " << endl;
+				}
 			}
 
 			system("pause");
@@ -203,7 +244,7 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 					if (postac->quest->aktualnaIlosc < postac->quest->ilosc)
 					{
 						cout << postac->imie << ": Chcialbym odebrac nagrode za zlecenie " << postac->quest->nazwaQuesta << endl
-							<< imie << " : Jeszcze nie ukonczyles zlecenia. Musisz jeszcze upolowac " << postac->quest->aktualnaIlosc - postac->quest->ilosc << " " << postac->quest->nazwaKlucza << endl;
+							<< imie << " : Jeszcze nie ukonczyles zlecenia. Musisz jeszcze upolowac " << postac->quest->ilosc - postac->quest->aktualnaIlosc << " " << postac->quest->nazwaKlucza << endl;
 					}
 					else
 					{
@@ -217,7 +258,7 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 					if (postac->quest->aktualnaIlosc < postac->quest->ilosc)
 					{
 						cout << postac->imie << ": Chcialbym odebrac nagrode za zlecenie " << postac->quest->nazwaQuesta << endl
-							<< "Karczmarz: Jeszcze nie ukonczyles zlecenia. Musisz jeszcze upolowac " << postac->quest->aktualnaIlosc - postac->quest->ilosc << " " << postac->quest->nazwaKlucza << endl;
+							<< "Karczmarz: Jeszcze nie ukonczyles zlecenia. Musisz jeszcze upolowac " << postac->quest->ilosc - postac->quest->aktualnaIlosc << " " << postac->quest->nazwaKlucza << endl;
 					}
 					else
 					{

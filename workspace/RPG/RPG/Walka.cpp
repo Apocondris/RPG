@@ -239,21 +239,25 @@ int Walka :: start()
 		system("pause");
 		czyscEkran();
 	}
+	/*
 	switch (flaga)
 	{
-	case 1:
-	{
-			  cout << "Walka zakonczyla sie zwyciêstwem przeciwnika!" << endl;
-	}
-	case 2:
-	{
-			  cout << "Walka zakonczyla sie zwyciêstwem bohatera!" << endl;
-	}
-	case 3:
-	{
-			  cout << "Walka zakonczyla sie rozpaczliwa ucieczka bohatera" << endl;
-	}
-	}
+		case 1:
+		{
+				  cout << "Walka zakonczyla sie zwyciêstwem przeciwnika!" << endl;
+				  break;
+		}
+		case 2:
+		{
+				  cout << "Walka zakonczyla sie zwyciêstwem bohatera!" << endl;
+				  break;
+		}
+		case 3:
+		{
+				  cout << "Walka zakonczyla sie rozpaczliwa ucieczka bohatera" << endl;
+				  break;
+		}
+	}*/
 	return flaga;
 };
 
@@ -284,7 +288,7 @@ void Walka :: atak_postaci()
 		cout << "Bohater zadal " << obrazenia << " punktow obrazen" << endl;
 		przeciwnik->zdrowie = przeciwnik->zdrowie - obrazenia;
 		cout << "Przeciwnikowi pozostalo " << przeciwnik->zdrowie << " punktow zycia" << endl;
-		if ((postac->klasa_postaci) == "lucznik")postac->strzaly = postac->strzaly - 1;
+		if ((postac->klasa_postaci) == "lucznik" && postac->strzaly >0)postac->strzaly = postac->strzaly - 1;
 	}
 	else
 	{

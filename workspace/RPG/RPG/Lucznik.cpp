@@ -21,5 +21,7 @@ Lucznik::Lucznik(string imie) : Postac(imie,"lucznik")
 	obrazenia=10;
 	max_zdrowie=80;
 	max_wytrzymalosc=10;
-	strzaly = 10;
+	strzaly = 20;
+
+	posiadaneZloto = 200;
 }

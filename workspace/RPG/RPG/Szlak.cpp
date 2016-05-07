@@ -87,26 +87,34 @@ void Szlak::poluj()
 	int wynik=walka.start();
 	switch (wynik)
 	{
-	case 1:
-	{
-			  cout << "Walke wygral " << tablicaPrzeciwnikow[losowaLiczba]->nazwa<<endl;
-			  break;
-	}
-	case 2:
-	{
-			  cout << "Walke wygral " << postac->imie<<endl;
-			  if (postac->quest->nazwaKlucza == tablicaPrzeciwnikow[losowaLiczba]->nazwa)
-			  {
-				  if (postac->quest->aktualnaIlosc < postac->quest->ilosc) postac->quest->aktualnaIlosc++;
-				  cout << "Pokonales przeciwnika na ktorego masz zlecenie. Do wykonania zlecenia pozostalo: " << postac->quest->ilosc - postac->quest->aktualnaIlosc << endl;
-			  }
-			  break;
-	}
-	case 3:
-	{
-			  cout << "Bohater uciekl z pola bitwy!" << endl;
-			  break;
-	}
+		case 1:
+		{
+				  cout << "Walke wygral " << tablicaPrzeciwnikow[losowaLiczba]->nazwa<<endl
+					  << "W taki oto sposob twoja postac dokonala zywota...";
+				  system("pause");
+				  exit(0);
+				  break;
+		}
+		case 2:
+		{
+				  cout << "Walke wygral " << postac->imie<<endl;
+				  if (postac->quest != 0)
+				  {
+					  if (postac->quest->nazwaKlucza == tablicaPrzeciwnikow[losowaLiczba]->nazwa)
+					  {
+						  if (postac->quest->aktualnaIlosc < postac->quest->ilosc) postac->quest->aktualnaIlosc++;
+						  cout << "Pokonales przeciwnika na ktorego masz zlecenie. Do wykonania zlecenia pozostalo: " << postac->quest->ilosc - postac->quest->aktualnaIlosc << endl;
+					  }
+					  delete tablicaPrzeciwnikow[losowaLiczba];
+					  tablicaPrzeciwnikow[losowaLiczba] = losujPrzeciwnika();
+				  }
+				  break;
+		}
+		case 3:
+		{
+				  cout << "Bohater uciekl z pola bitwy!" << endl;
+				  break;
+		}
 	}
 	//walka z przeciwnikiem
 	system("pause");
@@ -137,6 +145,49 @@ Lokalizacja * Szlak::losujLokalizacje(Postac *)
 		{
 			return new Lokalizacja(postac, this);
 			break;
+		}
+	}
+}
+
+Przeciwnik * Szlak::losujPrzeciwnika(void)
+{
+	srand(time(NULL));
+	//cout << "Losowanie przeciwnikow:" << endl;
+	for (int i = 0; i < iloscPrzeciwnikow; i++)
+	{
+		int losowaLiczba = rand() % 5; //po % podaæ liczbê dostêpnych przeciwnikow
+		switch (losowaLiczba)
+		{
+			case 0:
+			{
+				return new BandytaLucznik();
+				//cout << "wylosowano bandyte lucznika" << endl;
+				break;
+			}
+			case 1:
+			{
+				return new BandytaWojownik();
+				//cout << "wylosowano bandyte wojownika" << endl;
+				break;
+			}
+			case 2:
+			{
+				return new Wilk();
+				//cout << "wylosowano wilka" << endl;
+				break;
+			}
+			case 3:
+			{
+				return new Dzik();
+				//cout << "wylosowano dzika" << endl;
+				break;
+			}
+			case 4:
+			{
+				return new Niedzwiedz();
+				//cout << "wylosowano niedzwiedzia" << endl;
+				break;
+			}
 		}
 	}
 }

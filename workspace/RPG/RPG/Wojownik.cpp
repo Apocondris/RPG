@@ -21,5 +21,7 @@ Wojownik::Wojownik(string imie) : Postac(imie,"wojownik")
 	 obrazenia=10;
 	 max_zdrowie=100;
 	 max_wytrzymalosc=100;
+	 strzaly = 0;
 
+	 posiadaneZloto = 200;
 }

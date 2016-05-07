@@ -21,6 +21,7 @@ public:
 	int zasieg;
 	int obrazenia;
 	int max_zdrowie;
+	unsigned short wartosc;
 
 	string losuj_lup();
 };

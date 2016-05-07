@@ -14,6 +14,7 @@ Niedzwiedz::Niedzwiedz()
 	zasieg = 1;
 	obrazenia = 15;
 	max_zdrowie = 140;
+	wartosc = (max_zdrowie + obrazenia + obrona + atak) / 10;
 }
 
 

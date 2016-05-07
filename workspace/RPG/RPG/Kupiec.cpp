@@ -73,24 +73,25 @@ void Kupiec::menuGlowne(bool & przebywaszUKupca)
 			{
 				cout << postac->imie << ": Co masz na sprzedaz?" << endl
 					<< imie << ": Oto co mam na sprzedarz .. " << endl;
-				// TODO lista przedmiotow do kupienia
+				system("pause");
+				kupowanie();
 			}
 			else
 			{
 				cout << postac->imie << ": Co masz na sprzedaz?" << endl
 					<< "Kupiec: Oto co mam na sprzedarz .. " << endl;
-				// TODO lista przedmiotow do kupienia
+				system("pause");
+				kupowanie();
 			}
 
-			system("pause");
 			//getchar();
 			break;
 		}
 		case 3:
 		{
 			cout << postac->imie << ": Chcialbym sprzedac pare rzeczy.." << endl;
-			// TODO lista przedmiotow na sprzedaz
 			system("pause");
+			sprzedaz();
 			//getchar();
 			break;
 		}
@@ -113,6 +114,90 @@ void Kupiec::menuGlowne(bool & przebywaszUKupca)
 			break;
 		}
 	}
+}
+
+void Kupiec::kupowanie(void)
+{
+	bool kupujesz = true;
+
+	while (kupujesz)
+	{
+		czyscEkran();
+		logo();
+		menuKupowania(kupujesz);
+	}
+}
+
+void Kupiec::menuKupowania(bool & kupujesz)
+{
+	short wybor;
+	cout<< "Co chcesz kupic?" << endl
+		<< "1) Kup strzaly." << endl
+		<< "2) Powrot." << endl;
+	//if (warunek) cout << "6) cos" << endl;
+	cin >> wybor;
+	if (cin.fail()) { cout << "Nie jestes zbyt rozgarniety, prawda?" << endl; cin.clear(); }
+	cin.ignore(100000, '\n');
+
+	switch (wybor)
+	{
+		case 1:
+		{
+			if (postac->posiadaneZloto >= 5)
+			{
+				if (zapytanoOImie)
+				{
+					cout << imie << ": Prosze, oto twoje straly.." << endl;
+					postac->strzaly += 10;
+					postac->posiadaneZloto -= 5;
+				}
+				else
+				{
+					cout << "Kupiec: Prosze, oto twoje straly.." << endl;
+					postac->strzaly += 10;
+					postac->posiadaneZloto -= 5;
+				}
+			}
+			else
+			{
+				if (zapytanoOImie)
+				{
+					cout << imie << ": Nie stac Cie na strzaly." << endl;
+				}
+				else
+				{
+					cout << "Kupiec: Nie stac Cie na strzaly." << endl;
+				}
+			}
+			break;
+		}
+		case 2:
+		{
+			kupujesz = false;
+			break;
+		}
+	}
+}
+
+void Kupiec::sprzedaz(void)
+{
+	bool sprzedajesz = true;
+
+	//tymczasowe
+	cout << "Nie masz nic na sprzedaz" << endl;
+	sprzedajesz = false;
+	// -----
+
+	while (sprzedajesz)
+	{
+		czyscEkran();
+		logo();
+		menuSprzedazy(sprzedajesz);
+	}
+}
+
+void Kupiec::menuSprzedazy(bool & sprzedajesz)
+{
 }
 
 void Kupiec::logo()

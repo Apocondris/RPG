@@ -17,6 +17,10 @@ private:
 	static string listaPowitan[iloscPowitan];
 
 	void menuGlowne(bool &przebywaszUKupca);
+	void kupowanie(void);
+	void menuKupowania(bool &kupujesz);
+	void sprzedaz(void);
+	void menuSprzedazy(bool &sprzedajesz);
 	void logo();
 };
 
