@@ -11,6 +11,8 @@
 #include "Walka.h"
 #include "Niedzwiedz.h"
 #include "Quest.h"
+#include "QuestPolowania.h"
+#include "QuestPrzedmiotow.h"
 #include <time.h>
 
 
@@ -100,11 +102,17 @@ void Szlak::poluj()
 				  cout << "Walke wygral " << postac->imie<<endl;
 				  if (postac->quest != 0)
 				  {
+					  string lup = tablicaPrzeciwnikow[losowaLiczba]->losuj_lup();
 					  if (postac->quest->nazwaKlucza == tablicaPrzeciwnikow[losowaLiczba]->nazwa)
 					  {
 						  if (postac->quest->aktualnaIlosc < postac->quest->ilosc) postac->quest->aktualnaIlosc++;
 						  cout << "Pokonales przeciwnika na ktorego masz zlecenie. Do wykonania zlecenia pozostalo: " << postac->quest->ilosc - postac->quest->aktualnaIlosc << endl;
 					  }
+					  else if (lup != "Brak lupu")
+					  {
+						  postac->przedmiotyDoQuestow[lup] ++;
+					  }
+
 					  delete tablicaPrzeciwnikow[losowaLiczba];
 					  tablicaPrzeciwnikow[losowaLiczba] = losujPrzeciwnika();
 				  }

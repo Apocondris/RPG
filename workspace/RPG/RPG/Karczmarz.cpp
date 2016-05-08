@@ -239,32 +239,72 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 		{
 			if (postac->quest != 0)
 			{
-				if (zapytanoOImie)
+				if (postac->quest->nazwaQuesta == "Upoluj")
 				{
-					if (postac->quest->aktualnaIlosc < postac->quest->ilosc)
+					if (zapytanoOImie)
 					{
-						cout << postac->imie << ": Chcialbym odebrac nagrode za zlecenie " << postac->quest->nazwaQuesta << endl
-							<< imie << " : Jeszcze nie ukonczyles zlecenia. Musisz jeszcze upolowac " << postac->quest->ilosc - postac->quest->aktualnaIlosc << " " << postac->quest->nazwaKlucza << endl;
+						if (postac->quest->aktualnaIlosc < postac->quest->ilosc)
+						{
+							cout << postac->imie << ": Chcialbym odebrac nagrode za zlecenie " << postac->quest->nazwaQuesta << endl
+								<< imie << " : Jeszcze nie ukonczyles zlecenia. Musisz jeszcze upolowac " << postac->quest->ilosc - postac->quest->aktualnaIlosc << " " << postac->quest->nazwaKlucza << endl;
+						}
+						else
+						{
+							cout << postac->imie << ": Chcialbym odebrac nagrode za zlecenie " << postac->quest->nazwaQuesta << endl
+								<< imie << " : Oto zaplata.." << endl;
+							postac->posiadaneZloto += postac->quest->nagroda;
+							postac->quest = 0;
+						}
 					}
 					else
 					{
-						cout << postac->imie << ": Chcialbym odebrac nagrode za zlecenie " << postac->quest->nazwaQuesta << endl
-							<< imie << " : Oto zaplata.." << endl;
-						postac->quest = 0;
+						if (postac->quest->aktualnaIlosc < postac->quest->ilosc)
+						{
+							cout << postac->imie << ": Chcialbym odebrac nagrode za zlecenie " << postac->quest->nazwaQuesta << endl
+								<< "Karczmarz: Jeszcze nie ukonczyles zlecenia. Musisz jeszcze upolowac " << postac->quest->ilosc - postac->quest->aktualnaIlosc << " " << postac->quest->nazwaKlucza << endl;
+						}
+						else
+						{
+							cout << postac->imie << ": Chcialbym odebrac nagrode za zlecenie " << postac->quest->nazwaQuesta << endl
+								<< "Karczmarz: Oto zaplata.." << endl;
+							postac->posiadaneZloto += postac->quest->nagroda;
+							postac->quest = 0;
+						}
 					}
 				}
-				else
+				else if (postac->quest->nazwaQuesta == "Przynies")
 				{
-					if (postac->quest->aktualnaIlosc < postac->quest->ilosc)
+					if (zapytanoOImie)
 					{
-						cout << postac->imie << ": Chcialbym odebrac nagrode za zlecenie " << postac->quest->nazwaQuesta << endl
-							<< "Karczmarz: Jeszcze nie ukonczyles zlecenia. Musisz jeszcze upolowac " << postac->quest->ilosc - postac->quest->aktualnaIlosc << " " << postac->quest->nazwaKlucza << endl;
+						if (postac->przedmiotyDoQuestow[postac->quest->nazwaKlucza] < postac->quest->ilosc)
+						{
+							cout << postac->imie << ": Chcialbym odebrac nagrode za zlecenie " << postac->quest->nazwaQuesta << endl
+								<< imie << " : Jeszcze nie ukonczyles zlecenia. Musisz jeszcze zdobyc " << postac->quest->ilosc - postac->przedmiotyDoQuestow[postac->quest->nazwaKlucza] << " " << postac->quest->nazwaKlucza << endl;
+						}
+						else
+						{
+							cout << postac->imie << ": Chcialbym odebrac nagrode za zlecenie " << postac->quest->nazwaQuesta << endl
+								<< imie << " : Oto zaplata.." << endl;
+							postac->przedmiotyDoQuestow[postac->quest->nazwaKlucza] -= postac->quest->ilosc;
+							postac->posiadaneZloto += postac->quest->nagroda;
+							postac->quest = 0;
+						}
 					}
 					else
 					{
-						cout << postac->imie << ": Chcialbym odebrac nagrode za zlecenie " << postac->quest->nazwaQuesta << endl
-							<< "Karczmarz: Oto zaplata.." << endl;
-						postac->quest = 0;
+						if (postac->przedmiotyDoQuestow[postac->quest->nazwaKlucza] < postac->quest->ilosc)
+						{
+							cout << postac->imie << ": Chcialbym odebrac nagrode za zlecenie " << postac->quest->nazwaQuesta << endl
+								<< "Karczmarz: Jeszcze nie ukonczyles zlecenia. Musisz jeszcze zdobyc " << postac->quest->ilosc - postac->przedmiotyDoQuestow[postac->quest->nazwaKlucza] << " " << postac->quest->nazwaKlucza << endl;
+						}
+						else
+						{
+							cout << postac->imie << ": Chcialbym odebrac nagrode za zlecenie " << postac->quest->nazwaQuesta << endl
+								<< "Karczmarz: Oto zaplata.." << endl;
+							postac->przedmiotyDoQuestow[postac->quest->nazwaKlucza] -= postac->quest->ilosc;
+							postac->posiadaneZloto += postac->quest->nagroda;
+							postac->quest = 0;
+						}
 					}
 				}
 

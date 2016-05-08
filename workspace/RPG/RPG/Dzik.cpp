@@ -23,17 +23,11 @@ Dzik::~Dzik()
 }
 string Dzik::losuj_lup()
 {
-	int wylosowano = rand() % 8;
+	int wylosowano = rand() % 2;
 	switch (wylosowano)
 	{
-	case 0: return "Brak ³upu";
-	case 1: return "Skóra dzika";
-	case 2: return "K³y dzika";
-	case 3: return "Miêso dzika";
-	case 4: return "Trofeum z dzika";
-	case 5: return "Miecz Dziczy Kie³"; 
-	case 6: return "£uk Dziczej Wœciek³oœci";
-	case 7: return "Pancerz z dziczych skór";
+	case 0: return "Brak lupu";
+	case 1: return "Skora dzika";
 
 	}
 

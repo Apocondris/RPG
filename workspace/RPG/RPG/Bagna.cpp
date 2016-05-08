@@ -91,11 +91,17 @@ void Bagna::poluj()
 		cout << "Walke wygral " << postac->imie << endl;
 		if (postac->quest != 0)
 		{
+			string lup = przeciwnik->losuj_lup();
 			if (postac->quest->nazwaKlucza == przeciwnik->nazwa)
 			{
 				if (postac->quest->aktualnaIlosc < postac->quest->ilosc) postac->quest->aktualnaIlosc++;
 				cout << "Pokonales przeciwnika na ktorego masz zlecenie. Do wykonania zlecenia pozostalo: " << postac->quest->ilosc - postac->quest->aktualnaIlosc << endl;
 			}
+			else if (lup != "Brak lupu")
+			{
+				postac->przedmiotyDoQuestow[lup] ++;
+			}
+
 			delete this->przeciwnik;
 			this->przeciwnik = new Utopiec();
 		}

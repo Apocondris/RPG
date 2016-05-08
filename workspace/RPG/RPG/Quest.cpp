@@ -2,10 +2,7 @@
 
 
 
-Quest::Quest(string nazwaKlucza, int ilosc, unsigned short wartoscCelu)
+Quest::Quest()
 {
-	this->nazwaKlucza = nazwaKlucza;
-	this->ilosc = ilosc;
-	this->nagroda = ilosc * wartoscCelu;
 	aktualnaIlosc = 0;
 }

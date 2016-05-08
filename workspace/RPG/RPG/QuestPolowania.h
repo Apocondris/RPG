@@ -6,5 +6,8 @@
 class QuestPolowania : public Quest
 {
 public:
-	QuestPolowania(Przeciwnik * nazwaCelu, int iloscCelow);
+	QuestPolowania();
+
+private:
+	Przeciwnik * losujCelPolowania(void);
 };

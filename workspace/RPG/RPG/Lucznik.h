@@ -7,6 +7,5 @@ class Lucznik : public Postac
 public:
 	Lucznik();
 	Lucznik(string);
-	int strzaly;
 };
 

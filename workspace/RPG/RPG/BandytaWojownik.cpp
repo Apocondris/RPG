@@ -25,15 +25,11 @@ BandytaWojownik::~BandytaWojownik()
 
 string BandytaWojownik::losuj_lup()
 {
-	int wylosowano = rand() % 6;
+	int wylosowano = rand() % 2;
 	switch (wylosowano)
 	{
 	case 0: return "Brak lupu";
-	case 1: return "lup1";
-	case 2: return "lup2";
-	case 3: return "lup3";
-	case 4: return "lup4";
-	case 5: return "lup5";
+	case 1: return "Zloty zab";
 	}
 
 }

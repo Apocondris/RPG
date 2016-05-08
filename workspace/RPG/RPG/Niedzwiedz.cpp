@@ -24,18 +24,11 @@ Niedzwiedz::~Niedzwiedz()
 
 string Niedzwiedz::losuj_lup()
 {
-	int wylosowano = rand() % 9;
+	int wylosowano = rand() % 2;
 	switch (wylosowano)
 	{
-	case 0: return "Brak ³upu";
-	case 1: return "Skóra niedzwiedzia";
-	case 2: return "Niedzwiedzie kly";
-	case 3: return "Pazury niedzwiedzia";
-	case 4: return "Trofeum z niedzwiedzia";
-	case 5: return "Zbroja Serce Dziczy";
-	case 6: return "Buty nieulêknionego";
-	case 7: return "Miecz niedzwiedziej furii";
-	case 8: return "Pancerz wytrzymalosci";
+	case 0: return "Brak lupu";
+	case 1: return "Skora niedzwiedzia";
 
 	}
 

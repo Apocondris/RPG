@@ -6,7 +6,7 @@ using namespace std;
 class Quest
 {
 public:
-	Quest(string nazwaKlucza, int ilosc, unsigned short wartoscCelu);
+	Quest();
 
 	string nazwaQuesta;
 	string opis;

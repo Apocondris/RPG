@@ -24,15 +24,11 @@ Utopiec::~Utopiec()
 
 string Utopiec::losuj_lup()
 {
-	int wylosowano = rand() % 6;
+	int wylosowano = rand() % 2;
 	switch (wylosowano)
 	{
-	case 0: return "Brak ³upu";
-	case 1: return "Skóra topielca";
-	case 2: return "Trucizna topielca";
-	case 3: return "Pazury topielca";
-	case 4: return "Trofeum z topielca";
-	case 5: return "Miecz krawêdzi œwiata";
+	case 0: return "Brak lupu";
+	case 1: return "Skora utopca";
 	}
 
 }

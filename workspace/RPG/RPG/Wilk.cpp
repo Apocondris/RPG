@@ -28,17 +28,11 @@ Wilk::~Wilk()
 
 string Wilk :: losuj_lup()
 {
-	int wylosowano = rand() % 8;
+	int wylosowano = rand() % 2;
 	switch (wylosowano)
 	{
-		case 0: return "Brak ³upu";
-		case 1: return "Skóra wilka";
-		case 2: return "Zêby wilka";
-		case 3: return "Pazury wilka";
-		case 4: return "Trofeum z wilka";
-		case 5: return "Buty wilczych susów";
-		case 6: return "Buty psiego szczêœcia";
-		case 7: return "£uk psiego trafu";
+		case 0: return "Brak lupu";
+		case 1: return "Skora wilka";
 	}
 
 }

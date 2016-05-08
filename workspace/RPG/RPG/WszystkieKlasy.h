@@ -32,4 +32,6 @@ class Przedmiot;
 
 //klasy questow
 class Quest;
+class QuestFabryka;
 class QuestPolowania;
+class QuestPrzedmiotow;

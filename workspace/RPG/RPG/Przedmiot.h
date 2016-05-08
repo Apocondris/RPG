@@ -1,8 +1,15 @@
 #pragma once
+
+#include <iostream>
+#include <string>
+using namespace std;
+
 class Przedmiot
 {
 public:
 	Przedmiot();
-	~Przedmiot();
+
+	string nazwa;
+	unsigned short wartosc;
 };
 

@@ -23,6 +23,6 @@ public:
 	int max_zdrowie;
 	unsigned short wartosc;
 
-	string losuj_lup();
+	virtual string losuj_lup() = 0;
 };
 

@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <string>
+#include <map>
 using namespace std;
 
 class Postac
@@ -32,6 +33,7 @@ public:
 
 	Quest * quest;
 	unsigned int posiadaneZloto;
+	map<string, int> przedmiotyDoQuestow;
 };
 
 #endif

@@ -5,8 +5,3 @@
 Przedmiot::Przedmiot()
 {
 }
-
-
-Przedmiot::~Przedmiot()
-{
-}

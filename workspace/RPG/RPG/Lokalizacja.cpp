@@ -9,6 +9,7 @@
 #include "Niedzwiedz.h"
 #include "Utopiec.h"
 #include "Quest.h"
+#include "QuestFabryka.h"
 #include "QuestPolowania.h"
 
 
@@ -57,8 +58,9 @@ void Lokalizacja::menuKarczmy(bool &czyWKarczmie)
 		<< "Co chcesz zrobic?" << endl
 		<< "1) Idz do karczmarza" << endl
 		<< "2) Tablica ogloszen" << endl
-		<< "3) Wyjdz z karczmy" << endl
-		<< "4) Wyjdz z gry" << endl;
+		<< "3) Przegladaj ekwipunek" << endl
+		<< "4) Wyjdz z karczmy" << endl
+		<< "5) Wyjdz z gry" << endl;
 	cin >> wybor;
 	if (cin.fail()) { cout << "Nie jestes zbyt rozgarniety, prawda?" << endl; cin.clear(); }
 	cin.ignore(100000, '\n');
@@ -121,8 +123,7 @@ void Lokalizacja::menuTablicyOgloszen(bool & czyPrzyTablicy)
 				while (poszukiwania)
 				{
 					short opcja;
-					int losowaLiczba = rand() % 10 + 5; //ilosc dostepnych przeciwników
-					postac->quest = new QuestPolowania(losujCelePolowania(), losowaLiczba);
+					postac->quest = QuestFabryka::utworzQuest();
 					cout << "Znalazles zlecenie: " << postac->quest->nazwaQuesta << endl
 						<< "opis: " << postac->quest->opis << endl
 						<< "nagroda: " << postac->quest->nagroda << endl
@@ -199,47 +200,6 @@ string Lokalizacja::pobierzNazwe(string * nazwyLokalizacji, int iloscNazw)
 	temp = nazwyLokalizacji[losowaLiczba];
 	nazwyLokalizacji[losowaLiczba] = "";
 	return temp;
-}
-
-Przeciwnik * Lokalizacja::losujCelePolowania(void)
-{//cout << "Losowanie przeciwnikow:" << endl;
-	for (int i = 0; i < 6; i++)
-	{
-		int losowaLiczba = rand() % 5; //po % podaæ liczbê dostêpnych przeciwnikow
-		switch (losowaLiczba)
-		{
-			case 0:
-			{
-				return new BandytaLucznik();
-				break;
-			}
-			case 1:
-			{
-				return new BandytaWojownik();
-				break;
-			}
-			case 2:
-			{
-				return new Dzik();
-				break;
-			}
-			case 3:
-			{
-				return new Niedzwiedz();
-				break;
-			}
-			case 4:
-			{
-				return new Utopiec();
-				break;
-			}
-			case 5:
-			{
-				return new Wilk();
-				break;
-			}
-		}
-	}
 }
 
 
