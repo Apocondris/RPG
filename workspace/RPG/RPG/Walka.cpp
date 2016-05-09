@@ -21,13 +21,18 @@ int Walka :: start()
 	cout << "Naprzeciw siebie staja " + postac->imie + " i " + przeciwnik->nazwa << endl;
 	cout << "Ktory z nich zwyciezy w tym boju?" << endl;
 	cout << "Rozpoczyna sie runda pierwsza. Runde rozpoczyna " << postac->imie+"!"<<endl;
+	int podstawowy_zasieg = postac->zasieg;
 	while ((przeciwnik->zdrowie > 0) && (postac->zdrowie > 0) && flaga ==0)
 	{
 		int opcja2 = 0;
 		int opcja = 0;
 		cout << "Odleglosc miedzy wami wynosi " << odleglosc<<endl;
 		cout << "Bohaterowi pozostalo " << postac->wytrzymalosc <<" puntkow wytrzymalosci" <<  " i " << postac->zdrowie << " zdrowia" << endl;
-		if ((postac->klasa_postaci) == "lucznik") cout << "Bohaterowi pozostalo " << postac->strzaly << " strzal" << endl;
+		if ((postac->klasa_postaci) == "lucznik")
+		{
+			cout << "Bohaterowi pozostalo " << postac->strzaly << " strzal" << endl;
+			
+		}
 		cout << "Wybierz jedna z opcji:" << endl;
 
 		if (sprawdz_zasieg(postac->zasieg))
@@ -35,7 +40,7 @@ int Walka :: start()
 			cout << "1. Atak" << endl;
 			cout << "2. Ruch" << endl;
 			cout << "3. Ucieczka" << endl;
-			if ((postac->klasa_postaci) == "lucznik" && postac->wytrzymalosc>2 && (odleglosc <= postac->zasieg))
+			if ((postac->klasa_postaci) == "lucznik" && postac->wytrzymalosc>=2 && (odleglosc <= postac->zasieg) && postac->strzaly>0)
 			{
 				cout << "4. Strzal i odskok" << endl;
 			}
@@ -98,10 +103,11 @@ int Walka :: start()
 				
 				case 4:
 				{
-					if ((postac->klasa_postaci) == "lucznik" && postac->wytrzymalosc>2 && (odleglosc <= postac->zasieg))
+					if ((postac->klasa_postaci) == "lucznik" && postac->wytrzymalosc>=2 && (odleglosc <= postac->zasieg) && postac->strzaly>0)
 					 {
 						  cout << postac->imie + " wykonuje strzal i odskakuje do ty³u!" << endl;
-						  odejdz((postac->szybkosc));
+						  postac->wytrzymalosc = postac->wytrzymalosc - 2;
+						  odejdz((postac->szybkosc)/2);
 						  atak_postaci();
 						  opcja = 4;
 					}
@@ -125,11 +131,11 @@ int Walka :: start()
 		{
 			cout << "1. Ruch" << endl;
 			cout << "2. Ucieczka" << endl;
-			if (((postac->klasa_postaci) == "wojownik") && postac->wytrzymalosc>3 && (odleglosc<=(postac->szybkosc+postac->zasieg)))
+			if (((postac->klasa_postaci) == "wojownik") && postac->wytrzymalosc>=3 && (odleglosc<=(postac->szybkosc+postac->zasieg)))
 			{
 				cout << "3. Szarza" << endl;
 			}
-			if ((postac->klasa_postaci) == "lucznik" && postac->wytrzymalosc>2 && (odleglosc <= postac->zasieg))
+			if ((postac->klasa_postaci) == "lucznik" && postac->wytrzymalosc>=2 && (odleglosc <= postac->zasieg)&&(postac->strzaly>0))
 			{
 				cout << "3. Strzal i odskok" << endl;
 			}
@@ -185,16 +191,18 @@ int Walka :: start()
 				}
 				case 3:
 				{
-						  if (((postac->klasa_postaci) == "wojownik") && (postac->wytrzymalosc)>3 && (odleglosc <= (postac->szybkosc + postac->zasieg)))
+						  if (((postac->klasa_postaci) == "wojownik") && (postac->wytrzymalosc)>=3 && (odleglosc <= (postac->szybkosc + postac->zasieg)))
 						  {
 							  cout << postac->imie + " wykonuje bohaterska szarze na przeciwnika" << endl;
+							  postac->wytrzymalosc = postac->wytrzymalosc - 3;
 							  podejdz(postac->szybkosc);
 							  atak_postaci();
 							  opcja = 4;
 						  }
-						  else if ((postac->klasa_postaci) == "lucznik" && postac->wytrzymalosc>2 && (odleglosc <= postac->zasieg))
+						  else if ((postac->klasa_postaci) == "lucznik" && postac->wytrzymalosc>=2 && (odleglosc <= postac->zasieg) && postac->strzaly>0)
 						  {
 							  cout << postac->imie + " wykonuje strzal i odskakuje do ty³u!" << endl;
+							  postac->wytrzymalosc = postac->wytrzymalosc - 2;
 							  odejdz((postac->szybkosc) / 2);
 							  atak_postaci();
 							  opcja = 4;
@@ -258,6 +266,7 @@ int Walka :: start()
 				  break;
 		}
 	}*/
+	postac->zasieg = podstawowy_zasieg;
 	return flaga;
 };
 
@@ -288,11 +297,21 @@ void Walka :: atak_postaci()
 		cout << "Bohater zadal " << obrazenia << " punktow obrazen" << endl;
 		przeciwnik->zdrowie = przeciwnik->zdrowie - obrazenia;
 		cout << "Przeciwnikowi pozostalo " << przeciwnik->zdrowie << " punktow zycia" << endl;
-		if ((postac->klasa_postaci) == "lucznik" && postac->strzaly >0)postac->strzaly = postac->strzaly - 1;
+		if ((postac->klasa_postaci) == "lucznik" && postac->strzaly > 0)
+		{
+			postac->strzaly = postac->strzaly - 1;
+			if (postac->strzaly <= 0)postac->zasieg = 1;
+		}
 	}
 	else
 	{
 		cout << "Nie udalo sie trafic!" << endl;
+		if ((postac->klasa_postaci) == "lucznik" && postac->strzaly > 0)
+		{
+			postac->strzaly = postac->strzaly - 1;
+			if (postac->strzaly <= 0)postac->zasieg = 1;
+		}
+
 	}
 	
 

@@ -8,8 +8,16 @@ class Przedmiot
 {
 public:
 	Przedmiot();
-
 	string nazwa;
-	unsigned short wartosc;
+	int	zdrowie;
+	int	klasa_pancerza;
+	int szybkosc;
+	int szczescie;
+	int atak;
+	int obrona;
+	int wytrzymalosc;
+	int zasieg;
+	int obrazenia;
+	float wartosc;
 };
 
