@@ -1,383 +1,383 @@
 Skóra wilka
-zdrowie 0
-klasa_pancerza 0
-szybkosc 0
-szczescie 0
-atak 0
-obrona 0
-wytrzymalosc 0
-zasieg 0
-obrazenia 0
-wartosc 1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
 
 Zêby wilka
-zdrowie 0
-klasa_pancerza 0
-szybkosc 0
-szczescie 0
-atak 0
-obrona 0
-wytrzymalosc 0
-zasieg 0
-obrazenia 0
-wartosc 0,5
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0,5
 
 Pazury wilka
-zdrowie 0
-klasa_pancerza 0
-szybkosc 0
-szczescie 0
-atak 0
-obrona 0
-wytrzymalosc 0
-zasieg 0
-obrazenia 0
-wartosc 0,5
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0,5
 
 Trofeum z wilka
-zdrowie 0
-klasa_pancerza 0
-szybkosc 0
-szczescie 0
-atak 0
-obrona 0
-wytrzymalosc 0
-zasieg 0
-obrazenia 0
-wartosc 1,5
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1,5
 
 Buty wilczych susów
-zdrowie 0
-klasa_pancerza 0
-szybkosc 2
-szczescie 0
-atak 0
-obrona 0
-wytrzymalosc 0
-zasieg 0
-obrazenia 0
-wartosc 2,5
+0
+0
+2
+0
+0
+0
+0
+0
+0
+2,5
 
 Buty psiego szczêœcia
-zdrowie 0
-klasa_pancerza 0
-szybkosc 1
-szczescie 5
-atak 0
-obrona 0
-wytrzymalosc 0
-zasieg 0
-obrazenia 0
-wartosc 4
+0
+0
+1
+5
+0
+0
+0
+0
+0
+4
 
 £uk psiego trafu
-zdrowie 0
-klasa_pancerza 0
-szybkosc 0
-szczescie 5
-atak 10
-obrona 0
-wytrzymalosc 0
-zasieg 1
-obrazenia 2
-wartosc 5
+0
+0
+0
+5
+10
+0
+0
+1
+2
+5
 
 Skóra topielca
-zdrowie 0
-klasa_pancerza 0
-szybkosc 0
-szczescie 0
-atak 0
-obrona 0
-wytrzymalosc 0
-zasieg 0
-obrazenia 0
-wartosc 1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
 
 Trucizna topielca
-zdrowie 0
-klasa_pancerza 0
-szybkosc 0
-szczescie 0
-atak 0
-obrona 0
-wytrzymalosc 0
-zasieg 0
-obrazenia 0
-wartosc 0,5
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0,5
 
 Pazury topielca
-zdrowie 0
-klasa_pancerza 0
-szybkosc 0
-szczescie 0
-atak 0
-obrona 0
-wytrzymalosc 0
-zasieg 0
-obrazenia 0
-wartosc 0,5
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0,5
 
 Trofeum z topielca
-zdrowie 0
-klasa_pancerza 0
-szybkosc 0
-szczescie 0
-atak 0
-obrona 0
-wytrzymalosc 0
-zasieg 0
-obrazenia 0
-wartosc 1,5
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1,5
 
 Miecz krawêdzi œwiata
-zdrowie 0
-klasa_pancerza 0
-szybkosc 0
-szczescie 1
-atak 10
-obrona 0
-wytrzymalosc 0
-zasieg 0
-obrazenia 5
-wartosc 5
+0
+0
+0
+1
+10
+0
+0
+0
+5
+5
 
 Skóra niedzwiedzia
-zdrowie 0
-klasa_pancerza 0
-szybkosc 0
-szczescie 0
-atak 0
-obrona 0
-wytrzymalosc 0
-zasieg 0
-obrazenia 0
-wartosc 2
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
 
 Niedzwiedzie kly
-zdrowie 0
-klasa_pancerza 0
-szybkosc 0
-szczescie 0
-atak 0
-obrona 0
-wytrzymalosc 0
-zasieg 0
-obrazenia 0
-wartosc 1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
 
 Pazury niedzwiedzia
-zdrowie 0
-klasa_pancerza 0
-szybkosc 0
-szczescie 0
-atak 0
-obrona 0
-wytrzymalosc 0
-zasieg 0
-obrazenia 0
-wartosc 1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
 
 Trofeum z niedzwiedzia
-zdrowie 0
-klasa_pancerza 0
-szybkosc 0
-szczescie 0
-atak 0
-obrona 0
-wytrzymalosc 0
-zasieg 0
-obrazenia 0
-wartosc 3
+0
+0
+0
+0
+0
+0
+0
+0
+0
+3
 
 Zbroja Serce Dziczy
-zdrowie 10
-klasa_pancerza 3
-szybkosc 0
-szczescie 0
-atak 0
-obrona 10
-wytrzymalosc 5
-zasieg 0
-obrazenia 0
-wartosc 7
+10
+3
+0
+0
+0
+10
+5
+0
+0
+7
 
 Buty nieulêknionego
-zdrowie 5
-klasa_pancerza 1
-szybkosc 1
-szczescie 0
-atak 0
-obrona 10
-wytrzymalosc 0
-zasieg 0
-obrazenia 0
-wartosc 7
+5
+1
+1
+0
+0
+10
+0
+0
+0
+7
 
 Miecz niedzwiedziej furii
-zdrowie 0
-klasa_pancerza 0
-szybkosc 0
-szczescie 2
-atak 20
-obrona 0
-wytrzymalosc 0
-zasieg 0
-obrazenia 10
-wartosc 8
+0
+0
+0
+2
+20
+0
+0
+0
+10
+8
 
 Pancerz wytrzymalosci
-zdrowie 20
-klasa_pancerza 4
-szybkosc 0
-szczescie 0
-atak 0
-obrona 10
-wytrzymalosc 10
-zasieg 0
-obrazenia 0
-wartosc 12
+20
+4
+0
+0
+0
+10
+10
+0
+0
+12
 
 Skóra dzika
-zdrowie 0
-klasa_pancerza 0
-szybkosc 0
-szczescie 0
-atak 0
-obrona 0
-wytrzymalosc 0
-zasieg 0
-obrazenia 0
-wartosc 1,5
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1,5
 
 K³y dzika
-zdrowie 0
-klasa_pancerza 0
-szybkosc 0
-szczescie 0
-atak 0
-obrona 0
-wytrzymalosc 0
-zasieg 0
-obrazenia 0
-wartosc 1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
 
 Miêso dzika
-zdrowie 0
-klasa_pancerza 0
-szybkosc 0
-szczescie 0
-atak 0
-obrona 0
-wytrzymalosc 0
-zasieg 0
-obrazenia 0
-wartosc 0,5
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0,5
 
 Trofeum z dzika
-zdrowie 0
-klasa_pancerza 0
-szybkosc 0
-szczescie 0
-atak 0
-obrona 0
-wytrzymalosc 0
-zasieg 0
-obrazenia 0
-wartosc 2
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
 
 Miecz Dziczy Kie³
-zdrowie 0
-klasa_pancerza 0
-szybkosc 0
-szczescie 10
-atak 10
-obrona 0
-wytrzymalosc 3
-zasieg 1
-obrazenia 5
-wartosc 8
+0
+0
+0
+10
+10
+0
+3
+1
+5
+8
 
 £uk Dziczej Wœciek³oœci
-zdrowie 0
-klasa_pancerza 0
-szybkosc 0
-szczescie 1
-atak 15
-obrona 0
-wytrzymalosc 3
-zasieg 1
-obrazenia 10
-wartosc 8
+0
+0
+0
+1
+15
+0
+3
+1
+10
+8
 
 Pancerz z dziczych skór
-zdrowie 10
-klasa_pancerza 2
-szybkosc 0
-szczescie 10
-atak 5
-obrona 5
-wytrzymalosc 3
-zasieg 0
-obrazenia 1
-wartosc 8
+10
+2
+0
+10
+5
+5
+3
+0
+1
+8
 
-Pancerz zakletego szczescie
-zdrowie 0
-klasa_pancerza 1
-szybkosc 0
-szczescie 20
-atak 0
-obrona 0
-wytrzymalosc 0
-zasieg 0
-obrazenia 0
-wartosc 10
+Pancerz zakletego 
+0
+1
+0
+20
+0
+0
+0
+0
+0
+10
 
-Buty niewiarygodnej szybkosci
-zdrowie 0
-klasa_pancerza 0
-szybkosc 5
-szczescie 0
-atak 0
-obrona 0
-wytrzymalosc 0
-zasieg 0
-obrazenia 0
-wartosc 10
+Buty niewiarygodnej i
+0
+0
+5
+0
+0
+0
+0
+0
+0
+10
 
 £uk celnego trafienia
-zdrowie 0
-klasa_pancerza 0
-szybkosc 0
-szczescie 0
-atak 25
-obrona 0
-wytrzymalosc 0
-zasieg 1
-obrazenia 5
-wartosc 12
+0
+0
+0
+0
+25
+0
+0
+1
+5
+12
 
 Miecz celnego trafienia
-zdrowie 0
-klasa_pancerza 0
-szybkosc 0
-szczescie 0
-atak 25
-obrona 0
-wytrzymalosc 0
-zasieg 0
-obrazenia 1
-wartosc 12
+0
+0
+0
+0
+25
+0
+0
+0
+1
+12
 
 Zbroja uników
-zdrowie 0
-klasa_pancerza 2
-szybkosc 0
-szczescie 0
-atak 0
-obrona 25
-wytrzymalosc 0
-zasieg 0
-obrazenia 0
-wartosc 12
+0
+2
+0
+0
+0
+25
+0
+0
+0
+12
