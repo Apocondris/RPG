@@ -150,7 +150,7 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 					cout << postac->imie << ": Chcialbym cos zjesc." << endl
 						<< imie << ": Prosze.. " << endl;
 					postac->zdrowie += 20;
-					if (postac->zdrowie > postac->max_zdrowie) postac->zdrowie = postac->max_zdrowie;
+					if (postac->zdrowie > postac->getMaxZdrowie()) postac->zdrowie = postac->getMaxZdrowie();
 					postac->posiadaneZloto -= 3;
 				}
 				else
@@ -158,7 +158,9 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 					cout << postac->imie << ": Chcialbym cos zjesc." << endl
 						<< "Karczmarz: Prosze.. " << endl;
 					postac->zdrowie += 20;
-					if (postac->zdrowie > postac->max_zdrowie) postac->zdrowie = postac->max_zdrowie;
+					postac->wytrzymalosc += 20;
+					if (postac->zdrowie > postac->getMaxZdrowie()) postac->zdrowie = postac->getMaxZdrowie();
+					if (postac->wytrzymalosc > postac->getMaxWytrzymalosc()) postac->wytrzymalosc = postac->getMaxWytrzymalosc();
 					postac->posiadaneZloto -= 3;
 				}
 			}
@@ -189,14 +191,16 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 				{
 					cout << postac->imie << ": Chcialbym odpoczac." << endl
 						<< imie << ": Tu masz klucz, twoj pokoj jest na gorze." << endl;
-					postac->zdrowie = postac->max_zdrowie;
+					postac->zdrowie = postac->getMaxZdrowie();
+					postac->wytrzymalosc = postac->getMaxWytrzymalosc();
 					postac->posiadaneZloto -= 15;
 				}
 				else
 				{
 					cout << postac->imie << ": Chcialbym odpoczac." << endl
 						<< "Karczmarz: Tu masz klucz, twoj pokoj jest na gorze." << endl;
-					postac->zdrowie = postac->max_zdrowie;
+					postac->zdrowie = postac->getMaxZdrowie();
+					postac->wytrzymalosc = postac->getMaxWytrzymalosc();
 					postac->posiadaneZloto -= 15;
 				}
 			}

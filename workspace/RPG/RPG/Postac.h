@@ -15,7 +15,7 @@ public:
 	string imie;
 
 	Postac();
-	Postac(string, string,Bron*);
+	Postac(string, string, Bron*);
 	~Postac();
 	int zdrowie;
 	int punktyDoWydania;
@@ -36,6 +36,10 @@ public:
 	unsigned int posiadaneZloto;
 	map<string, int> przedmiotyDoQuestow;
 	Bron * bron;
+	Pancerz * pancerz;
+
+	virtual void zmienBron(Bron *);
+	virtual void zmienPancerz(Pancerz *);
 
 	int getAtak(void);
 	int getZasieg(void);
@@ -44,6 +48,8 @@ public:
 	int getObrazenia(void);
 	int getObrona(void);
 	int getKlasaPancerza(void);
+	int getMaxZdrowie(void);
+	int getMaxWytrzymalosc(void);
 };
 
 #endif

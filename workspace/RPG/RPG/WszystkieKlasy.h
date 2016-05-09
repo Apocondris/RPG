@@ -31,6 +31,7 @@ class Utopiec;
 class Przedmiot;
 class PrzedmiotDoQuesta;
 class Bron;
+class Pancerz;
 
 //klasy questow
 class Quest;

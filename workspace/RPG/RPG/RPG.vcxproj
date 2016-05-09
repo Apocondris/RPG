@@ -156,6 +156,7 @@
     <ClCompile Include="Miasto.cpp" />
     <ClCompile Include="Niedzwiedz.cpp" />
     <ClCompile Include="Npc.cpp" />
+    <ClCompile Include="Pancerz.cpp" />
     <ClCompile Include="Postac.cpp" />
     <ClCompile Include="Przeciwnik.cpp" />
     <ClCompile Include="Przedmiot.cpp" />
@@ -181,6 +182,7 @@
     <ClInclude Include="Kupiec.h" />
     <ClInclude Include="Miasto.h" />
     <ClInclude Include="Niedzwiedz.h" />
+    <ClInclude Include="Pancerz.h" />
     <ClInclude Include="Przedmiot.h" />
     <ClInclude Include="PrzedmiotDoQuesta.h" />
     <ClInclude Include="Quest.h" />

@@ -132,7 +132,7 @@ void Kupiec::menuKupowania(bool & kupujesz)
 {
 	short wybor;
 	cout<< "Co chcesz kupic?" << endl
-		<< "1) Kup strzaly." << endl
+		<< "1) Kup strzaly. (aktualnie: " << postac->strzaly << " strzal)" << endl
 		<< "2) Powrot." << endl;
 	//if (warunek) cout << "6) cos" << endl;
 	cin >> wybor;
@@ -169,6 +169,8 @@ void Kupiec::menuKupowania(bool & kupujesz)
 					cout << "Kupiec: Nie stac Cie na strzaly." << endl;
 				}
 			}
+
+			system("pause");
 			break;
 		}
 		case 2:

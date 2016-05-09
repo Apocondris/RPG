@@ -32,6 +32,10 @@ protected:
 	virtual void menuKarczmy(bool&);
 	virtual void tablicaOgloszen(void);
 	virtual void menuTablicyOgloszen(bool&);
+	virtual void przegladajEkwipunek(void);
+	virtual void menuPrzegladaniaEkwipunku(bool&);
+	virtual void rozdanieExpa(void);
+	virtual void menuRozdaniaExpa(bool&);
 
 	virtual bool czyNazwyLokalizacjiSaPuste(string * nazwyLokalizacji, int iloscNazw);
 	virtual void ladujNazwyLokalizacji(string sciezka, string * nazwyLokalizacji, int iloscNazw);
