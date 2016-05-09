@@ -79,3 +79,13 @@ int Postac::getObrazenia(void)
 		return this->obrazenia + this->bron->obrazenia;
 	}
 }
+
+int Postac::getObrona(void)
+{
+	return this->obrona;
+}
+
+int Postac::getKlasaPancerza(void)
+{
+	return this->klasa_pancerza;
+}

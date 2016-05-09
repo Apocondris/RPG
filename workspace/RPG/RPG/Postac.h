@@ -41,6 +41,8 @@ public:
 	int getSzybkosc(void);
 	int getSzczescie(void);
 	int getObrazenia(void);
+	int getObrona(void);
+	int getKlasaPancerza(void);
 };
 
 #endif
