@@ -7,7 +7,7 @@ Lucznik::Lucznik()
 {
 }
 
-Lucznik::Lucznik(string imie) : Postac(imie,"lucznik")
+Lucznik::Lucznik(string imie) : Postac(imie, "lucznik", new Bron("Luk", 0, 0, 0, 10, 10))
 {
 	this->imie = imie;
 	zdrowie=80;
@@ -25,5 +25,4 @@ Lucznik::Lucznik(string imie) : Postac(imie,"lucznik")
 	strzaly = 20;
 
 	posiadaneZloto = 200;
-	bron = new Bron("Luk", 0, 0, 0, 10, 10);
 }

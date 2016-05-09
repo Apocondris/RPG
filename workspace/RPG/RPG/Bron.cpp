@@ -1,5 +1,6 @@
 #include "Bron.h"
 #include <time.h>
+#include "Przedmiot.h"
 
 
 Bron::Bron(string nazwa)

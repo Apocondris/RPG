@@ -1,5 +1,6 @@
 #pragma once
 #include "WszystkieKlasy.h"
+
 #ifndef POSTAC_H
 #define POSTAC_H
 
@@ -14,7 +15,7 @@ public:
 	string imie;
 
 	Postac();
-	Postac(string, string);
+	Postac(string, string,Bron*);
 	~Postac();
 	int zdrowie;
 	int punktyDoWydania;

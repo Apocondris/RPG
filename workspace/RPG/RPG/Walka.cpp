@@ -1,5 +1,7 @@
 #include "Walka.h"
 #include "Postac.h"
+#include "Bron.h"
+#include "Przedmiot.h"
 #include "Przeciwnik.h"
 #include <iostream>
 #include <cstdlib>
@@ -21,9 +23,10 @@ int Walka :: start()
 	cout << "Naprzeciw siebie staja " + postac->imie + " i " + przeciwnik->nazwa << endl;
 	cout << "Ktory z nich zwyciezy w tym boju?" << endl;
 	cout << "Rozpoczyna sie runda pierwsza. Runde rozpoczyna " << postac->imie+"!"<<endl;
-	int podstawowy_zasieg = postac->zasieg;
+	zasieg = postac->getZasieg();
 	while ((przeciwnik->zdrowie > 0) && (postac->zdrowie > 0) && flaga ==0)
 	{
+		
 		int opcja2 = 0;
 		int opcja = 0;
 		cout << "Odleglosc miedzy wami wynosi " << odleglosc<<endl;
@@ -35,12 +38,12 @@ int Walka :: start()
 		}
 		cout << "Wybierz jedna z opcji:" << endl;
 
-		if (sprawdz_zasieg(postac->zasieg))
+		if (sprawdz_zasieg(zasieg))
 		{
 			cout << "1. Atak" << endl;
 			cout << "2. Ruch" << endl;
 			cout << "3. Ucieczka" << endl;
-			if ((postac->klasa_postaci) == "lucznik" && postac->wytrzymalosc>=2 && (odleglosc <= postac->zasieg) && postac->strzaly>0)
+			if ((postac->klasa_postaci) == "lucznik" && postac->wytrzymalosc>=2 && (odleglosc <= zasieg) && postac->strzaly>0)
 			{
 				cout << "4. Strzal i odskok" << endl;
 			}
@@ -73,14 +76,14 @@ int Walka :: start()
 								{
 										  cout << postac->imie + " podbiega do przeciwnika" << endl;
 										  opcja2 = 1;
-										  podejdz(postac->szybkosc);
+										  podejdz(postac->getSzybkosc());
 										  break;
 								}
 								case 2:
 								{
 										  cout << postac->imie + " odbiega od przeciwnika" << endl;
 										  opcja2 = 2;
-										  odejdz(postac->szybkosc);
+										  odejdz(postac->getSzybkosc());
 										  break;
 								}
 								default:
@@ -103,11 +106,11 @@ int Walka :: start()
 				
 				case 4:
 				{
-					if ((postac->klasa_postaci) == "lucznik" && postac->wytrzymalosc>=2 && (odleglosc <= postac->zasieg) && postac->strzaly>0)
+					if ((postac->klasa_postaci) == "lucznik" && postac->wytrzymalosc>=2 && (odleglosc <= zasieg) && postac->strzaly>0)
 					 {
 						  cout << postac->imie + " wykonuje strzal i odskakuje do ty³u!" << endl;
 						  postac->wytrzymalosc = postac->wytrzymalosc - 2;
-						  odejdz((postac->szybkosc)/2);
+						  odejdz((postac->getSzybkosc())/2);
 						  atak_postaci();
 						  opcja = 4;
 					}
@@ -131,11 +134,11 @@ int Walka :: start()
 		{
 			cout << "1. Ruch" << endl;
 			cout << "2. Ucieczka" << endl;
-			if (((postac->klasa_postaci) == "wojownik") && postac->wytrzymalosc>=3 && (odleglosc<=(postac->szybkosc+postac->zasieg)))
+			if (((postac->klasa_postaci) == "wojownik") && postac->wytrzymalosc>=3 && (odleglosc<=(postac->getSzybkosc()+zasieg)))
 			{
 				cout << "3. Szarza" << endl;
 			}
-			if ((postac->klasa_postaci) == "lucznik" && postac->wytrzymalosc>=2 && (odleglosc <= postac->zasieg)&&(postac->strzaly>0))
+			if ((postac->klasa_postaci) == "lucznik" && postac->wytrzymalosc>=2 && (odleglosc <= zasieg)&&(postac->strzaly>0))
 			{
 				cout << "3. Strzal i odskok" << endl;
 			}
@@ -162,14 +165,14 @@ int Walka :: start()
 							  case 1:
 							  {
 										opcja2 = 1;
-										podejdz(postac->szybkosc);
+										podejdz(postac->getSzybkosc());
 										cout << postac->imie+" podbiega do przeciwnika" << endl;
 										break;
 							  }
 							  case 2:
 							  {
 										opcja2 = 2;
-										odejdz(postac->szybkosc);
+										odejdz(postac->getSzybkosc());
 										cout << postac->imie+" odbiega od przeciwnika" << endl;
 										break;
 							  }
@@ -191,19 +194,19 @@ int Walka :: start()
 				}
 				case 3:
 				{
-						  if (((postac->klasa_postaci) == "wojownik") && (postac->wytrzymalosc)>=3 && (odleglosc <= (postac->szybkosc + postac->zasieg)))
+						  if (((postac->klasa_postaci) == "wojownik") && (postac->wytrzymalosc)>=3 && (odleglosc <= (postac->getSzybkosc() + zasieg)))
 						  {
 							  cout << postac->imie + " wykonuje bohaterska szarze na przeciwnika" << endl;
 							  postac->wytrzymalosc = postac->wytrzymalosc - 3;
-							  podejdz(postac->szybkosc);
+							  podejdz(postac->getSzybkosc());
 							  atak_postaci();
 							  opcja = 4;
 						  }
-						  else if ((postac->klasa_postaci) == "lucznik" && postac->wytrzymalosc>=2 && (odleglosc <= postac->zasieg) && postac->strzaly>0)
+						  else if ((postac->klasa_postaci) == "lucznik" && postac->wytrzymalosc>=2 && (odleglosc <= zasieg) && postac->strzaly>0)
 						  {
 							  cout << postac->imie + " wykonuje strzal i odskakuje do ty³u!" << endl;
 							  postac->wytrzymalosc = postac->wytrzymalosc - 2;
-							  odejdz((postac->szybkosc) / 2);
+							  odejdz((postac->getSzybkosc()) / 2);
 							  atak_postaci();
 							  opcja = 4;
 						  }
@@ -266,7 +269,6 @@ int Walka :: start()
 				  break;
 		}
 	}*/
-	postac->zasieg = podstawowy_zasieg;
 	return flaga;
 };
 
@@ -274,19 +276,19 @@ void Walka :: atak_postaci()
 {
 
 	srand(time(NULL));
-	int trafienie=((postac->atak)-(przeciwnik->obrona))+(rand()%10);
+	int trafienie=((postac->getAtak())-(przeciwnik->obrona))+(rand()%10);
 	if (trafienie > 0)
 	{
 		int obrazenia;
-		if (szczescie(postac->szczescie))
+		if (szczescie(postac->getSzczescie()))
 		{
-			obrazenia = (postac->obrazenia) * 2;
+			obrazenia = (postac->getObrazenia()) * 2;
 			obrazenia = obrazenia - losuj_pancerz(przeciwnik->klasa_pancerza);
 			cout << "Dzieki odrobinie szczesci bohater zadaje podwojne obrazenia!" << endl;
 		}
 		else
 		{
-			obrazenia = (postac->obrazenia) - losuj_pancerz(przeciwnik->klasa_pancerza);
+			obrazenia = (postac->getObrazenia()) - losuj_pancerz(przeciwnik->klasa_pancerza);
 		}
 
 		if (szczescie(przeciwnik->szczescie))
@@ -300,7 +302,7 @@ void Walka :: atak_postaci()
 		if ((postac->klasa_postaci) == "lucznik" && postac->strzaly > 0)
 		{
 			postac->strzaly = postac->strzaly - 1;
-			if (postac->strzaly <= 0)postac->zasieg = 1;
+			if (postac->strzaly <= 0)zasieg = postac->zasieg;
 		}
 	}
 	else
@@ -309,7 +311,7 @@ void Walka :: atak_postaci()
 		if ((postac->klasa_postaci) == "lucznik" && postac->strzaly > 0)
 		{
 			postac->strzaly = postac->strzaly - 1;
-			if (postac->strzaly <= 0)postac->zasieg = 1;
+			if (postac->strzaly <= 0)zasieg = postac->zasieg;
 		}
 
 	}
@@ -321,22 +323,22 @@ void Walka::atak_przeciwnika()
 {
 
 	srand(time(NULL));
-	int trafienie = ((przeciwnik->atak) - (postac->obrona)) + (rand() % 10);
+	int trafienie = ((przeciwnik->atak) - (postac->getObrona())) + (rand() % 10);
 	if (trafienie > 0)
 	{
 		int obrazenia;
 		if (szczescie(przeciwnik->szczescie))
 		{
 			obrazenia = (przeciwnik->obrazenia) * 2;
-			obrazenia = obrazenia - losuj_pancerz(postac->klasa_pancerza);
+			obrazenia = obrazenia - losuj_pancerz(postac->getKlasaPancerza());
 			cout << "Do przeciwnika usmiechnelo sie szczescie! Zadaje podwojne obrazenia" << endl;
 		}
 		else
 		{
-			obrazenia = (przeciwnik->obrazenia) - losuj_pancerz(postac->klasa_pancerza);
+			obrazenia = (przeciwnik->obrazenia) - losuj_pancerz(postac->getKlasaPancerza());
 		}
 
-		if (szczescie(postac->szczescie))
+		if (szczescie(postac->getSzczescie()))
 		{
 			obrazenia = 0;
 			cout << "Bohater cudem uniknal ciosu!" << endl;

@@ -7,7 +7,7 @@ Wojownik::Wojownik()
 {
 }
 
-Wojownik::Wojownik(string imie) : Postac(imie,"wojownik")
+Wojownik::Wojownik(string imie) : Postac(imie, "wojownik", new Bron("Miecz", 0, 0, 0, 1, 10))
 {
 	this->imie = imie;
 	 zdrowie=100;
@@ -23,7 +23,5 @@ Wojownik::Wojownik(string imie) : Postac(imie,"wojownik")
 	 max_zdrowie=100;
 	 max_wytrzymalosc=100;
 	 strzaly = 0;
-
 	 posiadaneZloto = 200;
-	 bron = new Bron("Miecz", 0, 0, 0, 1, 10);
 }

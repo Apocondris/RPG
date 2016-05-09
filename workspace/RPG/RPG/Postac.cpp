@@ -1,6 +1,6 @@
 #include "Postac.h"
 #include "Bron.h"
-
+#include "Przedmiot.h"
 
 
 Postac::Postac()
@@ -8,11 +8,12 @@ Postac::Postac()
 	this->imie = "Bezimienny";
 }
 
-Postac::Postac(string imie,string klasa)
+Postac::Postac(string imie,string klasa,Bron* bron)
 {
 	this->imie = imie;
 	this->klasa_postaci = klasa;
 	quest = 0;
+	this->bron = bron;
 }
 
 
@@ -22,7 +23,7 @@ Postac::~Postac()
 
 int Postac::getAtak(void)
 {
-	if (this->bron = 0)
+	if (this->bron == 0)
 	{
 		return this->atak;
 	}
@@ -34,19 +35,19 @@ int Postac::getAtak(void)
 
 int Postac::getZasieg(void)
 {
-	if (this->bron = 0)
+	if (this->bron == 0)
 	{
 		return this->zasieg;
 	}
 	else
 	{
-		return this->bron->zasieg;
+		return (this->bron)->zasieg;
 	}
 }
 
 int Postac::getSzybkosc(void)
 {
-	if (this->bron = 0)
+	if (this->bron == 0)
 	{
 		return this->szybkosc;
 	}
@@ -58,7 +59,7 @@ int Postac::getSzybkosc(void)
 
 int Postac::getSzczescie(void)
 {
-	if (bron = 0)
+	if (bron == 0)
 	{
 		return this->szczescie;
 	}
@@ -70,7 +71,7 @@ int Postac::getSzczescie(void)
 
 int Postac::getObrazenia(void)
 {
-	if (this->bron = 0)
+	if (this->bron == 0)
 	{
 		return this->obrazenia;
 	}

@@ -30,4 +30,5 @@ private:
 	int losuj_pancerz(int pancerz);
 	bool sprawdz_zasieg(int zasieg);
 	void czyscEkran(void);
+	int zasieg;
 };
