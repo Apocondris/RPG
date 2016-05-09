@@ -22,37 +22,37 @@ Postac::~Postac()
 
 int Postac::getAtak(void)
 {
-	if (bron = 0)
+	if (this->bron = 0)
 	{
-		return atak;
+		return this->atak;
 	}
 	else
 	{
-		return atak + bron->atak;
+		return this->atak + this->bron->atak;
 	}
 }
 
 int Postac::getZasieg(void)
 {
-	if (bron = 0)
+	if (this->bron = 0)
 	{
-		return zasieg;
+		return this->zasieg;
 	}
 	else
 	{
-		return bron->zasieg;
+		return this->bron->zasieg;
 	}
 }
 
 int Postac::getSzybkosc(void)
 {
-	if (bron = 0)
+	if (this->bron = 0)
 	{
-		return szybkosc;
+		return this->szybkosc;
 	}
 	else
 	{
-		return szybkosc + bron->szybkosc;
+		return this->szybkosc + this->bron->szybkosc;
 	}
 }
 
@@ -60,22 +60,22 @@ int Postac::getSzczescie(void)
 {
 	if (bron = 0)
 	{
-		return szczescie;
+		return this->szczescie;
 	}
 	else
 	{
-		return szczescie + bron->szczescie;
+		return this->szczescie + this->bron->szczescie;
 	}
 }
 
 int Postac::getObrazenia(void)
 {
-	if (bron = 0)
+	if (this->bron = 0)
 	{
-		return obrazenia;
+		return this->obrazenia;
 	}
 	else
 	{
-		return obrazenia + bron->obrazenia;
+		return this->obrazenia + this->bron->obrazenia;
 	}
 }

@@ -78,12 +78,12 @@ void Lokalizacja::menuKarczmy(bool &czyWKarczmie)
 			tablicaOgloszen();
 			break;
 		}
-		case 3:
+		case 4:
 		{
 			czyWKarczmie = false;
 			break;
 		}
-		case 4:
+		case 5:
 		{
 			exit(0);
 			break;
