@@ -34,6 +34,13 @@ public:
 	Quest * quest;
 	unsigned int posiadaneZloto;
 	map<string, int> przedmiotyDoQuestow;
+	Bron * bron;
+
+	int getAtak(void);
+	int getZasieg(void);
+	int getSzybkosc(void);
+	int getSzczescie(void);
+	int getObrazenia(void);
 };
 
 #endif

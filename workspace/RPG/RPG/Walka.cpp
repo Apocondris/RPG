@@ -3,7 +3,7 @@
 #include "Przeciwnik.h"
 #include <iostream>
 #include <cstdlib>
-#include <ctime>
+#include <time.h>
 using namespace std;
 Walka::Walka(Postac* postac, Przeciwnik* przeciwnik,int odleglosc)//:Walka(postac,przeciwnik)
 {

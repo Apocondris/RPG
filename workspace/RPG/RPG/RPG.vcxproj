@@ -145,6 +145,7 @@
     <ClCompile Include="Bagna.cpp" />
     <ClCompile Include="BandytaLucznik.cpp" />
     <ClCompile Include="BandytaWojownik.cpp" />
+    <ClCompile Include="Bron.cpp" />
     <ClCompile Include="Dzik.cpp" />
     <ClCompile Include="Gra.cpp" />
     <ClCompile Include="Karczmarz.cpp" />
@@ -174,6 +175,7 @@
     <ClInclude Include="Bagna.h" />
     <ClInclude Include="BandytaLucznik.h" />
     <ClInclude Include="BandytaWojownik.h" />
+    <ClInclude Include="Bron.h" />
     <ClInclude Include="Dzik.h" />
     <ClInclude Include="Gra.h" />
     <ClInclude Include="Kupiec.h" />
