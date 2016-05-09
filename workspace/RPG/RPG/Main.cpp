@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Gra.h"
-#include <time.h>
+#include <ctime>
 
 using namespace std;
 
