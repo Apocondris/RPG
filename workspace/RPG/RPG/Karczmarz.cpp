@@ -61,7 +61,7 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 		<< "5) Zapytaj o posil sie(cena: 3)." << endl
 		<< "6) Zapytaj o wypocznik(cena: 15)." << endl
 		<< "7) Odejdz od lady" << endl;
-	if (postac->quest != 0) cout << "8) Oddaj quest" << endl;
+	if (postac->quest != 0) cout << "8) Zakoncz zlecenie" << endl;
 	cin >> wybor;
 	if (cin.fail()) { cout << "Nie jestes zbyt rozgarniety, prawda?" << endl; cin.clear(); }
 	cin.ignore(100000, '\n');
