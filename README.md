@@ -9,7 +9,7 @@ Filip Stuglik
 Projekt to bedzie gra RPG.
 
 3. Kompilacja
-Do kompilacji nie sa potrzebne zadne dodatkowe biblioteki.
+Do kompilacji wymagana jest dodatkowa biblioteka SFML.
 
 4. Dokumentacja do projektu
 Dokumentacja znajduje sie na dysku Google pod wskazanym linkiem:
