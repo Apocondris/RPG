@@ -22,6 +22,7 @@ public:
 	int obrazenia;
 	int max_zdrowie;
 	unsigned short wartosc;
+	unsigned short doswiadczenie;
 
 	virtual string losuj_lup() = 0;
 };

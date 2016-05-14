@@ -19,6 +19,7 @@ QuestPolowania::QuestPolowania()
 	nazwaKlucza = nazwaCelu->nazwa;
 	ilosc = iloscCelow;
 	nagroda = ilosc * nazwaCelu->wartosc;
+	doswiadczenie = nagroda * 2.5;
 }
 
 

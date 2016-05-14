@@ -1,5 +1,6 @@
 #pragma once
 #include "WszystkieKlasy.h"
+#include "Przedmiot.h"
 
 #ifndef POSTAC_H
 #define POSTAC_H
@@ -31,15 +32,26 @@ public:
 	int max_wytrzymalosc;
 	string klasa_postaci;
 	int strzaly;
+	unsigned int aktualneDoswadczenie;
+	unsigned int doswiadczenieDoNastepnegoPoziomu;
 
 	Quest * quest;
 	unsigned int posiadaneZloto;
 	map<string, int> przedmiotyDoQuestow;
 	Bron * bron;
 	Pancerz * pancerz;
+	static const int wielkoscEkwipunku = 15;
+	Przedmiot * ekwipunek[wielkoscEkwipunku];
 
 	virtual void zmienBron(Bron *);
 	virtual void zmienPancerz(Pancerz *);
+	virtual void dodajPrzedmiotDoEkwipunku(Przedmiot *);
+	virtual void usunPrzedmiotZEkwipunku(Przedmiot *);
+	virtual void usunPrzedmiotZEkwipunku(unsigned short);
+	virtual Przedmiot wyciagPrzedmiotZEkwipunku(Przedmiot *);
+	virtual Przedmiot wyciagPrzedmiotZEkwipunku(unsigned short);
+
+	virtual void przydzielDoswiadczenie(unsigned int);
 
 	int getAtak(void);
 	int getZasieg(void);

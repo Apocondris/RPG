@@ -16,6 +16,7 @@ BandytaWojownik::BandytaWojownik()
 	obrazenia = 10;
 	max_zdrowie = 100;
 	wartosc = (max_zdrowie + obrazenia + obrona + atak) / 10;
+	doswiadczenie = 20;
 }
 
 

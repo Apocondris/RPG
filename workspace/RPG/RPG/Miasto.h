@@ -8,6 +8,7 @@ class Miasto : public Lokalizacja
 public:
 	Miasto(Postac*);
 	Miasto(Postac*, Lokalizacja*);
+	~Miasto();
 
 	void start(void);
 

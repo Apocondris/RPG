@@ -141,6 +141,9 @@
     <ClCompile Include="Bron.cpp">
       <Filter>Source Files\Przedmiot</Filter>
     </ClCompile>
+    <ClCompile Include="Pancerz.cpp">
+      <Filter>Source Files\Przedmiot</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Gra.h">
@@ -225,6 +228,9 @@
       <Filter>Header Files\Przedmiot</Filter>
     </ClInclude>
     <ClInclude Include="Bron.h">
+      <Filter>Header Files\Przedmiot</Filter>
+    </ClInclude>
+    <ClInclude Include="Pancerz.h">
       <Filter>Header Files\Przedmiot</Filter>
     </ClInclude>
   </ItemGroup>

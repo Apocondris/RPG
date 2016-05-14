@@ -14,4 +14,5 @@ public:
 	int ilosc;
 	int aktualnaIlosc;
 	unsigned short nagroda;
+	unsigned int doswiadczenie;
 };

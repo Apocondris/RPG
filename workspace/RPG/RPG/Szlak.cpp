@@ -13,7 +13,7 @@
 #include "Quest.h"
 #include "QuestPolowania.h"
 #include "QuestPrzedmiotow.h"
-#include <time.h>
+#include <ctime>
 
 
 string Szlak::nazwySzlakow[iloscNazwSzlakow];
@@ -26,6 +26,17 @@ Szlak::Szlak(Postac * postac, Lokalizacja * lokalizacja) : Lokalizacja(postac, l
 	}
 	this->nazwa = pobierzNazwe(nazwySzlakow, iloscNazwSzlakow);
 	losujPrzeciwnikow(tablicaPrzeciwnikow);
+}
+
+Szlak::~Szlak()
+{
+	for (int i = 0; i < iloscPrzeciwnikow; i++)
+	{
+		if (tablicaPrzeciwnikow[i] != 0)
+		{
+			delete tablicaPrzeciwnikow[i];
+		}
+	}
 }
 
 void Szlak::start()
@@ -100,6 +111,7 @@ void Szlak::poluj()
 		case 2:
 		{
 				  cout << "Walke wygral " << postac->imie<<endl;
+				  postac->przydzielDoswiadczenie(tablicaPrzeciwnikow[losowaLiczba]->doswiadczenie);
 				  if (postac->quest != 0)
 				  {
 					  string lup = tablicaPrzeciwnikow[losowaLiczba]->losuj_lup();
@@ -113,8 +125,7 @@ void Szlak::poluj()
 						  postac->przedmiotyDoQuestow[lup] ++;
 					  }
 
-					  delete tablicaPrzeciwnikow[losowaLiczba];
-					  tablicaPrzeciwnikow[losowaLiczba] = losujPrzeciwnika();
+					  odswiezPrzeciwnika(losowaLiczba);
 				  }
 				  break;
 		}
@@ -147,11 +158,6 @@ Lokalizacja * Szlak::losujLokalizacje(Postac *)
 		case 2:
 		{
 			return new Miasto(postac, this);
-			break;
-		}
-		default:
-		{
-			return new Lokalizacja(postac, this);
 			break;
 		}
 	}
@@ -247,6 +253,18 @@ void Szlak::losujPrzeciwnikow(Przeciwnik * tablica[iloscPrzeciwnikow])
 		}
 	}
 	//system("pause");
+}
+
+void Szlak::odswiezPrzeciwnika(short losowaLiczba)
+{
+	delete tablicaPrzeciwnikow[losowaLiczba];
+	if (tablicaPrzeciwnikow[losowaLiczba]->nazwa == "Wilk") tablicaPrzeciwnikow[losowaLiczba] = new Wilk();
+	else if (tablicaPrzeciwnikow[losowaLiczba]->nazwa == "Dzik") tablicaPrzeciwnikow[losowaLiczba] = new Dzik();
+	else if (tablicaPrzeciwnikow[losowaLiczba]->nazwa == "Niedzwiedz") tablicaPrzeciwnikow[losowaLiczba] = new Niedzwiedz();
+	else if (tablicaPrzeciwnikow[losowaLiczba]->nazwa == "Bandyta Wojownik") tablicaPrzeciwnikow[losowaLiczba] = new BandytaWojownik();
+	else if (tablicaPrzeciwnikow[losowaLiczba]->nazwa == "Bandyta Lucznik") tablicaPrzeciwnikow[losowaLiczba] = new BandytaLucznik();
+	else  tablicaPrzeciwnikow[losowaLiczba] = new Wilk();
+	
 }
 
 void Szlak::logo(void)

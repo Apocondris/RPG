@@ -257,6 +257,8 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 							cout << postac->imie << ": Chcialbym odebrac nagrode za zlecenie " << postac->quest->nazwaQuesta << endl
 								<< imie << " : Oto zaplata.." << endl;
 							postac->posiadaneZloto += postac->quest->nagroda;
+							postac->przydzielDoswiadczenie(postac->quest->doswiadczenie);
+							delete postac->quest;
 							postac->quest = 0;
 						}
 					}
@@ -272,6 +274,8 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 							cout << postac->imie << ": Chcialbym odebrac nagrode za zlecenie " << postac->quest->nazwaQuesta << endl
 								<< "Karczmarz: Oto zaplata.." << endl;
 							postac->posiadaneZloto += postac->quest->nagroda;
+							postac->przydzielDoswiadczenie(postac->quest->doswiadczenie);
+							delete postac->quest;
 							postac->quest = 0;
 						}
 					}
@@ -291,6 +295,8 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 								<< imie << " : Oto zaplata.." << endl;
 							postac->przedmiotyDoQuestow[postac->quest->nazwaKlucza] -= postac->quest->ilosc;
 							postac->posiadaneZloto += postac->quest->nagroda;
+							postac->przydzielDoswiadczenie(postac->quest->doswiadczenie);
+							delete postac->quest;
 							postac->quest = 0;
 						}
 					}
@@ -307,6 +313,8 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 								<< "Karczmarz: Oto zaplata.." << endl;
 							postac->przedmiotyDoQuestow[postac->quest->nazwaKlucza] -= postac->quest->ilosc;
 							postac->posiadaneZloto += postac->quest->nagroda;
+							postac->przydzielDoswiadczenie(postac->quest->doswiadczenie);
+							delete postac->quest;
 							postac->quest = 0;
 						}
 					}

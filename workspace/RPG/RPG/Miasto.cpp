@@ -26,6 +26,14 @@ Miasto::Miasto(Postac * postac, Lokalizacja * lokalizacja) : Lokalizacja(postac,
 	this->kupiec = 0;
 }
 
+Miasto::~Miasto()
+{
+	if (kupiec != 0)
+	{
+		delete kupiec;
+	}
+}
+
 void Miasto::start(void)
 {
 	bool przebywaszWMiescie = true;

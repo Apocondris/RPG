@@ -16,6 +16,7 @@ class Lokalizacja
 public:
 	Lokalizacja(Postac*);
 	Lokalizacja(Postac*,Lokalizacja*);
+	~Lokalizacja();
 
 	virtual void start(void);
 

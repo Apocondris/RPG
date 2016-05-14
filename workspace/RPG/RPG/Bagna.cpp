@@ -20,6 +20,14 @@ Bagna::Bagna(Postac * postac, Lokalizacja * lokalizacja) : Lokalizacja(postac, l
 	this->przeciwnik = new Utopiec();
 }
 
+Bagna::~Bagna()
+{
+	if (przeciwnik != 0)
+	{
+		delete przeciwnik;
+	}
+}
+
 void Bagna::start(void)
 {
 	bool przebywaszNaBagnach = true;
@@ -89,6 +97,7 @@ void Bagna::poluj()
 	case 2:
 	{
 		cout << "Walke wygral " << postac->imie << endl;
+		postac->przydzielDoswiadczenie(przeciwnik->doswiadczenie);
 		if (postac->quest != 0)
 		{
 			string lup = przeciwnik->losuj_lup();

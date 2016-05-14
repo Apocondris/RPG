@@ -15,6 +15,7 @@ Dzik::Dzik()
 	obrazenia = 14;
 	max_zdrowie = 120;
 	wartosc = (max_zdrowie + obrazenia + obrona + atak) / 10;
+	doswiadczenie = 30;
 }
 
 

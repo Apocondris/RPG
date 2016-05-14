@@ -11,6 +11,7 @@ class Szlak : public Lokalizacja
 {
 public:
 	Szlak(Postac*, Lokalizacja*);
+	~Szlak();
 
 	void start();
 
@@ -26,6 +27,7 @@ private:
 	Lokalizacja * losujLokalizacje(Postac *);
 	Przeciwnik * losujPrzeciwnika(void);
 	void losujPrzeciwnikow(Przeciwnik * tablica[iloscPrzeciwnikow]);
+	void odswiezPrzeciwnika(short losowaLiczba);
 	void logo(void);
 };
 

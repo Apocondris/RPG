@@ -16,11 +16,28 @@ Postac::Postac(string imie, string klasa, Bron* bron)
 	quest = 0;
 	this->bron = bron;
 	pancerz = 0;
+	przedmiotyDoQuestow["Skora wilka"] += 10;
+	doswiadczenieDoNastepnegoPoziomu = 100;
 }
 
 
 Postac::~Postac()
 {
+	if (bron != 0)
+	{
+		delete bron;
+	}
+	if (pancerz != 0)
+	{
+		delete pancerz;
+	}
+	for (int i = 0; i < wielkoscEkwipunku; i++)
+	{
+		if (ekwipunek[i] != 0)
+		{
+			delete ekwipunek[i];
+		}
+	}
 }
 
 void Postac::zmienBron(Bron * bron)
@@ -31,6 +48,54 @@ void Postac::zmienBron(Bron * bron)
 void Postac::zmienPancerz(Pancerz * pancerz)
 {
 	this->pancerz = pancerz;
+}
+
+void Postac::dodajPrzedmiotDoEkwipunku(Przedmiot *)
+{
+}
+
+void Postac::usunPrzedmiotZEkwipunku(Przedmiot * przedmiot)
+{
+	for (int i = 0; i < wielkoscEkwipunku; i++)
+	{
+		if (ekwipunek[i] == przedmiot)
+		{
+			delete ekwipunek[i];
+			ekwipunek[i] = 0;
+			break;
+		}
+	}
+}
+
+void Postac::usunPrzedmiotZEkwipunku(unsigned short i)
+{
+	if (ekwipunek[i] != 0)
+	{
+		delete ekwipunek[i];
+		ekwipunek[i] = 0;
+	}
+}
+
+Przedmiot Postac::wyciagPrzedmiotZEkwipunku(Przedmiot *)
+{
+	return Przedmiot();
+}
+
+Przedmiot Postac::wyciagPrzedmiotZEkwipunku(unsigned short)
+{
+	return Przedmiot();
+}
+
+void Postac::przydzielDoswiadczenie(unsigned int otrzymaneDoswadczenie)
+{
+	this->aktualneDoswadczenie += otrzymaneDoswadczenie;
+	if (aktualneDoswadczenie >= doswiadczenieDoNastepnegoPoziomu)
+	{
+		cout << "Zdobyles kolejny poziom. Zdobyte punkty mozesz przydzielic podczas pobytu w karczmie." << endl;
+		aktualneDoswadczenie -= doswiadczenieDoNastepnegoPoziomu;
+		punktyDoWydania += 5;
+		doswiadczenieDoNastepnegoPoziomu *= 1.2;
+	}
 }
 
 int Postac::getAtak(void)

@@ -13,6 +13,7 @@ QuestPrzedmiotow::QuestPrzedmiotow()
 	nazwaKlucza = przedmiot->nazwa;
 	ilosc = iloscCelow;
 	nagroda = ilosc * przedmiot->wartosc;
+	doswiadczenie = nagroda * 2.5;
 }
 
 Przedmiot * QuestPrzedmiotow::losujCel(void)

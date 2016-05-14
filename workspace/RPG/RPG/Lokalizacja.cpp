@@ -29,6 +29,26 @@ Lokalizacja::Lokalizacja(Postac * postac, Lokalizacja * lokalizacja)
 	this->karczmarz = 0;
 }
 
+Lokalizacja::~Lokalizacja()
+{
+	if (przybytoZ != 0)
+	{
+		delete przybytoZ;
+	}
+	if (idzDo != 0)
+	{
+		delete idzDo;
+	}
+	if (karczmarz != 0)
+	{
+		delete karczmarz;
+	}
+	if (postac != 0)
+	{
+		delete postac;
+	}
+}
+
 void Lokalizacja::start(void)
 {
 	czyscEkran();

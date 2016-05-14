@@ -7,6 +7,7 @@ class Bagna : public Lokalizacja
 {
 public:
 	Bagna(Postac*, Lokalizacja*);
+	~Bagna();
 
 	void start(void);
 

@@ -19,6 +19,7 @@ Wilk::Wilk()
 	obrazenia = 20;
 	max_zdrowie = 60;
 	wartosc = (max_zdrowie + obrazenia + obrona + atak) / 10;
+	doswiadczenie = 10;
 }
 
 
