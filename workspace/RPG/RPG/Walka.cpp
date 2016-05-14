@@ -30,12 +30,12 @@ int Walka :: start()
 		int opcja2 = 0;
 		int opcja = 0;
 		cout << "Odleglosc miedzy wami wynosi " << odleglosc<<endl;
-		cout << "Bohaterowi pozostalo " << postac->wytrzymalosc <<" puntkow wytrzymalosci" <<  " i " << postac->zdrowie << " zdrowia" << endl;
+		/*cout << "Bohaterowi pozostalo " << postac->wytrzymalosc <<" puntkow wytrzymalosci" <<  " i " << postac->zdrowie << " zdrowia" << endl;
 		if ((postac->klasa_postaci) == "lucznik")
 		{
 			cout << "Bohaterowi pozostalo " << postac->strzaly << " strzal" << endl;
 			
-		}
+		}*/
 		cout << "Wybierz jedna z opcji:" << endl;
 
 		if (sprawdz_zasieg(zasieg))

@@ -144,6 +144,9 @@
     <ClCompile Include="Pancerz.cpp">
       <Filter>Source Files\Przedmiot</Filter>
     </ClCompile>
+    <ClCompile Include="OknoPostaci.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Gra.h">
@@ -232,6 +235,9 @@
     </ClInclude>
     <ClInclude Include="Pancerz.h">
       <Filter>Header Files\Przedmiot</Filter>
+    </ClInclude>
+    <ClInclude Include="OknoPostaci.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

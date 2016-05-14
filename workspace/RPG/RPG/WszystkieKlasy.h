@@ -38,3 +38,6 @@ class Quest;
 class QuestFabryka;
 class QuestPolowania;
 class QuestPrzedmiotow;
+
+//klasy GUI
+class OknoPostaci;

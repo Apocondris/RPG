@@ -5,6 +5,7 @@
 #include "Lokalizacja.h"
 #include "Wioska.h"
 #include "Miasto.h"
+#include "OknoPostaci.h"
 
 void Gra::start()
 {
@@ -26,6 +27,10 @@ void Gra::ustawKonsole(int Width, int Height)
 	HANDLE Handle = GetStdHandle(STD_OUTPUT_HANDLE);      // Get Handle 
 	SetConsoleScreenBufferSize(Handle, coord);            // Set Buffer Size 
 	SetConsoleWindowInfo(Handle, TRUE, &Rect);            // Set Window Size 
+
+	HWND consoleWindow = GetConsoleWindow();
+
+	SetWindowPos(consoleWindow, 0, 380, 150, 0, 0, SWP_NOSIZE | SWP_NOZORDER);
 }
 
 void Gra::czyscEkran()
@@ -52,6 +57,9 @@ void Gra::ekranMenu(void)
 		case 1:
 		{
 			tworzeniePostaci();
+			OknoPostaci oknoPostaci(postac);
+			sf::Thread thread(&OknoPostaci::start, &oknoPostaci);
+			thread.launch();
 			Lokalizacja* lokalizacja = losujLokalizacje();
 			lokalizacja->start();
 			break;
@@ -124,6 +132,7 @@ void Gra::tworzeniePostaci(void)
 
 Lokalizacja* Gra::losujLokalizacje(void)
 {
+	srand(time(NULL));
 	int losowaLiczba = rand()%2; //po % podaæ liczbê dostêpnych lokalizacji
 	switch (losowaLiczba)
 	{

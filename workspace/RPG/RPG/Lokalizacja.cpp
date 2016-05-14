@@ -262,7 +262,7 @@ void Lokalizacja::menuRozdaniaExpa(bool &czyRozdajeszExpa)
 		}
 		case 6:
 		{
-			postac->max_wytrzymalosc += 10;
+			postac->max_wytrzymalosc += 2;
 			postac->punktyDoWydania--;
 			break;
 		}

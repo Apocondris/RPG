@@ -21,7 +21,7 @@ Wojownik::Wojownik(string imie) : Postac(imie, "wojownik", new Bron("Miecz", 0, 
 	 zasieg=1;
 	 obrazenia=1;
 	 max_zdrowie=100;
-	 max_wytrzymalosc=100;
+	 max_wytrzymalosc=15;
 	 strzaly = 0;
 	 posiadaneZloto = 200;
 }
