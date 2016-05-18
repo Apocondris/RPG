@@ -14,7 +14,11 @@ public:
 	
 	sf::RenderWindow okno;
 
+
 private:
 	Postac * postac;
+
+	void utworzOkno(void);
+	void rysujStatystyki(sf::Text text);
 };
 

@@ -7,10 +7,6 @@ using namespace std;
 OknoPostaci::OknoPostaci(Postac * postac)
 {
 	this->postac = postac;
-	okno.create(sf::VideoMode(350, 600), "Postac");
-	// zmiana pozycji okna (wzglêdem pulpitu)
-	okno.setPosition(sf::Vector2i(1200, 150));
-	okno.setActive(false);
 }
 
 OknoPostaci::~OknoPostaci()
@@ -24,18 +20,15 @@ OknoPostaci::~OknoPostaci()
 
 void OknoPostaci::start()
 {
+	utworzOkno();
+
 	bool wczytanoZasoby = true;
-	//okno.setActive(true);
 	sf::Font font;
 	if (!font.loadFromFile("font.ttf"))
 	{
 		cout << "Nie wczytano czcionki";
 		wczytanoZasoby = false;
 	}
-
-	sf::CircleShape shape(50);
-	shape.setFillColor(sf::Color::Green);
-
 	sf::Text text;
 	text.setFont(font);
 	text.setColor(sf::Color::Black);
@@ -68,12 +61,34 @@ void OknoPostaci::start()
 
 	while (okno.isOpen() && wczytanoZasoby)
 	{
-		sf::sleep(sf::milliseconds(150));
-		// czyszczenie okna na bialy kolor (nie trzeba podawaæ argumentu, standardowo czyœci siê na czarny)
-		okno.clear(sf::Color::White);
+		okno.clear(sf::Color::White); // czyszczenie okna na bialy kolor (nie trzeba podawaæ argumentu, standardowo czyœci siê na czarny)
 
 		okno.draw(sprite);
+		rysujStatystyki(text);
+		
+        sf::Event event; // sprawdzenie czy nie powsta³y jakieœ eventy, które trzeba obs³u¿yæ
+        while (okno.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)  // klikniêcie przycisku [X]
+				okno.close();
+        }
 
+		okno.display();
+	}
+	okno.clear(sf::Color::Red);
+}
+
+void OknoPostaci::utworzOkno(void)
+{
+	okno.create(sf::VideoMode(350, 600), "Postac");
+	// zmiana pozycji okna (wzglêdem pulpitu)
+	okno.setPosition(sf::Vector2i(1200, 150));
+	okno.setVerticalSyncEnabled(true);
+	okno.setFramerateLimit(10);
+}
+
+void OknoPostaci::rysujStatystyki(sf::Text text)
+{
 		float y = 330.;
 		float x = 10.;
 
@@ -116,8 +131,5 @@ void OknoPostaci::start()
 			text.setString("Posiadane strzaly: " + to_string(postac->strzaly));
 			okno.draw(text);
 		}
-
-		okno.display();
-	}
-	okno.clear(sf::Color::Red);
+	
 }
