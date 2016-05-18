@@ -35,6 +35,8 @@ protected:
 	virtual void menuTablicyOgloszen(bool&);
 	virtual void przegladajEkwipunek(void);
 	virtual void menuPrzegladaniaEkwipunku(bool&);
+	virtual void menuZdejmowaniaEkwipunku(bool&);
+	virtual void menuZakladaniaEkwipunku(bool&);
 	virtual void rozdanieExpa(void);
 	virtual void menuRozdaniaExpa(bool&);
 

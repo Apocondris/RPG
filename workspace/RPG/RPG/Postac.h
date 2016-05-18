@@ -16,7 +16,7 @@ public:
 	string imie;
 
 	Postac();
-	Postac(string, string, Bron*);
+	Postac(string imie, string klasa, Bron* bron = 0, Pancerz* pancerz = 0);
 	~Postac();
 	int zdrowie;
 	int punktyDoWydania;
@@ -40,18 +40,17 @@ public:
 	map<string, int> przedmiotyDoQuestow;
 	Bron * bron;
 	Pancerz * pancerz;
-	static const int wielkoscEkwipunku = 15;
+	static const int wielkoscEkwipunku = 7;
 	Przedmiot * ekwipunek[wielkoscEkwipunku];
 
-	virtual void zmienBron(Bron *);
-	virtual void zmienPancerz(Pancerz *);
+	virtual void wyswietlEkwipunek(void);
+	virtual void wyswietlNumerowanyPlecak(void);
+	virtual void zmienPrzedmiot(short wybor);
 	virtual void dodajPrzedmiotDoEkwipunku(Przedmiot *);
-	virtual void usunPrzedmiotZEkwipunku(Przedmiot *);
 	virtual void usunPrzedmiotZEkwipunku(unsigned short);
-	virtual Przedmiot wyciagPrzedmiotZEkwipunku(Przedmiot *);
-	virtual Przedmiot wyciagPrzedmiotZEkwipunku(unsigned short);
 
 	virtual void przydzielDoswiadczenie(unsigned int);
+
 
 	int getAtak(void);
 	int getZasieg(void);

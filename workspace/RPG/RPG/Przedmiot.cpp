@@ -5,3 +5,8 @@
 Przedmiot::Przedmiot()
 {
 }
+
+string Przedmiot::toString(void)
+{
+	return string();
+}

@@ -1,6 +1,9 @@
 #include "Lokalizacja.h"
 #include "Karczmarz.h"
 #include "Postac.h"
+#include "Przedmiot.h"
+#include "Bron.h"
+#include "Pancerz.h"
 #include <Windows.h>
 #include "BandytaLucznik.h"
 #include "BandytaWojownik.h"
@@ -188,7 +191,8 @@ void Lokalizacja::przegladajEkwipunek(void)
 	while (czyPrzegladaszEkwipunek)
 	{
 		czyscEkran();
-		logoKarczmy();
+		//logoKarczmy();
+		postac->wyswietlEkwipunek();
 		menuPrzegladaniaEkwipunku(czyPrzegladaszEkwipunek);
 	}
 
@@ -196,9 +200,144 @@ void Lokalizacja::przegladajEkwipunek(void)
 
 void Lokalizacja::menuPrzegladaniaEkwipunku(bool & czyPrzegladaszEkwipunek)
 {
-	cout << "Niestety twoj ekwipunek jest pusty. Sprobuj pozniej..";
-	czyPrzegladaszEkwipunek = false;
+	short wybor;
+	cout << "Co chcesz zrobic?" << endl
+		<< "1) zdejmij przedmiot" << endl
+		<< "2) zaloz przedmiot" << endl
+		<< "3) powrot" << endl;
+
+	cin >> wybor;
+	if (cin.fail()) { cout << "Nie jestes zbyt rozgarniety, prawda?" << endl; cin.clear(); }
+	cin.ignore(100000, '\n');
+
+	switch (wybor)
+	{
+		case 1:
+		{
+			bool czyZdejmujeszEkwipunek = true;
+			while (czyZdejmujeszEkwipunek)
+			{
+				czyscEkran();
+				postac->wyswietlEkwipunek();
+				menuZdejmowaniaEkwipunku(czyZdejmujeszEkwipunek);
+				system("pause");
+			}
+			break;
+		}
+		case 2:
+		{
+			bool czyZakladaszEkwipunek = true;
+			while (czyZakladaszEkwipunek)
+			{
+				czyscEkran();
+				menuZakladaniaEkwipunku(czyZakladaszEkwipunek);
+				system("pause");
+			}
+			break;
+		}
+		case 3:
+		{
+			czyPrzegladaszEkwipunek = false;
+			break;
+		}
+	}
 	//TODO przegladanie ekwipunku
+}
+
+void Lokalizacja::menuZdejmowaniaEkwipunku(bool & czyZdejmujeszEkwipunek)
+{
+	short wybor;
+	cout << "Co chcesz zrobic?" << endl
+		<< "1) schowaj bron do plecaka" << endl
+		<< "2) zdejmij pancerz i schowaj do plecaka" << endl
+		<< "3) powrot" << endl;
+
+	cin >> wybor;
+	if (cin.fail()) { cout << "Nie jestes zbyt rozgarniety, prawda?" << endl; cin.clear(); }
+	cin.ignore(100000, '\n');
+
+	switch (wybor)
+	{
+		case 1:
+		{
+			bool zdjeto = false;
+			if (postac->bron != 0)
+			{
+				for (int i = 0; i < postac->wielkoscEkwipunku && !zdjeto; i++)
+				{
+					if (postac->ekwipunek[i] == 0)
+					{
+						postac->ekwipunek[i] = postac->bron;
+						postac->bron = 0;
+						zdjeto = true;
+					}
+				}
+				if (zdjeto) cout << "Przedmiot zostal umieszczony w twoim plecaku" << endl;
+				else cout << "Przedmiot nie zostal zdjety, poniewaz skonczylo Ci sie miejsce w plecaku" << endl;
+			}
+			else
+			{
+				cout << "Nie trzymasz zadnej broni!" << endl;
+			}
+			break;
+		}
+		case 2:
+		{
+			bool zdjeto = false;
+			if (postac->pancerz != 0)
+			{
+				for (int i = 0; i < postac->wielkoscEkwipunku && !zdjeto; i++)
+				{
+					if (postac->ekwipunek[i] == 0)
+					{
+						postac->ekwipunek[i] = postac->pancerz;
+						postac->pancerz = 0;
+						zdjeto = true;
+					}
+				}
+				if (zdjeto) cout << "Przedmiot zostal umieszczony w twoim plecaku" << endl;
+				else cout << "Przedmiot nie zostal zdjety, poniewaz skonczylo Ci sie miejsce w plecaku" << endl;
+			}
+			else
+			{
+				cout << "Nie masz zalozonego zadnego pancerza!" << endl;
+			}
+			break;
+		}
+		case 3:
+		{
+			czyZdejmujeszEkwipunek = false;
+			break;
+		}
+	}
+}
+
+void Lokalizacja::menuZakladaniaEkwipunku(bool & czyZakladaszEkwipunek)
+{
+	short wybor;
+
+	cout << "Co chcesz zalozyc?" << endl;
+	postac->wyswietlNumerowanyPlecak();
+	cout << postac->wielkoscEkwipunku+1 << ") powrot" << endl;
+
+	cin >> wybor;
+	if (cin.fail()) { cout << "Nie jestes zbyt rozgarniety, prawda?" << endl; cin.clear(); }
+	cin.ignore(100000, '\n');
+
+	const int wyjscie = postac->wielkoscEkwipunku;
+	switch (wybor)
+	{
+		case  wyjscie:
+		{
+			czyZakladaszEkwipunek = false;
+			break;
+		}
+		default :
+		{
+			postac->zmienPrzedmiot(wybor);
+			break;
+		}
+	}
 }
 
 void Lokalizacja::rozdanieExpa(void)

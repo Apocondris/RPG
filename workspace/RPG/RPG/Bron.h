@@ -6,7 +6,7 @@
 class Bron : public Przedmiot
 {
 public:
-	Bron(string nazwa);
+	Bron(string nazwa, int zasieg);
 	Bron(string nazwa, int szybkosc, int szczescie, int atak, int zasieg, int obrazenia);
 
 	int szczescie;
@@ -14,5 +14,7 @@ public:
 	int atak;
 	int zasieg;
 	int obrazenia;
+
+	string toString(void);
 };
 

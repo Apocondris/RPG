@@ -147,6 +147,9 @@
     <ClCompile Include="OknoPostaci.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FabrykaWyposazenia.cpp">
+      <Filter>Source Files\Przedmiot</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Gra.h">
@@ -238,6 +241,9 @@
     </ClInclude>
     <ClInclude Include="OknoPostaci.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FabrykaWyposazenia.h">
+      <Filter>Header Files\Przedmiot</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

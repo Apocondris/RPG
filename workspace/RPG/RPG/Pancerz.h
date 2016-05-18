@@ -6,12 +6,14 @@
 class Pancerz : public Przedmiot
 {
 public:
-	Pancerz();
+	Pancerz(string nazwa, int szczescie, int obrona, int klasaPancerza, int maxZdrowie, int maxWytrzymalosc);
 
 	int szczescie;
 	int obrona;
 	int klasaPancerza;
 	int maxZdrowie;
 	int maxWytrzymalosc;
+
+	string toString(void);
 };
 

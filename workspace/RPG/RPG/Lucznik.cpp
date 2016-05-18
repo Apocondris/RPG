@@ -1,5 +1,6 @@
 #include "Lucznik.h"
 #include "Bron.h"
+#include "FabrykaWyposazenia.h"
 
 
 
@@ -7,7 +8,7 @@ Lucznik::Lucznik()
 {
 }
 
-Lucznik::Lucznik(string imie) : Postac(imie, "lucznik", new Bron("Luk", 0, 0, 0, 10, 10))
+Lucznik::Lucznik(string imie) : Postac(imie, "lucznik", FabrykaWyposazenia::stworzLuk())
 {
 	this->imie = imie;
 	zdrowie=80;

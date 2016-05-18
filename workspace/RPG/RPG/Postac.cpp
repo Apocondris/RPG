@@ -2,22 +2,31 @@
 #include "Bron.h"
 #include "Przedmiot.h"
 #include "Pancerz.h"
-
+#include "FabrykaWyposazenia.h"
 
 Postac::Postac()
 {
 	this->imie = "Bezimienny";
 }
 
-Postac::Postac(string imie, string klasa, Bron* bron)
+Postac::Postac(string imie, string klasa, Bron* bron, Pancerz* pancerz)
 {
 	this->imie = imie;
 	this->klasa_postaci = klasa;
 	quest = 0;
 	this->bron = bron;
+	this->pancerz = pancerz;
 	pancerz = 0;
 	przedmiotyDoQuestow["Skora wilka"] += 10;
 	doswiadczenieDoNastepnegoPoziomu = 100;
+
+	for (int i = 0; i < wielkoscEkwipunku; i++)
+		ekwipunek[i] = 0;
+	this->ekwipunek[0] = FabrykaWyposazenia::generujLuk();
+	this->ekwipunek[1] = FabrykaWyposazenia::generujMiecz();
+	this->ekwipunek[2] = FabrykaWyposazenia::generujPancerz();
+	this->ekwipunek[3] = FabrykaWyposazenia::generujWyposazenie();
+
 }
 
 
@@ -40,31 +49,107 @@ Postac::~Postac()
 	}
 }
 
-void Postac::zmienBron(Bron * bron)
+void Postac::wyswietlEkwipunek(void)
 {
-	this->bron = bron;
+	cout << "EKWIPUNEK:" << endl;
+	if (bron != 0)
+		cout << "zalozona bron: " << bron->toString() << endl;
+	else
+		cout << "zalozona bron: brak broni!" << endl;
+	if (pancerz != 0)
+		cout << "zalozony pancerz: " << pancerz->toString() << endl;
+	else
+		cout << "zalozony pancerz: brak pancerza!" << endl << endl;
+	cout << "RZECZY W PLECAKU:" << endl;
+	for (int i = 0; i < wielkoscEkwipunku; i++)
+	{
+		cout << "=======================================" << endl;
+		if (ekwipunek[i] != 0)
+		{
+			cout << ekwipunek[i]->toString() << endl;
+		}
+		else
+		{
+			cout << "puste" << endl;
+		}
+	}
+	cout << "=======================================" << endl;
 }
 
-void Postac::zmienPancerz(Pancerz * pancerz)
+void Postac::wyswietlNumerowanyPlecak(void)
 {
-	this->pancerz = pancerz;
+	cout << "RZECZY W PLECAKU:" << endl;
+	for (int i = 0; i < wielkoscEkwipunku; i++)
+	{
+		cout << "=======================================" << endl;
+		if (ekwipunek[i] != 0)
+		{
+			cout << i+1 << ") " << ekwipunek[i]->toString() << endl;
+		}
+		else
+		{
+			cout << "puste" << endl;
+		}
+	}
+	cout << "=======================================" << endl;
+}
+
+void Postac::zmienPrzedmiot(short wybor)
+{
+	wybor -= 1;
+	if (wybor < 0 || wybor >= wielkoscEkwipunku)
+	{
+		cout << "Podano niepoprawna liczbe!" << endl;
+	}
+	else
+	{
+		if (ekwipunek[wybor] != 0)
+		{
+			if (typeid(*ekwipunek[wybor]) == typeid(Bron))
+			{
+				if (klasa_postaci == "lucznik" && ekwipunek[wybor]->nazwa == "luk" || klasa_postaci == "wojownik" && ekwipunek[wybor]->nazwa == "miecz")
+				{
+					if (bron != 0)
+					{
+						Bron * temp = bron;
+						bron = dynamic_cast<Bron*>(ekwipunek[wybor]);
+						ekwipunek[wybor] = temp;
+					}
+					else
+					{
+						bron = dynamic_cast<Bron*>(ekwipunek[wybor]);
+						ekwipunek[wybor] = 0;
+					}
+				}
+				else
+				{
+					cout << "Jako " << klasa_postaci << " nie mozesz nosic broniu typu " << ekwipunek[wybor]->nazwa << endl;
+				}
+			}
+			else if(typeid(*ekwipunek[wybor]) == typeid(Pancerz))
+			{
+				if (pancerz != 0)
+				{
+					Pancerz * temp = pancerz;
+					pancerz = dynamic_cast<Pancerz*>(ekwipunek[wybor]);
+					ekwipunek[wybor] = temp;
+				}
+				else
+				{
+					pancerz = dynamic_cast<Pancerz*>(ekwipunek[wybor]);
+					ekwipunek[wybor] = 0;
+				}
+			}
+		}
+		else
+		{
+			cout << "Podales puste miejsce!" << endl;
+		}
+	}
 }
 
 void Postac::dodajPrzedmiotDoEkwipunku(Przedmiot *)
 {
-}
-
-void Postac::usunPrzedmiotZEkwipunku(Przedmiot * przedmiot)
-{
-	for (int i = 0; i < wielkoscEkwipunku; i++)
-	{
-		if (ekwipunek[i] == przedmiot)
-		{
-			delete ekwipunek[i];
-			ekwipunek[i] = 0;
-			break;
-		}
-	}
 }
 
 void Postac::usunPrzedmiotZEkwipunku(unsigned short i)
@@ -74,16 +159,6 @@ void Postac::usunPrzedmiotZEkwipunku(unsigned short i)
 		delete ekwipunek[i];
 		ekwipunek[i] = 0;
 	}
-}
-
-Przedmiot Postac::wyciagPrzedmiotZEkwipunku(Przedmiot *)
-{
-	return Przedmiot();
-}
-
-Przedmiot Postac::wyciagPrzedmiotZEkwipunku(unsigned short)
-{
-	return Przedmiot();
 }
 
 void Postac::przydzielDoswiadczenie(unsigned int otrzymaneDoswadczenie)

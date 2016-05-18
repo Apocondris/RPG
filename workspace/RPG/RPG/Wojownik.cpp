@@ -1,5 +1,6 @@
 #include "Wojownik.h"
 #include "Bron.h"
+#include "FabrykaWyposazenia.h"
 
 
 
@@ -7,7 +8,7 @@ Wojownik::Wojownik()
 {
 }
 
-Wojownik::Wojownik(string imie) : Postac(imie, "wojownik", new Bron("Miecz", 0, 0, 0, 1, 10))
+Wojownik::Wojownik(string imie) : Postac(imie, "wojownik", FabrykaWyposazenia::stworzMiecz())
 {
 	this->imie = imie;
 	 zdrowie=100;

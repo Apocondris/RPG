@@ -12,5 +12,7 @@ public:
 
 	string nazwa;
 	unsigned short wartosc;
+
+	virtual string toString(void);
 };
 
