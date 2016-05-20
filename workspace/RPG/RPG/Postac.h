@@ -1,6 +1,9 @@
 #pragma once
 #include "WszystkieKlasy.h"
 #include "Przedmiot.h"
+#include "Quest.h"
+#include "QuestPolowania.h"
+#include "QuestPrzedmiotow.h"
 
 #ifndef POSTAC_H
 #define POSTAC_H
@@ -8,6 +11,7 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include <memory>
 using namespace std;
 
 class Postac
@@ -35,7 +39,7 @@ public:
 	unsigned int aktualneDoswadczenie;
 	unsigned int doswiadczenieDoNastepnegoPoziomu;
 
-	Quest * quest;
+	unique_ptr<Quest> quest;
 	unsigned int posiadaneZloto;
 	map<string, int> przedmiotyDoQuestow;
 	Bron * bron;

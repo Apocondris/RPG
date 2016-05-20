@@ -18,7 +18,7 @@
 
 string Szlak::nazwySzlakow[iloscNazwSzlakow];
 
-Szlak::Szlak(Postac * postac, Lokalizacja * lokalizacja) : Lokalizacja(postac, lokalizacja)
+Szlak::Szlak(shared_ptr<Postac> postac, shared_ptr<Lokalizacja> lokalizacja) : Lokalizacja(postac, lokalizacja)
 {
 	if (czyNazwyLokalizacjiSaPuste(nazwySzlakow, iloscNazwSzlakow))
 	{
@@ -114,18 +114,35 @@ void Szlak::poluj()
 				  postac->przydzielDoswiadczenie(tablicaPrzeciwnikow[losowaLiczba]->doswiadczenie);
 				  if (postac->quest != 0)
 				  {
+					  cout << "1) " << postac->quest->nazwaKlucza << endl;
+					  system("pause");
 					  string lup = tablicaPrzeciwnikow[losowaLiczba]->losuj_lup();
+					  cout << "2) " << tablicaPrzeciwnikow[losowaLiczba]->nazwa << endl;
+					  system("pause");
 					  if (postac->quest->nazwaKlucza == tablicaPrzeciwnikow[losowaLiczba]->nazwa)
 					  {
+						  cout << "3) " << postac->quest->nazwaKlucza << endl;
+						  system("pause");
 						  if (postac->quest->aktualnaIlosc < postac->quest->ilosc) postac->quest->aktualnaIlosc++;
 						  cout << "Pokonales przeciwnika na ktorego masz zlecenie. Do wykonania zlecenia pozostalo: " << postac->quest->ilosc - postac->quest->aktualnaIlosc << endl;
+
+						  cout << "3.1) " << postac->quest->nazwaKlucza << endl;
+						  system("pause");
 					  }
 					  else if (lup != "Brak lupu")
 					  {
+						  cout << "4) " << postac->quest->nazwaKlucza << endl;
+						  system("pause");
 						  postac->przedmiotyDoQuestow[lup] ++;
+
+						  cout << "4.1) " << postac->quest->nazwaKlucza << endl;
+						  system("pause");
 					  }
 
 					  odswiezPrzeciwnika(losowaLiczba);
+
+					  cout << "5) " << tablicaPrzeciwnikow[losowaLiczba]->nazwa << endl;
+					  system("pause");
 				  }
 				  break;
 		}
@@ -139,7 +156,7 @@ void Szlak::poluj()
 	system("pause");
 }
 
-Lokalizacja * Szlak::losujLokalizacje(Postac *)
+shared_ptr<Lokalizacja> Szlak::losujLokalizacje(shared_ptr<Postac> postac)
 {
 	srand(time(NULL));
 	int losowaLiczba = rand() % 3; //po % podaæ liczbê dostêpnych lokalizacji
@@ -147,17 +164,17 @@ Lokalizacja * Szlak::losujLokalizacje(Postac *)
 	{
 		case 0:
 		{
-			return new Wioska(postac, this);
+			return make_shared<Wioska>(postac, shared_ptr<Szlak>(this));
 			break;
 		}
 		case 1:
 		{
-			return new Bagna(postac, this);
+			return make_shared<Bagna>(postac, shared_ptr<Szlak>(this));
 			break;
 		}
 		case 2:
 		{
-			return new Miasto(postac, this);
+			return make_shared<Miasto>(postac, shared_ptr<Szlak>(this));
 			break;
 		}
 	}
@@ -165,7 +182,7 @@ Lokalizacja * Szlak::losujLokalizacje(Postac *)
 
 Przeciwnik * Szlak::losujPrzeciwnika(void)
 {
-	srand(time(NULL));
+	
 	//cout << "Losowanie przeciwnikow:" << endl;
 	for (int i = 0; i < iloscPrzeciwnikow; i++)
 	{

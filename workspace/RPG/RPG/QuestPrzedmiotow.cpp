@@ -5,9 +5,9 @@
 
 QuestPrzedmiotow::QuestPrzedmiotow()
 {
-	srand(time(NULL));
+	
 	int iloscCelow = rand() % 4 + 1; //ilosc dostepnych przeciwników
-	Przedmiot * przedmiot = losujCel();
+	Przedmiot* przedmiot = losujCel();
 	nazwaQuesta = "Przynies";
 	opis = "Porzebuje kogos, kto dostarczy mi " + to_string(iloscCelow) + "x " + przedmiot->nazwa;
 	nazwaKlucza = przedmiot->nazwa;
@@ -16,9 +16,9 @@ QuestPrzedmiotow::QuestPrzedmiotow()
 	doswiadczenie = nagroda * 2.5;
 }
 
-Przedmiot * QuestPrzedmiotow::losujCel(void)
+Przedmiot* QuestPrzedmiotow::losujCel(void)
 {//cout << "Losowanie przeciwnikow:" << endl;
-	srand(time(NULL));
+	
 	int losowaLiczba = rand() % 5; //po % podaæ liczbê dostêpnych przeciwnikow
 	switch (losowaLiczba)
 	{

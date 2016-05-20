@@ -6,7 +6,7 @@
 class Karczmarz : public Npc
 {
 public:
-	Karczmarz(Postac*);
+	Karczmarz(shared_ptr<Postac>);
 
 	void start(void);
 

@@ -11,7 +11,7 @@
 
 QuestPolowania::QuestPolowania()
 {
-	srand(time(NULL));
+	
 	int iloscCelow = rand() % 10 + 5; //ilosc dostepnych przeciwników
 	Przeciwnik * nazwaCelu = losujCelPolowania();
 	nazwaQuesta = "Upoluj";
@@ -25,7 +25,7 @@ QuestPolowania::QuestPolowania()
 
 Przeciwnik * QuestPolowania::losujCelPolowania(void)
 {//cout << "Losowanie przeciwnikow:" << endl;
-	srand(time(NULL));
+	
 	int losowaLiczba = rand() % 5; //po % podaæ liczbê dostêpnych przeciwnikow
 	switch (losowaLiczba)
 	{

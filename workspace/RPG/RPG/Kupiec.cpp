@@ -5,7 +5,7 @@
 string Kupiec::listaImion[iloscImion];
 string Kupiec::listaPowitan[iloscPowitan];
 
-Kupiec::Kupiec(Postac * postac) : Npc(postac)
+Kupiec::Kupiec(shared_ptr<Postac> postac) : Npc(postac)
 {
 	if (czyListaJestPusta(iloscImion, listaImion))
 	{

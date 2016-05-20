@@ -6,7 +6,7 @@
 class Kupiec : public Npc
 {
 public:
-	Kupiec(Postac*);
+	Kupiec(shared_ptr<Postac>);
 
 	void start(void);
 

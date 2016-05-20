@@ -9,8 +9,8 @@
 class Wioska : public Lokalizacja
 {
 public:
-	Wioska(Postac*);
-	Wioska(Postac*, Lokalizacja*);
+	Wioska(shared_ptr<Postac>);
+	Wioska(shared_ptr<Postac>, shared_ptr<Lokalizacja>);
 
 	void start(void);
 

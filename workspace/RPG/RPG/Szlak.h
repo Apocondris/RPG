@@ -10,10 +10,10 @@ using namespace std;
 class Szlak : public Lokalizacja
 {
 public:
-	Szlak(Postac*, Lokalizacja*);
+	Szlak(shared_ptr<Postac>, shared_ptr<Lokalizacja>);
 	~Szlak();
 
-	void start();
+	void start(void);
 
 private:
 	static const int iloscNazwSzlakow = 15;
@@ -24,7 +24,7 @@ private:
 	void menuGlowne(bool &);
 	void poluj();
 	//do zrobienia walka i losowanie potworów na danym szlaku
-	Lokalizacja * losujLokalizacje(Postac *);
+	shared_ptr<Lokalizacja> losujLokalizacje(shared_ptr<Postac>);
 	Przeciwnik * losujPrzeciwnika(void);
 	void losujPrzeciwnikow(Przeciwnik * tablica[iloscPrzeciwnikow]);
 	void odswiezPrzeciwnika(short losowaLiczba);

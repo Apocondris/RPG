@@ -5,7 +5,7 @@
 
 string Wioska::nazwyWiosek[iloscNazwWiosek];
 
-Wioska::Wioska(Postac * postac) : Lokalizacja(postac)
+Wioska::Wioska(shared_ptr<Postac> postac) : Lokalizacja(postac)
 {
 	if (czyNazwyLokalizacjiSaPuste(nazwyWiosek, iloscNazwWiosek))
 	{
@@ -14,7 +14,7 @@ Wioska::Wioska(Postac * postac) : Lokalizacja(postac)
 	this->nazwa = pobierzNazwe(nazwyWiosek, iloscNazwWiosek);
 }
 
-Wioska::Wioska(Postac * postac, Lokalizacja * lokalizacja) : Lokalizacja(postac, lokalizacja)
+Wioska::Wioska(shared_ptr<Postac> postac, shared_ptr<Lokalizacja> lokalizacja) : Lokalizacja(postac, lokalizacja)
 {
 	if (czyNazwyLokalizacjiSaPuste(nazwyWiosek, iloscNazwWiosek))
 	{
@@ -62,7 +62,7 @@ void Wioska::menuGlowne(bool & przebywaszWWiosce)
 		{
 			if (idzDo == 0)
 			{
-				idzDo = new Szlak(postac, this);
+				idzDo = make_shared<Szlak>(postac, shared_ptr<Wioska>(this));
 			}
 			idzDo->start();
 			break;

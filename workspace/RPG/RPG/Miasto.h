@@ -2,18 +2,18 @@
 
 #include "WszystkieKlasy.h"
 #include "Lokalizacja.h"
+#include "Kupiec.h"
 
 class Miasto : public Lokalizacja
 {
 public:
-	Miasto(Postac*);
-	Miasto(Postac*, Lokalizacja*);
-	~Miasto();
+	Miasto(shared_ptr<Postac>);
+	Miasto(shared_ptr<Postac>, shared_ptr<Lokalizacja>);
 
 	void start(void);
 
 private:
-	Kupiec * kupiec;
+	unique_ptr<Kupiec> kupiec;
 	static const int iloscNazwMiast = 5;
 	static string nazwyMiast[iloscNazwMiast];
 

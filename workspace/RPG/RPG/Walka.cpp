@@ -7,16 +7,14 @@
 #include <cstdlib>
 #include <ctime>
 using namespace std;
-Walka::Walka(Postac* postac, Przeciwnik* przeciwnik,int odleglosc)//:Walka(postac,przeciwnik)
+
+Walka::Walka(shared_ptr<Postac> postac, Przeciwnik* przeciwnik,int odleglosc)//:Walka(postac,przeciwnik)
 {
 	this->postac = postac;
 	this->przeciwnik = przeciwnik;
 	this->odleglosc = odleglosc;
 }
 
-Walka::~Walka()
-{
-}
 int Walka :: start()
 {
 	int flaga = 0;//odpowiedzialna za wynik walki 1-jeœli wygra potwór, 2 jeœli wygra bohater, 3 jeœli bohater ucieknie
@@ -275,7 +273,7 @@ int Walka :: start()
 void Walka :: atak_postaci()
 {
 
-	srand(time(NULL));
+	
 	int trafienie=((postac->getAtak())-(przeciwnik->obrona))+(rand()%10);
 	if (trafienie > 0)
 	{
@@ -322,7 +320,7 @@ void Walka :: atak_postaci()
 void Walka::atak_przeciwnika()
 {
 
-	srand(time(NULL));
+	
 	int trafienie = ((przeciwnik->atak) - (postac->getObrona())) + (rand() % 10);
 	if (trafienie > 0)
 	{
@@ -366,7 +364,7 @@ void Walka::odejdz(int szybkosc)
 
 bool Walka::szczescie(int szczescie)
 {
-	srand(time(NULL));
+	
 	int wynik = rand() % 100;
 	wynik = wynik + szczescie;
 	if (wynik > 90) return true;
@@ -375,7 +373,7 @@ bool Walka::szczescie(int szczescie)
 
 int Walka::losuj_pancerz(int pancerz)
 {
-	srand(time(NULL));
+	
 	if (pancerz == 0)return 0;
 	else return rand() % pancerz;
 };

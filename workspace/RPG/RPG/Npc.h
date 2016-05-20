@@ -4,6 +4,7 @@
 #include <fstream>
 #include <string>
 #include <iostream>
+#include <memory>
 using namespace std;
 
 class Npc
@@ -11,13 +12,12 @@ class Npc
 public:
 
 	Npc();
-	Npc(Postac*);
-	~Npc();
+	Npc(shared_ptr<Postac>);
 
 	virtual void start();
 
 protected:
-	Postac * postac;
+	shared_ptr<Postac> postac;
 	string imie;
 	string powitanie;
 	bool zapytanoOImie;

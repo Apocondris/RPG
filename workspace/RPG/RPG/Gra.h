@@ -6,6 +6,7 @@
 #include <windows.h>
 #include <cstdlib>
 #include <stdlib.h>
+#include <memory>
 
 #include "WszystkieKlasy.h"
 using namespace std;
@@ -14,7 +15,7 @@ class Gra
 {
 
 public:
-	Postac* postac;
+	shared_ptr<Postac> postac;
 
 	static void ustawKonsole(int Width = 100, int Height = 50);
 
@@ -25,7 +26,7 @@ private:
 	void logo(void);
 	void ekranMenu(void);
 	void tworzeniePostaci(void);
-	Lokalizacja* losujLokalizacje(void);
+	shared_ptr<Lokalizacja> losujLokalizacje(void);
 
 private:
 

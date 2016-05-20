@@ -10,7 +10,7 @@ string Karczmarz::listaLokalnychPlotek[iloscLokalnychPlotek];
 string Karczmarz::listaRad[iloscRad];
 
 
-Karczmarz::Karczmarz(Postac * postac) : Npc(postac)
+Karczmarz::Karczmarz(shared_ptr<Postac> postac) : Npc(postac)
 {
 	if (czyListaJestPusta(iloscImion, listaImion))
 	{
@@ -258,8 +258,7 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 								<< imie << " : Oto zaplata.." << endl;
 							postac->posiadaneZloto += postac->quest->nagroda;
 							postac->przydzielDoswiadczenie(postac->quest->doswiadczenie);
-							delete postac->quest;
-							postac->quest = 0;
+							postac->quest.reset();
 						}
 					}
 					else
@@ -275,8 +274,7 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 								<< "Karczmarz: Oto zaplata.." << endl;
 							postac->posiadaneZloto += postac->quest->nagroda;
 							postac->przydzielDoswiadczenie(postac->quest->doswiadczenie);
-							delete postac->quest;
-							postac->quest = 0;
+							postac->quest.reset();
 						}
 					}
 				}
@@ -296,8 +294,7 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 							postac->przedmiotyDoQuestow[postac->quest->nazwaKlucza] -= postac->quest->ilosc;
 							postac->posiadaneZloto += postac->quest->nagroda;
 							postac->przydzielDoswiadczenie(postac->quest->doswiadczenie);
-							delete postac->quest;
-							postac->quest = 0;
+							postac->quest.reset();
 						}
 					}
 					else
@@ -314,8 +311,7 @@ void Karczmarz::menuGlowne(bool &przebywaszUKarczmarza)
 							postac->przedmiotyDoQuestow[postac->quest->nazwaKlucza] -= postac->quest->ilosc;
 							postac->posiadaneZloto += postac->quest->nagroda;
 							postac->przydzielDoswiadczenie(postac->quest->doswiadczenie);
-							delete postac->quest;
-							postac->quest = 0;
+							postac->quest.reset();
 						}
 					}
 				}

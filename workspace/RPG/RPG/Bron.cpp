@@ -5,7 +5,7 @@
 
 Bron::Bron(string nazwa, int zasieg)
 {
-	srand(time(NULL));
+	
 	this->nazwa = nazwa;
 	this->szczescie = 0;
 	this->szybkosc = 0;

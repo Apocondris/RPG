@@ -4,6 +4,7 @@
 #include <windows.h>
 #include <cstdlib>
 #include <stdlib.h>
+#include <memory>
 
 #include "WszystkieKlasy.h"
 using namespace std;
@@ -14,9 +15,8 @@ class Walka
 
 public:
 
-	Walka(Postac*, Przeciwnik*,int odleglosc);
-	~Walka();
-	Postac* postac;
+	Walka(shared_ptr<Postac>, Przeciwnik*,int odleglosc);
+	shared_ptr<Postac> postac;
 	Przeciwnik* przeciwnik;
 	int start();
 

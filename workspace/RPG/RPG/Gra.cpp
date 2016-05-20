@@ -60,7 +60,7 @@ void Gra::ekranMenu(void)
 			OknoPostaci oknoPostaci(postac);
 			sf::Thread thread(&OknoPostaci::start, &oknoPostaci);
 			thread.launch();
-			Lokalizacja* lokalizacja = losujLokalizacje();
+			shared_ptr<Lokalizacja> lokalizacja = losujLokalizacje();
 			lokalizacja->start();
 			break;
 		}
@@ -107,14 +107,14 @@ void Gra::tworzeniePostaci(void)
 	{
 		case 1 :
 		{
-			postac = new Wojownik(imie);
+			postac = make_shared<Wojownik>(imie);
 			cout << endl << "Witaj " << postac->imie << endl
 				<< "Swoja przygode bedziesz toczyl jako wojownik" << endl;
 			break;
 		}
 		case 2:
 		{
-			postac = new Lucznik(imie);
+			postac = make_shared<Lucznik>(imie);
 			cout << endl << "Witaj " << postac->imie << endl
 				<< "Swoja przygode bedziesz toczyl jako lucznik" << endl;
 			break;
@@ -130,7 +130,7 @@ void Gra::tworzeniePostaci(void)
 	system("pause");
 }
 
-Lokalizacja* Gra::losujLokalizacje(void)
+shared_ptr<Lokalizacja> Gra::losujLokalizacje(void)
 {
 	srand(time(NULL));
 	int losowaLiczba = rand()%2; //po % podaæ liczbê dostêpnych lokalizacji
@@ -138,17 +138,17 @@ Lokalizacja* Gra::losujLokalizacje(void)
 	{
 		case 0 :
 		{
-			return new Wioska(postac);
+			return make_shared<Wioska>(postac);
 			break;
 		}
 		case 1:
 		{
-			return new Miasto(postac);
+			return make_shared<Miasto>(postac);
 			break;
 		}
 		default :
 		{
-			return new Lokalizacja(postac);
+			return make_shared<Lokalizacja>(postac);
 			break;
 		}
 	}

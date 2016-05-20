@@ -6,7 +6,7 @@
 class Bagna : public Lokalizacja
 {
 public:
-	Bagna(Postac*, Lokalizacja*);
+	Bagna(shared_ptr<Postac>, shared_ptr<Lokalizacja>);
 	~Bagna();
 
 	void start(void);

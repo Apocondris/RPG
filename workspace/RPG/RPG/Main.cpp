@@ -2,6 +2,10 @@
 #include "Gra.h"
 #include <ctime>
 #include <SFML\Audio.hpp>
+#include "Lokalizacja.h"
+#include "Wioska.h"
+#include "Postac.h"
+#include <memory>
 
 using namespace std;
 

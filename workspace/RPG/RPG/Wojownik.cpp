@@ -20,7 +20,7 @@ Wojownik::Wojownik(string imie) : Postac(imie, "wojownik", FabrykaWyposazenia::s
 	 obrona=30;
 	 wytrzymalosc=15;
 	 zasieg=1;
-	 obrazenia=1;
+	 obrazenia=100;
 	 max_zdrowie=100;
 	 max_wytrzymalosc=15;
 	 strzaly = 0;

@@ -3,23 +3,18 @@
 
 Npc::Npc()
 {
-	this->postac = new Postac();
+	this->postac = make_shared<Postac>();
 	imie = "Anonim";
 	powitanie = "Witaj";
 	zapytanoOImie = false;
 }
 
-Npc::Npc(Postac * postac) 
+Npc::Npc(shared_ptr<Postac> postac) 
 {
 	this->postac = postac;
 	imie = "Anonim";
 	powitanie = "Witaj";
 	zapytanoOImie = false;
-}
-
-
-Npc::~Npc()
-{
 }
 
 void Npc::start()

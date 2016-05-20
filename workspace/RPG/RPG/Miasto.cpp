@@ -1,12 +1,11 @@
 #include "Miasto.h"
 #include "Szlak.h"
 #include "Postac.h"
-#include "Kupiec.h"
 #include <Windows.h>
 
 string Miasto::nazwyMiast[iloscNazwMiast];
 
-Miasto::Miasto(Postac * postac) : Lokalizacja(postac)
+Miasto::Miasto(shared_ptr<Postac> postac) : Lokalizacja(postac)
 {
 	if (czyNazwyLokalizacjiSaPuste(nazwyMiast, iloscNazwMiast))
 	{
@@ -16,7 +15,7 @@ Miasto::Miasto(Postac * postac) : Lokalizacja(postac)
 	this->kupiec = 0;
 }
 
-Miasto::Miasto(Postac * postac, Lokalizacja * lokalizacja) : Lokalizacja(postac, lokalizacja)
+Miasto::Miasto(shared_ptr<Postac> postac, shared_ptr<Lokalizacja> lokalizacja) : Lokalizacja(postac, lokalizacja)
 {
 	if (czyNazwyLokalizacjiSaPuste(nazwyMiast, iloscNazwMiast))
 	{
@@ -24,14 +23,6 @@ Miasto::Miasto(Postac * postac, Lokalizacja * lokalizacja) : Lokalizacja(postac,
 	}
 	this->nazwa = pobierzNazwe(nazwyMiast, iloscNazwMiast);
 	this->kupiec = 0;
-}
-
-Miasto::~Miasto()
-{
-	if (kupiec != 0)
-	{
-		delete kupiec;
-	}
 }
 
 void Miasto::start(void)
@@ -68,7 +59,7 @@ void Miasto::menuGlowne(bool & przebywaszWMiescie)
 		}
 		case 2:
 		{
-			if (kupiec == 0) kupiec = new Kupiec(postac);
+			if (kupiec == 0) kupiec = make_unique<Kupiec>(postac);
 			kupiec->start();
 			break;
 		}
@@ -76,7 +67,7 @@ void Miasto::menuGlowne(bool & przebywaszWMiescie)
 		{
 			if (idzDo == 0)
 			{
-				idzDo = new Szlak(postac, this);
+				idzDo = make_shared<Szlak>(postac, shared_ptr<Miasto>(this));
 			}
 			idzDo->start();
 			break;

@@ -10,7 +10,7 @@
 
 string Bagna::nazwyBagien[iloscNazwBagien];
 
-Bagna::Bagna(Postac * postac, Lokalizacja * lokalizacja) : Lokalizacja(postac, lokalizacja)
+Bagna::Bagna(shared_ptr<Postac> postac, shared_ptr<Lokalizacja> lokalizacja) : Lokalizacja(postac, lokalizacja)
 {
 	if (czyNazwyLokalizacjiSaPuste(nazwyBagien, iloscNazwBagien))
 	{
@@ -63,7 +63,7 @@ void Bagna::menuGlowne(bool & przebywaszNaBagnach)
 	{
 		if (idzDo == 0)
 		{
-			idzDo = new Szlak(postac, this);
+			idzDo = make_shared<Szlak>(postac, shared_ptr<Bagna>(this));
 		}
 		idzDo->start();
 		break;

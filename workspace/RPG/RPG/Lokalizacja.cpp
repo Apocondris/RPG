@@ -1,4 +1,8 @@
 #include "Lokalizacja.h"
+#include "Szlak.h"
+#include "Wioska.h"
+#include "Bagna.h"
+#include "Miasto.h"
 #include "Karczmarz.h"
 #include "Postac.h"
 #include "Przedmiot.h"
@@ -14,9 +18,10 @@
 #include "Quest.h"
 #include "QuestFabryka.h"
 #include "QuestPolowania.h"
+#include "QuestPrzedmiotow.h"
 
 
-Lokalizacja::Lokalizacja(Postac * postac)
+Lokalizacja::Lokalizacja(shared_ptr<Postac> postac)
 {
 	this->postac = postac;
 	this->przybytoZ = 0;
@@ -24,32 +29,12 @@ Lokalizacja::Lokalizacja(Postac * postac)
 	this->karczmarz = 0;
 }
 
-Lokalizacja::Lokalizacja(Postac * postac, Lokalizacja * lokalizacja)
+Lokalizacja::Lokalizacja(shared_ptr<Postac> postac, shared_ptr<Lokalizacja> lokalizacja)
 {
 	this->postac = postac;
 	this->przybytoZ = lokalizacja;
 	this->idzDo = 0;
 	this->karczmarz = 0;
-}
-
-Lokalizacja::~Lokalizacja()
-{
-	if (przybytoZ != 0)
-	{
-		delete przybytoZ;
-	}
-	if (idzDo != 0)
-	{
-		delete idzDo;
-	}
-	if (karczmarz != 0)
-	{
-		delete karczmarz;
-	}
-	if (postac != 0)
-	{
-		delete postac;
-	}
 }
 
 void Lokalizacja::start(void)
@@ -93,7 +78,7 @@ void Lokalizacja::menuKarczmy(bool &czyWKarczmie)
 	{
 		case 1:
 		{
-			if (karczmarz == 0)	karczmarz = new Karczmarz(postac);
+			if (karczmarz == 0)	karczmarz = make_unique<Karczmarz>(postac);
 			karczmarz -> start();
 			break;
 		}
@@ -324,19 +309,13 @@ void Lokalizacja::menuZakladaniaEkwipunku(bool & czyZakladaszEkwipunek)
 	if (cin.fail()) { cout << "Nie jestes zbyt rozgarniety, prawda?" << endl; cin.clear(); }
 	cin.ignore(100000, '\n');
 
-	const int wyjscie = postac->wielkoscEkwipunku;
-	switch (wybor)
+	if(wybor == postac->wielkoscEkwipunku+1)
 	{
-		case  wyjscie:
-		{
-			czyZakladaszEkwipunek = false;
-			break;
-		}
-		default :
-		{
-			postac->zmienPrzedmiot(wybor);
-			break;
-		}
+		czyZakladaszEkwipunek = false;
+	}
+	else
+	{
+		postac->zmienPrzedmiot(wybor);
 	}
 }
 

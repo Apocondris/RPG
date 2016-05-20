@@ -4,29 +4,30 @@
 #define LOKALIZACJA_H
 
 #include "WszystkieKlasy.h"
+#include "Karczmarz.h"
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <memory>
 using namespace std;
 
 
 class Lokalizacja
 {
 public:
-	Lokalizacja(Postac*);
-	Lokalizacja(Postac*,Lokalizacja*);
-	~Lokalizacja();
+	Lokalizacja(shared_ptr<Postac>);
+	Lokalizacja(shared_ptr<Postac>,shared_ptr<Lokalizacja>);
 
 	virtual void start(void);
 
 protected:
-	Postac * postac;
-	Karczmarz * karczmarz;
+	shared_ptr<Postac> postac;
+	unique_ptr<Karczmarz> karczmarz;
 
 	string nazwa;
-	Lokalizacja * przybytoZ;
-	Lokalizacja * idzDo;
+	shared_ptr<Lokalizacja> przybytoZ;
+	shared_ptr<Lokalizacja> idzDo;
 
 	void czyscEkran(void);
 	virtual void karczma(void);

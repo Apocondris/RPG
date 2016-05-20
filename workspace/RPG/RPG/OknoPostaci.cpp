@@ -4,18 +4,9 @@
 #include <SFML/Graphics.hpp>
 using namespace std;
 
-OknoPostaci::OknoPostaci(Postac * postac)
+OknoPostaci::OknoPostaci(shared_ptr<Postac> postac)
 {
 	this->postac = postac;
-}
-
-OknoPostaci::~OknoPostaci()
-{
-	if (postac != 0)
-	{
-		delete postac;
-		postac = 0;
-	}
 }
 
 void OknoPostaci::start()
