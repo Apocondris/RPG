@@ -28,17 +28,6 @@ Szlak::Szlak(shared_ptr<Postac> postac, shared_ptr<Lokalizacja> lokalizacja) : L
 	losujPrzeciwnikow(tablicaPrzeciwnikow);
 }
 
-Szlak::~Szlak()
-{
-	for (int i = 0; i < iloscPrzeciwnikow; i++)
-	{
-		if (tablicaPrzeciwnikow[i] != 0)
-		{
-			delete tablicaPrzeciwnikow[i];
-		}
-	}
-}
-
 void Szlak::start()
 {
 	bool przebywaszNaSzlaku = true;
@@ -96,7 +85,7 @@ void Szlak::poluj()
 	int losowaLiczba = rand() % iloscPrzeciwnikow;
 	//cout << "Walczysz z " << tablicaPrzeciwnikow[losowaLiczba]->nazwa << endl;
 	//system("pause");
-	Walka walka(postac,tablicaPrzeciwnikow[losowaLiczba],20);
+	Walka walka(postac, tablicaPrzeciwnikow[losowaLiczba],20);
 	int wynik=walka.start();
 	switch (wynik)
 	{
@@ -180,7 +169,7 @@ shared_ptr<Lokalizacja> Szlak::losujLokalizacje(shared_ptr<Postac> postac)
 	}
 }
 
-Przeciwnik * Szlak::losujPrzeciwnika(void)
+shared_ptr<Przeciwnik>Szlak::losujPrzeciwnika(void)
 {
 	
 	//cout << "Losowanie przeciwnikow:" << endl;
@@ -191,31 +180,31 @@ Przeciwnik * Szlak::losujPrzeciwnika(void)
 		{
 			case 0:
 			{
-				return new BandytaLucznik();
+				return make_shared<BandytaLucznik>();
 				//cout << "wylosowano bandyte lucznika" << endl;
 				break;
 			}
 			case 1:
 			{
-				return new BandytaWojownik();
+				return make_shared<BandytaWojownik>();
 				//cout << "wylosowano bandyte wojownika" << endl;
 				break;
 			}
 			case 2:
 			{
-				return new Wilk();
+				return make_shared<Wilk>();
 				//cout << "wylosowano wilka" << endl;
 				break;
 			}
 			case 3:
 			{
-				return new Dzik();
+				return make_shared<Dzik>();
 				//cout << "wylosowano dzika" << endl;
 				break;
 			}
 			case 4:
 			{
-				return new Niedzwiedz();
+				return make_shared<Niedzwiedz>();
 				//cout << "wylosowano niedzwiedzia" << endl;
 				break;
 			}
@@ -223,7 +212,7 @@ Przeciwnik * Szlak::losujPrzeciwnika(void)
 	}
 }
 
-void Szlak::losujPrzeciwnikow(Przeciwnik * tablica[iloscPrzeciwnikow])
+void Szlak::losujPrzeciwnikow(shared_ptr<Przeciwnik> tablica[iloscPrzeciwnikow])
 {
 	srand(time(NULL));
 	//cout << "Losowanie przeciwnikow:" << endl;
@@ -234,31 +223,31 @@ void Szlak::losujPrzeciwnikow(Przeciwnik * tablica[iloscPrzeciwnikow])
 		{
 			case 0:
 			{
-				tablica[i] = new BandytaLucznik();
+				tablica[i] = make_shared<BandytaLucznik>();
 				//cout << "wylosowano bandyte lucznika" << endl;
 				break;
 			}
 			case 1:
 			{
-				tablica[i] = new BandytaWojownik();
+				tablica[i] = make_shared<BandytaWojownik>();
 				//cout << "wylosowano bandyte wojownika" << endl;
 				break;
 			}
 			case 2:
 			{
-				tablica[i] = new Wilk();
+				tablica[i] = make_shared<Wilk>();
 				//cout << "wylosowano wilka" << endl;
 				break;
 			}
 			case 3:
 			{
-				tablica[i] = new Dzik();
+				tablica[i] = make_shared<Dzik>();
 				//cout << "wylosowano dzika" << endl;
 				break;
 			}
 			case 4:
 			{
-				tablica[i] = new Niedzwiedz();
+				tablica[i] = make_shared<Niedzwiedz>();
 				//cout << "wylosowano niedzwiedzia" << endl;
 				break;
 			}
@@ -274,13 +263,12 @@ void Szlak::losujPrzeciwnikow(Przeciwnik * tablica[iloscPrzeciwnikow])
 
 void Szlak::odswiezPrzeciwnika(short losowaLiczba)
 {
-	delete tablicaPrzeciwnikow[losowaLiczba];
-	if (tablicaPrzeciwnikow[losowaLiczba]->nazwa == "Wilk") tablicaPrzeciwnikow[losowaLiczba] = new Wilk();
-	else if (tablicaPrzeciwnikow[losowaLiczba]->nazwa == "Dzik") tablicaPrzeciwnikow[losowaLiczba] = new Dzik();
-	else if (tablicaPrzeciwnikow[losowaLiczba]->nazwa == "Niedzwiedz") tablicaPrzeciwnikow[losowaLiczba] = new Niedzwiedz();
-	else if (tablicaPrzeciwnikow[losowaLiczba]->nazwa == "Bandyta Wojownik") tablicaPrzeciwnikow[losowaLiczba] = new BandytaWojownik();
-	else if (tablicaPrzeciwnikow[losowaLiczba]->nazwa == "Bandyta Lucznik") tablicaPrzeciwnikow[losowaLiczba] = new BandytaLucznik();
-	else  tablicaPrzeciwnikow[losowaLiczba] = new Wilk();
+	if (tablicaPrzeciwnikow[losowaLiczba]->nazwa == "Wilk") tablicaPrzeciwnikow[losowaLiczba] = make_shared<Wilk>();
+	else if (tablicaPrzeciwnikow[losowaLiczba]->nazwa == "Dzik") tablicaPrzeciwnikow[losowaLiczba] = make_shared<Dzik>();
+	else if (tablicaPrzeciwnikow[losowaLiczba]->nazwa == "Niedzwiedz") tablicaPrzeciwnikow[losowaLiczba] = make_shared<Niedzwiedz>();
+	else if (tablicaPrzeciwnikow[losowaLiczba]->nazwa == "Bandyta Wojownik") tablicaPrzeciwnikow[losowaLiczba] = make_shared<BandytaWojownik>();
+	else if (tablicaPrzeciwnikow[losowaLiczba]->nazwa == "Bandyta Lucznik") tablicaPrzeciwnikow[losowaLiczba] = make_shared<BandytaLucznik>();
+	else  tablicaPrzeciwnikow[losowaLiczba] = make_shared<Wilk>();
 	
 }
 

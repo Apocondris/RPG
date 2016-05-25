@@ -91,10 +91,10 @@ void OknoPostaci::rysujStatystyki(sf::Text text)
 		text.setString("Klasa: " + postac->klasa_postaci);
 		okno.draw(text);
 		text.setPosition(x, y += 35);
-		text.setString("Zdrowie: " + to_string(postac->zdrowie) + " / " + to_string(postac->max_zdrowie));
+		text.setString("Zdrowie: " + to_string(postac->zdrowie) + " / " + to_string(postac->getMaxZdrowie()));
 		okno.draw(text);
 		text.setPosition(x, y += 35);
-		text.setString("Wytrzymalosc: " + to_string(postac->wytrzymalosc) + " / " + to_string(postac->max_wytrzymalosc));
+		text.setString("Wytrzymalosc: " + to_string(postac->wytrzymalosc) + " / " + to_string(postac->getMaxWytrzymalosc()));
 		okno.draw(text);
 
 		text.setCharacterSize(20U);

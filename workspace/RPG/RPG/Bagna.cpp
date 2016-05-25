@@ -17,15 +17,7 @@ Bagna::Bagna(shared_ptr<Postac> postac, shared_ptr<Lokalizacja> lokalizacja) : L
 		ladujNazwyLokalizacji("NazwyBagien.txt", nazwyBagien, iloscNazwBagien);
 	}
 	this->nazwa = pobierzNazwe(nazwyBagien, iloscNazwBagien);
-	this->przeciwnik = new Utopiec();
-}
-
-Bagna::~Bagna()
-{
-	if (przeciwnik != 0)
-	{
-		delete przeciwnik;
-	}
+	this->przeciwnik = make_shared<Utopiec>();
 }
 
 void Bagna::start(void)
@@ -111,8 +103,7 @@ void Bagna::poluj()
 				postac->przedmiotyDoQuestow[lup] ++;
 			}
 
-			delete this->przeciwnik;
-			this->przeciwnik = new Utopiec();
+			this->przeciwnik = make_shared<Utopiec>();
 		}
 		break;
 	}

@@ -15,9 +15,9 @@ class Walka
 
 public:
 
-	Walka(shared_ptr<Postac>, Przeciwnik*,int odleglosc);
+	Walka(shared_ptr<Postac>, shared_ptr<Przeciwnik> ,int odleglosc);
 	shared_ptr<Postac> postac;
-	Przeciwnik* przeciwnik;
+	shared_ptr<Przeciwnik>przeciwnik;
 	int start();
 
 private:

@@ -8,7 +8,7 @@
 #include <ctime>
 using namespace std;
 
-Walka::Walka(shared_ptr<Postac> postac, Przeciwnik* przeciwnik,int odleglosc)//:Walka(postac,przeciwnik)
+Walka::Walka(shared_ptr<Postac> postac, shared_ptr<Przeciwnik> przeciwnik,int odleglosc)//:Walka(postac,przeciwnik)
 {
 	this->postac = postac;
 	this->przeciwnik = przeciwnik;

@@ -11,7 +11,6 @@ class Szlak : public Lokalizacja
 {
 public:
 	Szlak(shared_ptr<Postac>, shared_ptr<Lokalizacja>);
-	~Szlak();
 
 	void start(void);
 
@@ -19,14 +18,14 @@ private:
 	static const int iloscNazwSzlakow = 15;
 	static const int iloscPrzeciwnikow = 3;
 	static string nazwySzlakow[iloscNazwSzlakow];
-	Przeciwnik * tablicaPrzeciwnikow[iloscPrzeciwnikow]; 
+	shared_ptr<Przeciwnik>tablicaPrzeciwnikow[iloscPrzeciwnikow]; 
 
 	void menuGlowne(bool &);
 	void poluj();
 	//do zrobienia walka i losowanie potworów na danym szlaku
 	shared_ptr<Lokalizacja> losujLokalizacje(shared_ptr<Postac>);
-	Przeciwnik * losujPrzeciwnika(void);
-	void losujPrzeciwnikow(Przeciwnik * tablica[iloscPrzeciwnikow]);
+	shared_ptr<Przeciwnik> losujPrzeciwnika(void);
+	void losujPrzeciwnikow(shared_ptr<Przeciwnik>tablica[iloscPrzeciwnikow]);
 	void odswiezPrzeciwnika(short losowaLiczba);
 	void logo(void);
 };

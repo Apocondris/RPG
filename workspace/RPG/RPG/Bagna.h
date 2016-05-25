@@ -7,12 +7,11 @@ class Bagna : public Lokalizacja
 {
 public:
 	Bagna(shared_ptr<Postac>, shared_ptr<Lokalizacja>);
-	~Bagna();
 
 	void start(void);
 
 private:
-	Przeciwnik * przeciwnik;
+	shared_ptr<Przeciwnik>przeciwnik;
 	static const int iloscNazwBagien = 5;
 	static string nazwyBagien[iloscNazwBagien];
 
