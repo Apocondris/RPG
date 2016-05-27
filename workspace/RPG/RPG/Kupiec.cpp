@@ -132,9 +132,8 @@ void Kupiec::menuKupowania(bool & kupujesz)
 {
 	short wybor;
 	cout<< "Co chcesz kupic?" << endl
-		<< "1) Kup strzaly. (aktualnie: " << postac->strzaly << " strzal)" << endl
-		<< "2) Powrot." << endl;
-	//if (warunek) cout << "6) cos" << endl;
+		<< "1) Powrot." << endl;
+	if (postac->klasa_postaci == "lucznik") cout << "2) Kup strzaly. (aktualnie: " << postac->strzaly << " strzal)" << endl;
 	cin >> wybor;
 	if (cin.fail()) { cout << "Nie jestes zbyt rozgarniety, prawda?" << endl; cin.clear(); }
 	cin.ignore(100000, '\n');
@@ -142,6 +141,11 @@ void Kupiec::menuKupowania(bool & kupujesz)
 	switch (wybor)
 	{
 		case 1:
+		{
+			kupujesz = false;
+			break;
+		}
+		case 2:
 		{
 			if (postac->posiadaneZloto >= 5)
 			{
@@ -171,11 +175,6 @@ void Kupiec::menuKupowania(bool & kupujesz)
 			}
 
 			system("pause");
-			break;
-		}
-		case 2:
-		{
-			kupujesz = false;
 			break;
 		}
 	}

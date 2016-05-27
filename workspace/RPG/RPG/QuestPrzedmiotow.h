@@ -9,6 +9,6 @@ public:
 	QuestPrzedmiotow();
 
 private:
-	Przedmiot* QuestPrzedmiotow::losujCel(void);
+	Przedmiot* losujCel(void);
 };
 

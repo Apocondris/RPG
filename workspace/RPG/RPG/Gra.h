@@ -1,7 +1,6 @@
 #pragma once
 
 #include <iostream>
-#include <iostream>
 #include <string>
 #include <windows.h>
 #include <cstdlib>
@@ -22,11 +21,11 @@ public:
 	void start();
 
 private:
-	static void czyscEkran(void);
-	void logo(void);
 	void ekranMenu(void);
 	void tworzeniePostaci(void);
 	shared_ptr<Lokalizacja> losujLokalizacje(void);
+	static void czyscEkran(void);
+	void logo(void);
 
 private:
 

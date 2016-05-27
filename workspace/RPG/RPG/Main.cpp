@@ -19,7 +19,7 @@ int main()
 		system("pause");
 		return -1; 
 	}
-	//music.play();
+	music.play();
 
 	srand(time(NULL));
 	Gra gra;
