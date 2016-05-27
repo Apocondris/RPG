@@ -103,35 +103,18 @@ void Szlak::poluj()
 				  postac->przydzielDoswiadczenie(tablicaPrzeciwnikow[losowaLiczba]->doswiadczenie);
 				  if (postac->quest != 0)
 				  {
-					  cout << "1) " << postac->quest->nazwaKlucza << endl;
-					  system("pause");
 					  string lup = tablicaPrzeciwnikow[losowaLiczba]->losuj_lup();
-					  cout << "2) " << tablicaPrzeciwnikow[losowaLiczba]->nazwa << endl;
-					  system("pause");
 					  if (postac->quest->nazwaKlucza == tablicaPrzeciwnikow[losowaLiczba]->nazwa)
 					  {
-						  cout << "3) " << postac->quest->nazwaKlucza << endl;
-						  system("pause");
 						  if (postac->quest->aktualnaIlosc < postac->quest->ilosc) postac->quest->aktualnaIlosc++;
 						  cout << "Pokonales przeciwnika na ktorego masz zlecenie. Do wykonania zlecenia pozostalo: " << postac->quest->ilosc - postac->quest->aktualnaIlosc << endl;
-
-						  cout << "3.1) " << postac->quest->nazwaKlucza << endl;
-						  system("pause");
 					  }
 					  else if (lup != "Brak lupu")
 					  {
-						  cout << "4) " << postac->quest->nazwaKlucza << endl;
-						  system("pause");
 						  postac->przedmiotyDoQuestow[lup] ++;
-
-						  cout << "4.1) " << postac->quest->nazwaKlucza << endl;
-						  system("pause");
 					  }
 
 					  odswiezPrzeciwnika(losowaLiczba);
-
-					  cout << "5) " << tablicaPrzeciwnikow[losowaLiczba]->nazwa << endl;
-					  system("pause");
 				  }
 				  break;
 		}
